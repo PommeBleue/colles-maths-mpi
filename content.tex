@@ -1,7 +1,25 @@
 % TeX root = ./main.tex
 
 % First argument to \section is the title that will go in the table of contents. Second argument is the title that will be printed on the page.
+
+%
+% Structures
+%
+
 \section[Structures algébriques]{Structures algébriques}
+\subsection{Axiomes superflus ?}
+\textit{Exercice donné à Louis Marshal. Remarque : un élément $x$ dans un magma $E$ est dit régulier s'il vérifie} \[\forall y,z\in E,\ (xy=xz\implique y=z\quad\text{et}\quad yx=zx\implique y=z)\]
+\begin{exo}
+ 	Soit $E$ un magma fini. Montrer que si tout élément de $E$ est régulier alors $E$ est un groupe. Que dire si $E$ est infini ?
+\end{exo}
+
+\begin{sol}
+	[À rédiger]
+\end{sol}
+
+%
+% Algèbre linéaire 
+%
 
 \newpage
 \section[Algèbre linéaire]{Algèbre linéaire}
@@ -20,9 +38,10 @@ On pose $A=\lbrace MM'-M'M,\ M,M'\in \mathcal M_n(\R)\rbrace$.
 [À rédiger]
 \end{sol}
 
+
 \subsection{Familles libres de matrices de rang $1$ de $\mathcal M_n(\R)$}
 \begin{exo}
-	Soit $(X_1,\dots,X_p)\in\R^n$ une famille libre de vecteurs de $\R^n$. Montrer que la famille $(X_1{}^tX_1,\dots,X_p{}^tX_p)$ est une famille libre de vecteurs de $\mathcal M_n(\R)$. Étudier la réciproque
+	Soit $(X_1,\dots,X_p)\in\R^n$ une famille libre de vecteurs de $\R^n$. Montrer que la famille $(X_1{}^tX_1,\dots,X_p{}^tX_p)$ est une famille libre de vecteurs de $\mathcal M_n(\R)$. Étudier la réciproque.
 \end{exo}
 \begin{sol}
 [À rédiger]
@@ -36,6 +55,10 @@ Soit $A\in\mathcal M_n(\C)$ et $P\in\C[X]$ tel que $P(A)$ est diagonalisable et 
 \begin{sol}
 [À rédiger]
 \end{sol}
+
+%
+% EVN
+%
 
 \newpage
 \section[Espaces Vectoriels Normés]{Espaces Vectoriels Normés}
@@ -62,13 +85,30 @@ Soit $X$ une partie de $GL_n(\R)$ non vide, compacte et stable par produit. Mont
 \subsection{Une norme de $\mathcal C^2([0,1],\R)$}
 \textit{Exercice donné par Duhalde à PG en semaine 3.}
 \begin{exo}
-On considère le $\R ev$ $E=\mathcal C^2([0,1],\R)$ munit de la norme infinie. On pose $N:f\in\E\mapsto ||f+2f'+f''||_{\infty}\in\R_+$. 
+On considère le $\R ev$ $E=\mathcal C^2([0,1],\R)$ munit de la norme infinie. On pose $N:f\in E\mapsto ||f+2f'+f''||_{\infty}\in\R_+$. 
 \begin{enumerate}
 	\item Montrer que $N$ est une norme. 
 	\item On pose $g=f+2f'+f''$ pour $f\in\E$. Exprimer $f$ en fonction de $g$. 
 	\item $N$ et $||\cdot||_{\infty}$ sont-elles équivalentes ?
 \end{enumerate}
 \end{exo}
+\begin{sol}
+[À rédiger]
+\end{sol}
+
+\subsection{Un oral CCINP}
+\textit{Exercice donné à Shems en semaine 3.}
+\begin{exo}
+On munit $\R[X]$ de la norme $||\cdot||_{\infty}$ définie par $\left|\left|\sum_{k=0}^{+\infty}a_kX^k\right|\right|=\text{max}\lbrace a_k,\ k\in\N\rbrace$.
+\begin{enumerate}
+	\item Montrer que $\mathcal U$ l'ensemble des polynômes unitaires de $\R[X]$ est fermé.
+	\item Soit $Q\in\mathcal U$ non constant, on note $p=\text{deg}Q$. Montrer que 
+	\[Q\text{ est scindé sur }\R\ssi \forall z\in\C,\ |Q(z)|\geq |\text{Im}(z)|^p\]
+	\item Montrer que $\mathcal S$, l'ensemble des polynômes unitaires et scindés de $\R[X]$ est un fermé.
+\end{enumerate}
+\end{exo}
+
+
 \begin{sol}
 [À rédiger]
 \end{sol}
