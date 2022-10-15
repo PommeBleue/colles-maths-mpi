@@ -35,7 +35,14 @@ On pose $A=\lbrace MM'-M'M,\ M,M'\in \mathcal M_n(\R)\rbrace$.
 \end{enumerate}
 \end{exo}
 \begin{sol}
-[À rédiger]
+\begin{enumerate}
+	\item $A\subset \text{Vect}(A)$, donc par définition, $\forall i,j,k,l\in\inl{1}{n},\ E_{ij}E_{kl}-E_{kl}E_{ij}=\delta_{jk}E_{il}-\delta_{li}E_{kj}\in A$. 
+
+	Il s'ensuit que
+	\[\forall i,l\in\inl1n,\ i\neq l\implique E_{il}\in \text{Vect}(A)\quad \text{et}\quad \forall i\in\inl{2}{n},\ E_{ii}-E_{11}\in \text{Vect}(A)\]
+	On pose $\mathcal F=(E_{ij})_{i\neq j}\cup(E_{ii}-E_{11})_{i\in\inl2n}$. Cette famille est clairement libre, et contient $n^2-1$ vecteurs de $\text{Vect}(A)$, d'où $\text{dim}\text{Vect}(A)\geq n^2-1$. Or $\text{Vect}(A)\subset \text{Ker tr}$, et $\text{tr}$ étant une forme linéaire non nulle, on a $\text{dim } \text{Ker tr}=n^2-1$, donc $\text{dim} \text{Vect}(A)\leq n^2-1$ donc $\text{dim} \text{Vect}(A)=n^2-1=\text{dim}\text{ Ker tr}$ puis $\text{Vect}(A)=\text{Ker tr}$.
+	\item De même que pour $\text{tr}$, on a $\text{Vect}(A)\subset \text{Ker}\varphi$ donc $\text{Ker tr}\subset \text{Ker}\varphi$, donc il existe $\lambda\in\R$ tel que $\varphi=\lambda\text{tr}$. Mais $\varphi(I_n)=n=\text{tr}(I_n)$ donc $n=\lambda n$ puis $\lambda = 1$.
+\end{enumerate}
 \end{sol}
 
 
@@ -44,7 +51,11 @@ On pose $A=\lbrace MM'-M'M,\ M,M'\in \mathcal M_n(\R)\rbrace$.
 	Soit $(X_1,\dots,X_p)\in\R^n$ une famille libre de vecteurs de $\R^n$. Montrer que la famille $(X_1{}^tX_1,\dots,X_p{}^tX_p)$ est une famille libre de vecteurs de $\mathcal M_n(\R)$. Étudier la réciproque.
 \end{exo}
 \begin{sol}
-[À rédiger]
+Pour $i\in\inl1p$, on note $X_i=(x_i^{(1)},\dots,x_i^{(n)})$. On a alors, \[\forall i\in\inl1p,\ X_i{}^tX_i=(x_i^{(1)}X_i|\dots|x_i^{(n)}X_i)\]
+Soit $(\lambda_1,\dots,\lambda_p)\in\R^p$ telle que $\sum_{i=1}^p\lambda_iX_i{}^tX_i=0$. Or, $(X_1,\dots,X_p)$ formant une famille libre, aucun des vecteurs la constituant n'est nul, d'où \[\forall i\in\inl1p,\ \exists l_i\in\inl1p,\ x_i^{(l_i)}\neq 0\]
+Ainsi, pour $i\in\inl1p$, en regardant que la $l_i$ème colonne dans la somme nulle écrite plus haut, on a \[\sum_{j=1}^p\lambda_jx_j^{(l_i)}X_j=0\]
+$(X_1,\dots,X_p)$ étant libre, on a $\forall j\in\inl1p,\ \lambda_jx_j^{(l_i)}=0$, en particulier $\lambda_ix_i^{(l_i)}=0$ donc $\lambda_i=0$ ($x_i^{l_i}\neq 0$). Finalement, ceci étant vrai pour tout $i\in\inl1p$, on a \[\forall i\in\inl1p,\ \lambda_i=0\]
+et $(X_1{}^tX_1,\dots,X_p{}^tX_p)$ est libre dans $\mathcal M_n(\R)$ (il faut bien sûr préciser que la taille des matrices $X_i{}^tX_i$ est de $n\times n$, mais cela est bien clair).
 \end{sol}
 
 \subsection{P(A) diagonalisable et P'(A) inversible $\implique$ A inversible}
@@ -70,7 +81,33 @@ Donner des conditions nécessaires et suiffisantes sur $z\in\C$ pour que $G_z=\l
 \end{exo}
 
 \begin{sol}
-On procède par analyse synthèse pour montrer que $G_z$ est fermé si et seulement si $z\in\pi\Q$.
+On procède par analyse synthèse.
+
+
+\textbf{Analyse :} Soit $z=a+ib\in\C$ tel que $G_z$ est un sous-groupe fermé de $\C$. Pour $t\in\Z$, on a $e^{tz}=e^{-bt}e^{ait}$. Montrons par l'absurde que $b=0$. Supposons $b\neq 0$, traîtons les deux cas possibles : 
+\begin{itemize}
+	\item Si b > 0, on prend $(t_n)\in\Z^\N$ telle que $t_n\longrightarrow +\infty$. Dans ce cas, $(e^{it_nz})$ est une suite d'éléments de $G_z$. Pour $n\in\N$, on a \[|e^{it_nz}|=|e^{-bt_n}e^{iat_n}|=e^{-bt_n}\longrightarrow 0\]
+	Donc $e^{it_nz}\longrightarrow 0$ et, $G_z$ étant fermé, $0\in G_z$, ce qui est exclut.
+	\item Si b < 0, on refait le même raisonnement en prenant $(t_n)\in\Z^\N$ tendant vers $-\infty$, et on a $0\in G_z$, ce qui est exclut.
+\end{itemize}
+Donc le seul cas possible est $b=0$.
+
+
+Ainsi, $z\in\R$. Pour avoir plus d'intuition sur ce que peuvent être les solutions au problème, on peut regarder le cas où $G_z$ est fini. Si $G_z$ est fini (on écarte le cas $z=0$ qui est trivial), c'est un sous-groupe fini de $\C^*$, donc, si on note $n$ son cardinal, on a $G_z=\mathbb U_n$.
+
+Soit alors $x\in G_z\backslash$ tel qu'il existe $t\in\Z^*$ et $k\in\Z$ tels que $x=e^{itz}=e^{\frac{2ik\pi}n}$. On a alors 
+\begin{align*}
+	e^{i\left(tz-\frac{2k\pi}n\right)} = 0 &\implique tz - \frac{2k\pi}n\equiv 0[2\pi]\\
+										   &\implique \exists l\in\Z,\ z=\frac2t\left(l+\frac{2k}n\right)\pi\\
+										   &\implique z\in\pi\Q
+\end{align*}
+On peut aussi remarquer que $z\in\pi\Q$ suffit pour que $G_z$ soit fini. 
+
+
+\textbf{Synthèse :} Soit $z\in\R$. Si $z\in\pi\Q$, $G_z$ est fini, donc c'est un compact de $\C$ comme partie finie de $\C$, donc est un fermé de $\C$. C'est aussi un sous-groupe de $\C^*$, donc $z$ convient.
+
+
+Sinon, $z\notin\pi\Q$. Montrons que dans ce cas $G_z$ n'est pas un femré de $\C$. En effet, si $G_z$ est fermé, on peut montrer que $G_z=\mathbb U$. D'abord, $z\Z+2\pi\Z$ est un sous-groupe dense de $\R$, puisque sinon, on aurait, pour un $\alpha\in\R$, $z\Z+2\pi\Z=\alpha\Z$, donc $z\in z\Z+2\pi\Z=\alpha\Z$ et $2\pi\in z\Z+2\pi\Z=\alpha\Z$ donc il existe $k,l\in\Z^*$ ($z$ et $2\pi$ sont non nuls) tels que $z=k\alpha$ et $2\pi=l\alpha$, d'où $z=\frac{2k\pi}l\in\pi\Q$ ce qui est exclut. La fonction $\phi:x\in\R\mapsto e^{ix}$ étant continue, on a que $\phi(z\Z+2\pi\Z)=G_z$ est dense dans $\phi(\R)=\mathbb U$. En passant à l'adhérence, on a $G_z=\mathbb U$, ce qui est exclut, parce que, par exemple, $-1\notin G_z$.
 \end{sol}
 
 \subsection{Sous-groupe compact de $GL_n(\R)$}
