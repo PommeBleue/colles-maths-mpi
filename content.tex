@@ -14,7 +14,12 @@
 \end{exo}
 
 \begin{sol}
-	[À rédiger]
+	Soit $x\in E$. $E$ étant fini, on peut alors extraire de la suite $(x^n)_{n\in\N}$ une suite constante (c.f. preuve compacité d'une partie finie), et donc il existe $m,n \in\N$ tels que $m>2n$ et $x^m=x^n$. Il vient alors que $x^{m-n}$ est idempotent; en effet \[(x^{m-n})^2=x^{2m-2n}=x^mx^{m-2n}=x^nx^{m-2n}=x^{m-n}\]
+	On pose $e=x^{n-m}$. On montre que pour tout $a\in E$, $ea=ae=a$. En effet, soit $a\in E$, on a \[(ae)(ea)=a(e^2)a=aea\]
+	Par régularité de $a$ à gauche, on obtient $e(ea)=ea$, puis, par régularité de $e$ à gauche, $ea=a$. On refait la même chose, par régularité de $a$ à droite, $aee=ae$ puis, par régularité de $e$ à droite, $ae=a$. $E$ muni de sa l.c.i est donc un monoïde.\\
+	Soit à présent $a\in E$. Montrons que $a$ est inversible. $E$ étant fini, l'application $n\mapsto a^n$ ne peut être injective et donc il existe $n\neq m$ tels que $a^n=a^m$. On suppose par exemple $n>m$ et on écrit \[a^{n-m}a^m=a^m=ea^m\]
+	et on utilise la régularité à droite de $a^m$ pour obtenir $a^{n-m}=e$. On écrit ensuite \[e=a^{n-m}=a(a^{n-m-1})\]
+	Comme $n-m-1\geq 0$, ce qu'on a écrit est licite, et $a$ admet bien un inverse.
 \end{sol}
 
 %
@@ -56,15 +61,6 @@ Soit $(\lambda_1,\dots,\lambda_p)\in\R^p$ telle que $\sum_{i=1}^p\lambda_iX_i{}^
 Ainsi, pour $i\in\inl1p$, en regardant que la $l_i$ème colonne dans la somme nulle écrite plus haut, on a \[\sum_{j=1}^p\lambda_jx_j^{(l_i)}X_j=0\]
 $(X_1,\dots,X_p)$ étant libre, on a $\forall j\in\inl1p,\ \lambda_jx_j^{(l_i)}=0$, en particulier $\lambda_ix_i^{(l_i)}=0$ donc $\lambda_i=0$ ($x_i^{l_i}\neq 0$). Finalement, ceci étant vrai pour tout $i\in\inl1p$, on a \[\forall i\in\inl1p,\ \lambda_i=0\]
 et $(X_1{}^tX_1,\dots,X_p{}^tX_p)$ est libre dans $\mathcal M_n(\R)$ (il faut bien sûr préciser que la taille des matrices $X_i{}^tX_i$ est de $n\times n$, mais cela est bien clair).
-\end{sol}
-
-\subsection{P(A) diagonalisable et P'(A) inversible $\implique$ A inversible}
-\begin{exo}
-Soit $A\in\mathcal M_n(\C)$ et $P\in\C[X]$ tel que $P(A)$ est diagonalisable et $P'(A)$ est inversible. Montrer que $A$ est inversible.
-\end{exo}
-
-\begin{sol}
-[À rédiger]
 \end{sol}
 
 %
@@ -110,13 +106,17 @@ On peut aussi remarquer que $z\in\pi\Q$ suffit pour que $G_z$ soit fini.
 Sinon, $z\notin\pi\Q$. Montrons que dans ce cas $G_z$ n'est pas un femré de $\C$. En effet, si $G_z$ est fermé, on peut montrer que $G_z=\mathbb U$. D'abord, $z\Z+2\pi\Z$ est un sous-groupe dense de $\R$, puisque sinon, on aurait, pour un $\alpha\in\R$, $z\Z+2\pi\Z=\alpha\Z$, donc $z\in z\Z+2\pi\Z=\alpha\Z$ et $2\pi\in z\Z+2\pi\Z=\alpha\Z$ donc il existe $k,l\in\Z^*$ ($z$ et $2\pi$ sont non nuls) tels que $z=k\alpha$ et $2\pi=l\alpha$, d'où $z=\frac{2k\pi}l\in\pi\Q$ ce qui est exclut. La fonction $\phi:x\in\R\mapsto e^{ix}$ étant continue, on a que $\phi(z\Z+2\pi\Z)=G_z$ est dense dans $\phi(\R)=\mathbb U$. En passant à l'adhérence, on a $G_z=\mathbb U$, ce qui est exclut, parce que, par exemple, $-1\notin G_z$.
 \end{sol}
 
-\subsection{Sous-groupe compact de $GL_n(\R)$}
+\subsection{Parties de $GL_n(\R)$ compactes, non vides et stables par produit}
 \textit{Exercice donné par Duhalde à Yanis en semaine 3.}
 \begin{exo}
 Soit $X$ une partie de $GL_n(\R)$ non vide, compacte et stable par produit. Montrer que $X$ est un sous-groupe de $GL_n(\R)$.
 \end{exo}
 \begin{sol}
-[À rédiger]
+Soit $A\in X$. On considère la suite d'éléments $(A^n)_{n\in\N}$. Cette suite est une suite à élements dans $X$, puisque $A\in X$ et $X$ est stable par produit. De plus, $X$ étant compacte, $(A^n)$ admet une suite extraite convergente; il existe alors $\varphi : \N\to\N$ strictement croissante, $B\in X$ telles que \[A^{\varphi(n)}\longrightarrow B\]
+Soit $p\in\N^*$. On a \[A^{-p}A^{\varphi(n)}\longrightarrow A^{-p}A^{\varphi(n)}\]
+Or, à partir d'un certain rang, on a $A^{-p}A^{\varphi(n)}\in X$ (il suffit d'avoir $\varphi(n)>p$), on a donc une suite d'éléments de $X$ qui converge vers $A^{-p}B$, matrice qui est alors dans $X$ puisque $X$ est fermé. Ensuite, sachant l'expression suivante pour l'inverse d'une matrice : \[A^{-1}=\frac1{\text{det}A}{}^t\text{Com}(A)\]
+on en déduit que le passage à l'inverse est continu, d'où que \[A^{-\varphi(n)}\longrightarrow B^{-1}\]
+Donc $A^{-\varphi(n)}B\longrightarrow B^{-1}B=I_n$ puis $A^{-1}A^{-\varphi(n)}B\longrightarrow A^{-1}$. Or, pour tout $n\in\N$, $A^{-1}A^{-\varphi(n)}B=A^{-\varphi(n)-1}B\in X$, donc $A^{-1}\in X$ puisque $X$ est fermé. Ainsi $X$ est stable par produit et par passage à l'inverse, c'est un sous-groupe de $GL_n(\R)$.
 \end{sol}
 
 \subsection{Une norme de $\mathcal C^2([0,1],\R)$}
@@ -133,7 +133,7 @@ On considère le $\R ev$ $E=\mathcal C^2([0,1],\R)$ munit de la norme infinie. O
 [À rédiger]
 \end{sol}
 
-\subsection{Un oral CCINP}
+\subsection{L'ensemble des polynômes unitaires scindés est un fermé}
 \textit{Exercice donné à Shems en semaine 3.}
 \begin{exo}
 On munit $\R[X]$ de la norme $||\cdot||_{\infty}$ définie par $\left|\left|\sum_{k=0}^{+\infty}a_kX^k\right|\right|=\text{max}\lbrace a_k,\ k\in\N\rbrace$.
@@ -148,4 +148,302 @@ On munit $\R[X]$ de la norme $||\cdot||_{\infty}$ définie par $\left|\left|\sum
 
 \begin{sol}
 [À rédiger]
+\end{sol}
+
+\subsection{Somme d'une partie fermée et d'une partie compacte}
+\begin{exo}
+	Soient $E$ un espace vectoriel normé, $F$ une partie fermée de $E$ et $K$ une partie compacte de $E$. Montrer que $F+K$ est une partie fermée de $E$.
+\end{exo}
+
+\begin{sol}
+	Il suffit de l'écrire. Soit $(x_n)$ une suite d'éléments de $F+K$ qui converge vers $x\in E$. On a \[\forall n\in\N,\quad x_n=y_n+z_n,\quad y_n\in F,z_n\in K\]
+	$(z_n)$ est une suite d'éléments de $K$ compact, donc il existe $\varphi :\N\to \N$ strictement croissante et $z\in K$ tels que $z_{\varphi(n)}\longrightarrow z$. Or, on a également \[x_{\varphi(n)}\longrightarrow x\]
+	Mais pour tout $n\in\N$, on a $y_{\varphi(n)}=x_{\varphi(n)}-z_{\varphi(n)}\longrightarrow x-z$. $F$ étant fermé, il vient que $x-z\in F$, d'où $x\in F+K$.
+\end{sol}
+
+\subsection{Topologie du groupe orthogonal}
+\begin{exo}
+	Soit $n\in\N^*$. On rappele que le groupe orthogonal est défini par \[O_n(\R):=\lbrace M\in\mathcal M_n(\R)\ |\ {}^tMM=I_n\rbrace\]
+	Cet ensemble est-il fermé dans $\mathcal M_n(\R)$ ? Est-il connexe par arcs ?
+\end{exo}
+
+\begin{sol}
+	Il s'agit bien d'une partie fermée de $\mathcal M_n(\R)$. On effet, on considère l'application $\varphi : M\in\mathcal M_n(\R)\mapsto {}^tMM$. Cette application est continue car la transposition est continue (linéaire et dimension de l'espace de départ est finie) et la multiplication également (peut être justifié de la même manière...), puis $O_n(\R)=\varphi^{-1}(\lbrace I_n\rbrace)$, et $\lbrace I_n\rbrace$ est compact donc fermé, donc le groupe orthogonal est image réciproque d'un fermé par une fonction continue, et est donc fermé.
+
+\end{sol}
+
+%
+% Suites et Séries de fonctions
+%
+
+\newpage
+\section[Suites et Séries de fonctions]{Suites et Séries de fonctions}
+\subsection{Un exercice classique}
+\begin{exo}
+	Soit $(f_n)_n$ une suite de fonctions continues convergeant uniformément sur $\R$ vers $f$. Soit $(x_n)_{n\in\N}$ une suite de réels convergeant vers $x$.\\
+	Montrer que la suite $(f_n(x_n))_{n\in\N}$ converge et calculer sa limite.
+\end{exo}
+
+\begin{sol}
+	$f$ étant limite uniforme d'une suite de fonctions continues, elle est continue. Il vient alors que \[f(x_n)\xrightarrow[n\to+\infty]{} f(x)\tag{1}\]
+	Puis, pour $n\in\N$, on a \[|f_n(x_n)-f(x)|=|f_n(x_n)-f(x_n)+f(x_n)-f(x)|\leq|f_n(x_n)-f(x_n)|+|f(x_n)-f(x)|\]
+	Or, puisqu'il y a convergence uniforme, $|f_n(x_n)-f(x_n)|\leq ||f_n-f||_\infty^\R\xrightarrow[n\to+\infty]{} 0$. Puis (1) donne que $|f(x_n)-f(x)|\xrightarrow[n\to+\infty]{}0$. Par encardement, on a $|f_n(x_n)-f(x)|\xrightarrow[n\to+\infty]{} 0$, soit \[\boxed{f_n(x_n)\xrightarrow[n\to+\infty]{}f(x)}\]
+\end{sol}
+
+\subsection{Une question ouverte}
+\begin{exo}
+	Existe-t-il une suite de polynômes convergeant uniformément sur $\R$ vers $\exp$ ?
+\end{exo}
+
+\begin{sol}
+	Soit $(p_n)_{n\in\N}$ une suite de polynômes convergeant uniformément vers $\exp$ sur $\R$, soit \[\forall \epsilon > 0,\ \exists n_0\geq 0,\ \forall n\geq n_0,\ \forall x\in\R,\ |p_n(x)-\exp(x)|\leq \epsilon\]
+	Ainsi, si on "applique" cette phrase pour $\epsilon = 333$, on a l'existence de $n_0\geq 0$ tel que, pour $n\geq n_0$ et pour $x\in\R$, on ait $|p_n(x)-\exp(x)|\leq 333$. Mézalor \[|p_n(x)-p_{n_0}(x)|\leq |p_n(x)-\exp(x)|+|p_{n_0}(x)-\exp(x)|\leq 666\]
+	Ceci valant pour tout $n\geq n_0$ et pour tout $x\in\R$, on a que, pour tout $n\geq n_0$, le polynôme $p_n-p_{n_0}$ est borné sur $\R$, donc constant, d'où l'existence d'une suite de réels $(\alpha_n)$ telle que \[\forall n\geq n_0,\ \forall x\in\R,\ p_n(x)-p_{n_0}(x)=\alpha_n\]
+	La suite $(p_n(69))_{n\in\N}$ convergeant, puisque CU implique CS, on a que la suite $(\alpha_n)$ converge également, il suiffit d'évaluer la précédente expression en $69$; on note $\alpha$ sa limite. Pour $x\in\R$, on a \[\forall n\geq n_0,\ p_n(x)-p_{n_0}(x)=\alpha_n\]
+	On passe a la limite quand $n$ tend vers $+\infty$ et on obtient \[\exp(x)=p_{n_0}(x)+\alpha\]
+	autrement dit, $\exp$ est un polynôme, ce qui est exclut.
+\end{sol}
+
+
+%
+% Séries entières
+%
+
+\newpage
+\section[Séries entières]{Séries entières}
+\textit{Exercice donné à Amar par Duhalde en semaine ?}
+\subsection{Calcul d'équivalent (1)}
+\begin{exo}
+	On considère la fonction $f:x\in]-1,1[\mapsto \int_0^{\frac\pi2}\frac{\dv t}{\sqrt{1-(x\sin t)^2}}$.
+	\begin{enumerate}
+		\item $f$ est-elle bien définie ?
+		\item $f$ est-elle dse${}_0$ ?
+		\item Donner un équivalent de $f$ en $1$.
+	\end{enumerate}
+\end{exo}
+
+
+\begin{sol}
+	\begin{enumerate}
+		\item Oui. Pour $x\in]-1,1[$ et $t\in\left[0,\frac\pi2\right]$, on a \[1-(x\sin t)^2\geq 1-x^2> 0\]
+		d'où que $t\mapsto \sqrt{1-(x\sin t)^2}$ est continue et non nulle sur $\left[0,\frac\pi2\right]$, puis $t\mapsto \frac1{\sqrt{1-(x\sin t)^2}}$ est bine définie et continue sur $\left[0,\frac\pi2\right]$ et l'intégrale est bien définie. Ceci valant pour tout $x\in]-1,1[$, $f$ est bien définie.
+		\item Soit $x\in]-1,1[$
+
+
+		Soit $t\in\left[0,\frac\pi2\right]$, on a $|x\sin t| < 1$, donc, dse${}_0$ usuel : 
+		\begin{align*}
+			\frac1{\sqrt{1-(x\sin t)^2}} &= \sum_{n=0}^{+\infty}\frac1{n!}\left(\prod_{i=0}^{n-1}\left(-\frac12-i\right)\right)(-1)^n(x\sin t)^{2n}\\
+										 &= \sum_{n=0}^{+\infty}\frac{(-1)^n}{2^nn!}\left(\prod_{i=0}^{n-1}(2i+1)\right)(-1)^n(x\sin t)^{2n}\\
+										 &= \sum_{n=0}^{+\infty}\frac{(2n)!}{2^{2n}(n!)^2}(x\sin t)^{2n}\\
+		\end{align*}
+		Posons alors, pour $n\in\N$, $f_n:t\in\left[0,\frac\pi2\right]\mapsto\frac{(2n)!}{2^{2n}(n!)^2}(x\sin t)^{2n}$.
+
+
+		La série de fonctions $\displaystyle\sum f_n$ converge uniformément sur $\left[0,\frac\pi2\right]$. En effet, si $n\in\N$ et $t\in\left[0,\frac\pi2\right]$, alors 
+		\begin{align*}
+			& \quad |f_n(t)|\leq \frac{(2n)!}{2^{2n}(n!)^2}|x|^{2n}\\
+			\implique & \quad  ||f_n||_\infty^{\left[0,\frac\pi2\right]} \leq \frac{(2n)!}{2^{2n}(n!)^2}|x|^{2n} \ \leftarrow \ \begin{smallmatrix}\text{terme général}\\ \text{d'une série CA}\end{smallmatrix}
+		\end{align*}
+
+		La série de fonctions $\displaystyle\sum f_n$ converge normalement, donc uniformément sur $\left[0,\frac\pi2\right]$. Il vient alors que 
+		\[f(x)=\int_0^\frac\pi2\sum_{n=0}^{+\infty}f_n(t)\dv t = \sum_{n=0}^{+\infty}\int_0^\frac\pi2 f_n(t)\dv t \]
+
+		Mézalor 
+		\begin{align*}
+			f(x) &= \sum_{n=0}^{+\infini}\int_0^\frac\pi2\frac{(2n)!}{2^{2n}(n!)^2}(x\sin t)^{2n}\dv t\\
+				 &= \sum_{n=0}^{+\infini}\frac{(2n)!}{2^{2n}(n!)^2}x^{2n}\int_0^\frac\pi2\sin^{2n} t\dv t\\
+				 &= \sum_{n=0}^{+\infini}\frac1{2^{2n}}W_{2n}\binom{2n}nx^{2n}
+		\end{align*}
+
+		Ceci valant pour tout $x\in]-1,1[$, on a que $f$ est égale à la somme d'une série entière sur un domaine non trivial, d'où que $f$ est dse${}_0$.
+
+		\item Pour $n\in\N$, on pose $a_n=\frac{W_{2n}}{2^{2n}}\binom{2n}n$.
+
+
+		Il vient alors que $a_n\sim \frac1{2n}$, et on pose $(b_n)_{n\geq 1}=\left(\frac1{2n}\right)_{n\geq 1}$.\\
+
+
+		\textbf{Lemme : } Soient $(a_n)$ et $(b_n)$ deux suites réelles telles que $a_n\sim b_n$ et que $b_n\in\R_+^*$ pour tout entier $n$. Les séries entières $\displaystyle\sum a_nx^n$ et $\displaystyle\sum b_nx^n$ ont alors même rayon de convergence que l'on note $R$. Supposons que $R = 1$ et que $\displaystyle\sum b_n$ diverge. On a alors \[\sum_{k=0}^{+\infini}a_kx^k\underset{1^{-}}{\sim}\sum_{k=0}^{+\infini}b_kx^k\]
+
+
+		\textit{Démonstration : } Soit $\epsilon > 0$. Comme $a_n\sim b_n$, on sait l'existence de $n_0\in\N$ tel que \[\forall n\geq n_0,\ (1-\epsilon)b_n\leq a_n\leq (1+\epsilon)b_n\]
+
+		Soit $x\in]-1,1[$, on sait la convergence abosulue des séries entières sur $]-1,1[$, d'où, en sommant de $n_0$ jusqu'à $n$ pour un $n\geq n_0$ donné et en faisant tendre $n$ vers $+\infini$, on a 
+		\[-\epsilon\sum_{k=n_0}^{+\infty}b_kx^k\leq \sum_{k=n_0}^{+\infty}a_kx^k-\sum_{k=n_0}^{+\infty}b_kx^k\leq\epsilon\sum_{k=n_0}^{+\infty}b_kx^k\]
+		Il vient alors que \[\left |\sum_{k=n_0}^{+\infty}a_kx^k-\sum_{k=n_0}^{+\infty}b_kx^k \right|\leq \epsilon\sum_{k=n_0}^{+\infty}b_kx^k\leq\epsilon\sum_{k=0}^{+\infty}b_kx^k\]
+		Puis 
+		\begin{align*}
+			\left |\sum_{k=0}^{+\infty}a_kx^k-\sum_{k=0}^{+\infty}b_kx^k \right| & =  \left |\sum_{k=n_0}^{+\infty}a_kx^k-\sum_{k=n_0}^{+\infty}b_kx^k + \sum_{k=0}^{n_0-1}a_kx^k-\sum_{k=0}^{n_0-1}b_kx^k\right|\\
+																					 & \leq \left |\sum_{k=n_0}^{+\infty}a_kx^k-\sum_{k=n_0}^{+\infty}b_kx^k \right| + \underbrace{\left|\sum_{k=0}^{n_0-1}a_kx^k-\sum_{k=0}^{n_0-1}b_kx^k\right|}_{:=\alpha}\\
+																					 & \leq \epsilon\sum_{k=0}^{+\infty}b_kx^k + \alpha
+		\end{align*}
+		On remarque ensuite que \[\lim_{x\to1^{-1}}\sum_{k=0}^{+\infty}b_kx^k=+\infty\]
+		On laisse au lecteur les soins de justifier cela.
+
+
+		Ainsi, il existe $x_0\in]0, 1[$ tel que si $x\in[x_0,1[$, on ait $\alpha \leq \epsilon\displaystyle\sum_{k=0}^{+\infty}b_kx^k$, puis \[\left |\frac{\displaystyle\sum_{k=0}^{+\infty}a_kx^k-\displaystyle\sum_{k=0}^{+\infty}b_kx^k}{\displaystyle\sum_{k=0}^{+\infty}b_kx^k}\right|\leq 2\epsilon\]
+
+
+
+		D'où le résultat voulu. Ensuite, il est clair que, dans notre cas, $\displaystyle\sum b_n$ diverge, d'où que \[\boxed{f(x)=\sum_{n=0}^{+\infini}a_nx^n\underset{1^{-1}}{\sim}\sum_{n=1}^{+\infini}\frac1{2n}x^n=\frac{-1}2\ln(1-x)}\]
+	\end{enumerate}
+\end{sol}
+
+\textit{Exercice donné à PG par Duhalde en semaine ?}
+\subsection{Calcul d'équivalent (2)}
+\begin{exo}
+	Trouver un équivalent lorsque $x$ tend vers $1$ de $f(x)=\displaystyle\sum_{n=1}^{+\infini}\ln(n)x^n$.
+\end{exo}
+
+\begin{sol}
+On considère la fonction $g(x)=\displaystyle\sum_{n=1}^{+\infini}a_nx^n$ où $a_n=\ln(n+1)-\ln(n)-\frac1n$ pour $n\geq 1$. Le rayon de convergence de la série ainsi définie est de $1$, puisque l'on a \[a_n=\ln\left(1+\frac1n\right)-\frac1n=\frac1n-\frac1{2n^2}+o\left(\frac1{n^2}\right)-\frac1n=-\frac1{2n^2}+o\left(\frac1{n^2}\right)\] 
+Ainsi $a_n\sim\frac{-1}{2n^2}$, et on conclut avec le critère de D'Alambert. \\
+
+
+Soit alors $x\in\R$ tel que $|x|<1$. On a 
+\begin{align*}
+	xg(x)&=\displaystyle\sum_{n=1}^{+\infini}a_nx^{n+1}\\
+		&=\displaystyle\sum_{n=1}^{+\infini}\left(\ln(n+1)-\ln(n)-\frac1n\right)x^{n+1}\\
+		&=\displaystyle\sum_{n=1}^{+\infini}\ln(n+1)x^{n+1}-x\displaystyle\sum_{n=1}^{+\infini}\ln(n)x^n-x\displaystyle\sum_{n=1}^{+\infini}\frac1nx^n\\
+		&=f(x)-xf(x)+x\ln(1-x)
+\end{align*}
+Comme $a_n\sim\frac{-1}{2n^2}$, on en déduit que $g$ est définie en $1$ et y est donc continue. Il vient alors que \[xg(x)\underset{1^{-}}{=}o(\ln(1-x))\]
+\end{sol}
+
+
+\textit{Exercice donné à Yanis par Duhalde en semaine ?}
+\subsection{Produit de Cauchy}
+\begin{exo}
+	On définit la suite de réels $(u_n)_n$ par $u_0=1$ et \[\forall n\in\N,\ u_{n+1}=\sum_{k=0}^nu_{n-k}u_k\]
+	Déterminer $u_n$ pour tout $n\in\N$.
+\end{exo}
+
+\begin{sol}
+On suppose que le rayon de convergence $R$ de la série entière $\sum u_nx^n$ est non nul. Et on pose pour, $x\in]-R,R[$, $f(x)=\displaystyle\sum_{n=0}^{+\infty}u_nx^n$. Soit alors $x\in\R$ tel que $|x|<R$, alors \[f(x)-1=\sum_{n=1}^{+\infty}u_nx^n=x\sum_{n=0}^{+\infty}u_{n+1}x^n\]
+D'après le théorème de convergence pour les séries entières, la série $\sum u_{n+1}x^n$ converge abosulement et \[\left(\sum_{n=0}^{+\infty}u_nx^n\right)^2=\sum_{n=0}^{+\infty}\left(\sum_{k=0}^nu_{n-k}u_k\right)x^n=\sum_{n=0}^{+\infty}u_{n+1}x^n\]
+il s'agit du produit de Cauchy de deux séries AC. Il vient alors que \[\forall x\in]-R,R[,\ f(x)-1=x(f(x))^2\]
+D'où, pour $|x|<\frac14$ non nul, $f(x)\in\left\lbrace \frac{1-\sqrt{1-4x}}{2x},\frac{1+\sqrt{1-4x}}{2x}\right\rbrace$, soit \[\exists s:\left]-\frac14,\frac14\right[\to\lbrace-1,1\rbrace,\ \forall x\in\R^*,\ |x|<\frac14\implique f(x)=\frac{1+s(x)\sqrt{1-4x}}{2x}\]
+Ainsi, pour $|x|<\frac14$ non nul, \[s(x)=\frac{2xf(x)-1}{\sqrt{1-4x}}\]
+Il vient que $s$ est continue sur $\left]-\frac14,\frac14\right[$ (à finir)
+\end{sol}
+
+
+%Soit $K$ un corps fini de cardinal $q\in\N^*$, $E$ un espace vectoriel sur le corps $K$, de dimension finie $n\in\N^*$. Pour $p\in\inl1n$, on note $\mathfrak L_p$ l'ensemble des familles libres de cardinal $p$ et $L_p$ son cardinal. Soient $p\in\inl1{n-1}$, $\mathcal F=(e_1,\dots,e_{p+1})$ une famille de vecteurs de $E$. On a \[\mathcal F\text{ libre }\ssi (e_1,\dots,e_p) \text{ libre}\quad\text{ et }\quad e_{p+1}\notin\text{Vect}(e_1,\dots,e_p)\]
+%Il vient alors que \[\mathfrak L_{p+1}=\bigcup_{\mathcal L\in\mathfrak L_p}\bigcup_{x\in E\backslash\text{Vect}(\mathcal L)}\lbrace \mathcal L \cup\lbrace x\rbrace\rbrace\]
+%En passant aux cardinaux, les unions écrites ci-dessus étant disjointes, on a \[L_{p+1}=\sum_{\mathcal L\in\mathfrak L_p}\sum_{x\in E\backslash\text{Vect}(\mathcal L)}1=\sum_{\mathcal L\in\mathfrak L_p}(|E|-|\text{Vect}(\mathcal L)|)=(|E|-|\text{Vect}(\mathcal L)|)L_p\]
+%Puis $E\simeq K^n$ et $\text{Vect}(\mathcal L)\simeq K^p$, il vient alors que $L_{p+1}=(q^n-q^p)L_p$. Finalement, ceci valant pour tout $p\in\inl1{n-1}$, et ayant trivialement $L_1=q^n-1$, on a \[L_n=\prod_{p=0}^{n-1}(q^n-q^p)\]
+%C'est le nombre de bases de $E$. Il y a autant d'endomorphismes inversibles que de bases (penser à l'isomorphisme qui à un endomorphisme associe sa matrice dans une base donnée). Considérons, pour $k\in\inl1n$, l'application $\varphi_k : \mathcal L\in\mathfrak L_k\mapsto \text{Vect}(\mathcal L)$, elle nous permet de définir une relation d'équivalence : \[\mathcal L\sim\mathcal L' \ssi \varphi_k(\mathcal L)=\varphi_k(\mathcal L')\]
+%La classe d'équivalence d'une famille $\mathcal L$ est donc l'ensemble des bases du sous-epsace vectoriel de dimension $k$ $\text{Vect}(\mathcal L)$. Il y a autant de classes que de sous-espaces vectoriels de dimension $k$, puis, en notant $C_1,\dots,C_\alpha$ les classes d'équivalence, on a \[\mathfrak L_k=\bigcup_{i=1}^\alpha C_i\]
+%En passant aux cardinaux, on a \[L_k=\sum_{i=1}^\alpha |C_i|=\sum_{i=1}^\alpha \prod_{p=0}^{k-1}(q^k-q^p)=\alpha\prod_{p=0}^{k-1}(q^k-q^p)\]
+%inalement, \[\alpha_k=\prod_{p=0}^{k-1}\frac{q^n-q^p}{q^k-q^p}\]
+%où $\alpha_k$, on l'a compris, désigne le nombre de sous-espaces de dimension $k$.
+
+%
+% Réduction
+%
+
+\newpage
+\section[Réduction d'endomorphismes]{Réduction d'endomorphismes}
+\textit{Exercice donné à Amar par Rouanet en semaine ?}
+\subsection{CNS valeur propre commune}
+
+\begin{exo}
+	Soient $A,B\in\mathcal M_n(\C)$. Montrer que les propositions suivantes sont équivalentes :
+	\begin{enumerate}
+		\item $A$ et $B$ possèdent une valeur propre commune
+		\item Il existe $M\in\mathcal M_n(\C)$ non nulle telle que $AM=MB$
+		\item $\Pi_A(B)\notin GL_n(\C)$
+	\end{enumerate}
+\end{exo}
+
+\begin{sol}
+	On montre les équivalences en montrant une chaîne d'implications.
+	\begin{itemize}
+		\item[\underline{1) $\implique$ 2)}] Supposons que $A$ et $B$ possèdent une valeur commune. Notons $\lambda$ cette valeur propre. D'abrod, il existe $X\in\mathcal M_{n,1}(\C)$ une colonne non nulle telle que \[AX=\lambda X\]
+		Mais $\lambda$ étant valeur propre de $B$, elle est encore valeur propre de ${}^tB$, d'où l'existence de $Y\in\mathcal M_{n,1}(\C)$ une colonne non nulle telle que \[{}^tBY=\lambda Y\]
+		On pose $M=X{}^tY$. On vérifie facilement que $AM=MB$, puis $M$ est non nulle puisque de rang $1$.\\
+
+
+		\textit{Cette implication était la plus difficile à montrer, retenir l'idée.}
+		\item[\underline{2) $\implique$ 3)}] Déjà, on a \[A^2M=A(AM)=(AM)B=MB^2\]
+		puis, on vérifie facilement par récurrence que \[\forall k\in\N,\ A^kM=MB^k\]
+		D'où, pour tout polynôme $P\in\C[X]$, l'égalité \[P(A)M=MP(B)\]
+		En particulier, on \[M\Pi_A(B)=\Pi_A(A)M=0\]
+		Ainsi, $M$ étant non nulle, $\Pi_A(B)$ est soit nulle, soit un diviseur de $0$, donc est non inversible.
+		\item[\underline{3) $\implique$ 1)}] Par contraposée. Supposons que $A$ et $B$ n'ont pas de valeurs propres communes. Notons $\text{Sp}(A)=\lbrace \lambda_1,\dots,\lambda_p\rbrace$ le spectre de $A$. On écrit \[\Pi_A=(X-\lambda_1)^{\alpha_1}\dots(X-\lambda_p)^{\alpha_p}\]
+		Or, pour tout $i\in\inl1p$, $\lambda_i$ n'est pas valeur propre de $B$ et donc $B-\lambda_iI_n\in GL_n(\C)$. Ainsi $\Pi_A(B)$ est produit de matrices inversibles et est donc inversible.
+	\end{itemize}
+\end{sol}
+
+\subsection{P(A) diagonalisable et P'(A) inversible $\implique$ A diagonalisable}
+\begin{exo}
+Soit $A\in\mathcal M_n(\C)$ et $P\in\C[X]$ tel que $P(A)$ est diagonalisable et $P'(A)$ est inversible. Montrer que $A$ est diagonisable.
+\end{exo}
+
+\begin{sol}
+	On note $B=P(T)$ et $\Pi_B$ le polynôme minimal de $B$. Il vient que $\Pi_B\circ P$ annule $A$ et donc il existe $Q\in\C[X]$ tel que $\Pi_B\circ P=Q\Pi_A$. Dérivons cette égalité : \[(\Pi_B'\circ P)P'=Q\Pi_A'+Q'\Pi_A\tag{*}\]
+	On note $\text{Sp}(A)=\lbrace \lambda_1,\dots,\lambda_p\rbrace$ le spectre de $A$. Trigonalisons $A$ (on est dans $\mathcal M_n(\C)$, on peut le faire) : il existe $U\in GL_n(\C)$ tel que $A=UTU^{-1}$ avec 
+	\[
+		T = 
+		\begin{pNiceMatrix} 
+			\lambda_1& *& \Ldots&\Ldots &*\\
+			& \Ddots& \Ddots&  &\Vdots\\
+			& &\Ddots & \Ddots&\Vdots\\
+			& (0)& &\Ddots &*\\
+			& & & & \lambda_p\\
+		\end{pNiceMatrix}
+	\]
+	En remarquant que $P(T)$ et $P(A)$ ont même polynôme caractéristique (en effet, $P(A)=UP(T)U^{-1}$), on arrive à en conclure que les valeurs propres de $P(A)$ sont les $P(\lambda_i)$ avec $i\in\inl1p$. Soit $\lambda\in\text{Sp}(A)$. Ayant la relation (*) et le fait que $\lambda$ est racine de $\Pi_A$, on en déduit \[\Pi_B'(P(\lambda))P'(\lambda)=Q(\lambda)\Pi_A'(\lambda)\]
+	Or $B$ est diagonalisable, donc $\Pi_B'(P(\lambda))\neq 0$ ($\Pi_B$ SRS), mais $P'(A)\in GL_n(\C)$, donc $P'\wedge \Pi_A=1$ et donc $P'(\lambda)\neq 0$, il vient alors que \[Q(\lambda)\Pi_A'(\lambda)\neq 0 \implique \Pi_A'(\lambda)\neq 0\]
+	Donc $\lambda$ est racine simple de $\Pi_A$. Ceci valant pour toute valeur propre $\lambda$ de $A$, et donc en fait pour toute racine $\lambda$ de $\Pi_A$, on en conclut que $\Pi_A$ est SRS, et donc $A$ est diagonalisable.
+\end{sol}
+
+\subsection{Diagonalisation dans $\mathcal M_n(\mathbb F_p)$}
+\begin{exo}
+Soit $p$ un nombre premier, $n\in\N^*$ et $A\in\mathcal M_n(\mathbb F_p)$. Montrer que \[A\quad \text{diagonalisable}\quad \ssi\quad A^p=A\]
+\end{exo}
+
+\begin{sol}
+	\begin{itemize}
+		\item[$\boxed{\Rightarrow}$] Supposons $A$ diagonalisable. Il vient alors l'existence de $P\in GL_n(\mathbb F_p)$ et $D\in \mathcal D_n(\mathbb F_p)$ tels que \[A=PDP^{-1}\]
+		Mais alors $A^p-A=PD^pP^{-1}-PDP^{-1}$. Or, en notant 
+		\[
+		D = \begin{pmatrix}
+			\lambda_1 & &\\
+			& \ddots & \\
+			& & \lambda_q
+		\end{pmatrix}
+		\]
+		On a \[
+		D^p=\begin{pmatrix}
+			\lambda_1^p & &\\
+			& \ddots & \\
+			& & \lambda_q^p
+		\end{pmatrix}
+		\]
+		Mais si $\lambda\in\mathbb F_p$, $\lambda^p=\lambda$ (Lagrange dans un groupe quelconque ou Fermat) et donc $D^p=D$ d'où $A^p=A$.
+		\item[$\boxed{\Leftarrow}$] Supposons $A^p=A$. Il vient alors que $P=X^p-X\in\mathbb F_p[X]$ est un polynôme anulateur de $A$. Puis $P = X(X^{p-1}-1)$, et, en notant $Q=X^{p-1}-1$, on a \[\forall x\in\mathbb F_p^*,\quad Q(x)=0\]
+		On trouve $p-1$ racines à un polynôme de degré $p-1$, d'où, sachant que $\text{cd}Q=1$, on a \[Q=\prod_{x\in\mathbb F_p^*}(X-x)\]
+		Finalement $P$ est SRS et $A$ est diagonalisable.
+
+	\end{itemize}
+\end{sol}
+
+\subsection{Matrice semblable à son double}
+\begin{exo}
+	 Soit $M\in\mathcal M_n(\C)$ telle que $M\underset{\text{sb}}{\sim}2M$. Montrer que $M$ est nilpotente.
+\end{exo}
+
+\begin{sol}
+	On trigonalise $M$. Il existe $P\in GL_n(\C)$ et $T\in \mathcal T_n(\C)$ tels que $M=PTP^{-1}$. Puis, comme $M$ est semblable à $2M$, elle-même semblable à $2T$ (il suffit de multiplier par $2$ plus haut), $T$ est semblable à $2T$. Donc $T$ et $2T$ ont même polynôme caractéristique. On note $\text{Sp}(T)=\lbrace \lambda_1,\dots,\lambda_p\rbrace$ le spectre de $T$, $\chi_T$ le polynôme caractéristique de $T$. Soit $\lambda\in \text{Sp}(T)$, alors $\chi_T(2\lambda)=\chi_{2T}(2\lambda)=0$, donc $2\lambda \in \text{Sp}(T)$. Par récurrence sur $n\in\N$, on a \[\forall \lambda \in \text{Sp}(T),\ \forall n\in\N,\ 2^n\lambda\in\text{Sp}(T)\]
+	Ceci est exclu lorsqu'il existe une valeur propre non nulle de $T$. Ainsi, toutes les valeurs propres sont nulles, $T$ est de diagonale nulle (et triangulaire) et est donc nilpotente, puis $M$ lui étant semblable, elle est également nilpotente.
+\end{sol}
+
+\subsection{Exercice sans nom}
+\begin{exo}
+ Soit $E$ un $K$ espace vectoriel, $f\in L(E)$ et $G:g\in L(E)\mapsto f\circ g$. Vérifier que $G\in L(L(E))$ et comparer (sous réserve d'existence) $\Pi_f$ et $\Pi_G$.
+\end{exo}
+
+\begin{sol}
+	On laisse au lecteur les oins de vérifier que $G$ est bien un endomorphisme. Supposons que $\Pi_f$ et $\Pi_G$ existent (à continuer).
 \end{sol}
