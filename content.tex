@@ -1,4 +1,4 @@
-% TeX root = ./main.tex
+x% TeX root = ./main.tex
 
 % First argument to \section is the title that will go in the table of contents. Second argument is the title that will be printed on the page.
 
@@ -168,8 +168,17 @@ On munit $\R[X]$ de la norme $||\cdot||_{\infty}$ définie par $\left|\left|\sum
 \end{exo}
 
 \begin{sol}
-	Il s'agit bien d'une partie fermée de $\mathcal M_n(\R)$. On effet, on considère l'application $\varphi : M\in\mathcal M_n(\R)\mapsto {}^tMM$. Cette application est continue car la transposition est continue (linéaire et dimension de l'espace de départ est finie) et la multiplication également (peut être justifié de la même manière...), puis $O_n(\R)=\varphi^{-1}(\lbrace I_n\rbrace)$, et $\lbrace I_n\rbrace$ est compact donc fermé, donc le groupe orthogonal est image réciproque d'un fermé par une fonction continue, et est donc fermé.
+	Il s'agit bien d'une partie fermée de $\mathcal M_n(\R)$. En effet, on considère l'application $\varphi : M\in\mathcal M_n(\R)\mapsto {}^tMM$. Cette application est continue car la transposition est continue (linéaire et dimension de l'espace de départ est finie) et la multiplication également (peut être justifié de la même manière...), puis $O_n(\R)=\varphi^{-1}(\lbrace I_n\rbrace)$, et $\lbrace I_n\rbrace$ est compact donc fermé, donc le groupe orthogonal est image réciproque d'un fermé par une fonction continue, et est donc fermé.\\
+	Pour la connexité par arcs, se référer au cours sur les espaces euclidiens.
+\end{sol}
 
+\subsection{Somme fermée de parties d'un espace vectoriel normé}
+\begin{exo}
+	Soit $E$ un espace vetoriel normé. Soient $F$ une partie fermée de $E$, $K$ une partie compacte de $E$. Montrer que $F + K$ est une partie fermée de $E$.
+\end{exo}
+
+\begin{sol}
+	Soit $(u_n)$ une suite d'éléments de $F + K$, supposons qu'elle converge vers $\ell \in E$. Montrons que $\ell \in F + K$. Pour $n\in\N$, $u_n\in F + K$, il existe alors $x_n\in F$, $y_n\in K$ tels que $u_n=x_n + y_n$. Puis $(y_n)$ est une suite de $K$ compact, il existe alors $\varphi$ une application strictement croissante de $\N$ dans $\N$ telle que $(y_{\varphi(n)})$ converge vers $\ell'\in K$. Comme pour tout $n\in \N$, $x_{\varphi(n)}=u_{\varphi(n)}-y_{\varphi(n)}$ la suite $(x_{\varphi(n)})$ converge vers $\ell'\in F$ (l'appartenance de la limite à $F$ est garentie par ceci que $F$ est une partie fermée de $E$), et on a $\ell' = \ell - \ell'$ soit $\ell=\ell''+\ell'\in F + K$. Ce qui achève de montrer que $F + K$ est fermée, car ceci vaut pour toute suite convergente de $F + K$.
 \end{sol}
 
 %
@@ -204,6 +213,15 @@ On munit $\R[X]$ de la norme $||\cdot||_{\infty}$ définie par $\left|\left|\sum
 	autrement dit, $\exp$ est un polynôme, ce qui est exclut.
 \end{sol}
 
+\subsection{Un exemple simple}
+\begin{exo}
+	On considère la fonction définie par \[f(x):=\sum_{n=0}^{+\infty}\frac{n^x}{x^n}\]
+	Déterminer le domaine $D$ de définition de $f$ et étudier la continuité de $f$ sur $D$.
+\end{exo}
+
+\begin{sol}
+	[À rédiger]
+\end{sol}
 
 %
 % Séries entières
@@ -327,6 +345,21 @@ Ainsi, pour $|x|<\frac14$ non nul, \[s(x)=\frac{2xf(x)-1}{\sqrt{1-4x}}\]
 Il vient que $s$ est continue sur $\left]-\frac14,\frac14\right[$ (à finir)
 \end{sol}
 
+\subsection{Développement en série entière de la fonction tangente}
+\begin{exo}
+	Soit $a\in\Rpe$ et $f\in\mathcal C^\infty([0, a[,\R)$ telle $f^{(n)}\geq 0$ pour tout entier naturel $n$.
+	\begin{enumerate}
+		\item Soit $n\in\N$ et $(x,y)\in\Rpe^2$ tel que $x < y < a$. Montrer que \[0\leq \frac{R_n(x)}{x^{n+1}}\leq \frac{R_n(y)}{y^{n+1}}\]
+		où $R_n(z)$ est le reste intégral de la formule de Taylor en $0$ à l'ordre $n$ appliquée en $z$.
+		\item En déduire que pour tout $x\in[0,a[$, $f(x)=\sum_{n=0}^{+\infty}\frac{f^{(n)}}{n!}x^n$
+		\item En utilisation la question 2), démontrer que la fonction tangente est développable en série entière à l'origine et préciser l'intervalle de validité de ce développement.
+	\end{enumerate}
+\end{exo}
+
+\begin{sol}
+	[À rédiger]
+\end{sol}
+
 
 %Soit $K$ un corps fini de cardinal $q\in\N^*$, $E$ un espace vectoriel sur le corps $K$, de dimension finie $n\in\N^*$. Pour $p\in\inl1n$, on note $\mathfrak L_p$ l'ensemble des familles libres de cardinal $p$ et $L_p$ son cardinal. Soient $p\in\inl1{n-1}$, $\mathcal F=(e_1,\dots,e_{p+1})$ une famille de vecteurs de $E$. On a \[\mathcal F\text{ libre }\ssi (e_1,\dots,e_p) \text{ libre}\quad\text{ et }\quad e_{p+1}\notin\text{Vect}(e_1,\dots,e_p)\]
 %Il vient alors que \[\mathfrak L_{p+1}=\bigcup_{\mathcal L\in\mathfrak L_p}\bigcup_{x\in E\backslash\text{Vect}(\mathcal L)}\lbrace \mathcal L \cup\lbrace x\rbrace\rbrace\]
@@ -446,4 +479,121 @@ Soit $p$ un nombre premier, $n\in\N^*$ et $A\in\mathcal M_n(\mathbb F_p)$. Montr
 
 \begin{sol}
 	On laisse au lecteur les oins de vérifier que $G$ est bien un endomorphisme. Supposons que $\Pi_f$ et $\Pi_G$ existent (à continuer).
+\end{sol}
+
+\subsection{Coefficients du polynôme caractéristique}
+\begin{exo}
+	Soit $M\in\mathcal M_n(\K)$. On appelle mineur principal d'ordre $k\in\lbrace1,\dots,n\rbrace$ le déterminant d'un $M_I=(m_{i,j})_{(i,j)\in I^2}$ avec $I\subset\lbrace 1,\dots,n\rbrace$ tel que $\Card(I)=k$. Donner une expression des coefficients de $\Xi_M$ en fonction des mineurs principaux.
+\end{exo}
+
+\begin{sol}
+	[À rédiger]
+\end{sol}
+
+\subsection{Limite d'une suite de matrices}
+\begin{exo}
+	Soit $M\in\mathcal M_n(K)$, $\K = \R$ ou $\C$. Donner une condition nécessaire et suffisante pour que la suite $(M^p)_{p\in\N}$ converge. Que dire sur la valeur de la limite en cas de convergence ?
+\end{exo}
+
+\begin{sol}
+	[À rédiger]
+\end{sol}
+
+
+%
+% Intégrales généralisées
+%
+
+\newpage
+\section[Intégrales généralisées, Intégrales à paramètres]{Intégrales généralisées, Intégrales à paramètres}
+\subsection{Une Intégrale de Frullani}
+\begin{exo}
+	On pose pour $x\in\R$, $f(x)=\in_0^{+\infty}\frac{\arctan(xt)-\arctan(t)}t\dd t$
+	\begin{enumerate}
+		\item Déterminer $\mathcal D_f$ domaine de définition de $f$.
+		\item Déterminer le domaine de classe $\mathcal C^1$ de $f$.
+		\item En déduire une expression de $f(x)$ pour $x\in\mathcal D_f$.
+		\item Retrouver le résultat de la question 3) sans utiliser le théor!me de dérivation des intégrales à paramètre\\
+	\end{enumerate}
+\end{exo}
+
+\begin{sol}
+	[À rédiger]
+\end{sol}
+
+\subsection{Calcul d'équivalent (1)}
+\begin{exo}
+	$I(x)=\int_0^1\frac{t^x}{1+t}\dd t$.\\
+	\begin{enumerate}
+		\item Domaine de définition de $I$ ?
+		\item Calculer $I(x) + I(x + 1)$.
+		\item Équivalent de $I(x)$ en $+\infty$ ?
+	\end{enumerate}
+\end{exo}
+
+\begin{sol}
+	[À rédiger]
+\end{sol}
+
+\subsection{Calcul d'équivalent (2)}
+\begin{exo}
+	$F(x) = \int_0^1\frac{\sin(tx)}{1+t}\dd t$. Montrer que $F$ est définie et continue sur $\Rpe$. Montrer que $F(x)\sim_0\frac\pi{2x}$.
+\end{exo}
+
+\begin{sol}
+	[À rédiger]
+\end{sol}
+
+\subsection{Une intégrale à paramètre}
+\begin{exo}
+	$F(x)=\int_0^{+\infty}\frac{\sin(tx)}{e^t-1}\dd t$
+	\begin{enumerate}
+		\item Montrer que $F$ est définie et continue sur $\R$ puis $\mathcal C^1$ sur $\R$
+		\item Montrer que $\forall t\in \R$, $F(t)=\sum_{n=1}^{+\infty}\frac1{n^2+t^2}$. Retrouver $F'$.
+		\item Montrer que $F$ est $\C^{+\infty}$ sur $\R$.
+	\end{enumerate}
+\end{exo}
+
+\begin{sol}
+	[À rédiger]
+\end{sol}
+
+
+
+%
+% Espaces euclidiens
+%
+
+\newpage
+\section[Espaces euclidiens]{Espaces euclidiens}
+
+\subsection{Matrices $M$ telles que $M+I_n$ est inversible}
+\begin{exo}
+	On pose $\mathcal E=\lbrace M\in\mathcal M_n(\R)\ |\ -1\notin \text{Sp}(M)\rbrace$.
+	\begin{enumerate}
+		\item Montrer que $\mathcal O_n(\R)\cap \mathcal E=\mathcal{SO}_n(\R)\cap \mathcal E$;
+		\item Montrer que si $A\in\mathcal A_n(\R)$ (ensemble des matrices antisymétriques), alors $\text{Sp}(A)\subset i\R$;
+		\item Montrer que $\varphi : M \mapsto (I_n-M)(I_n+M)^{-1}$ définit une involution de $\mathcal E$;
+		\item Montrer que $\varphi$ induit une bijection $\tilde\varphi$ de $\mathcal A_n(\R)$ sur $\mathcal{SO}_n(\R)\cap \mathcal E$.
+	\end{enumerate}
+\end{exo}
+
+\begin{sol}
+	[À rédiger]
+\end{sol}
+
+\subsection{Angeline}
+\begin{exo}
+	Soit $n\geq 2$.
+	\begin{enumerate}
+		\item Montrer que \[\forall M\in\mathcal O_n(\R),\quad \sum_{1\leq i,j\leq n}|m_{i,j}|\leq n^{\frac32}\tag{*}\]
+		\item On suppose que (*) est une égalité. Que peut-on dire sur les coefficients de $M$ ? Et de la parité de $n$ ?
+		\item Déterminer une matrice, notée dans la suite $M_2$, élément de $\mathcal O_2(\R)\cap\mathcal S_2(\R)$ satisfaisant le cas d'égalité de (*) pour $n = 2$.
+		\item Démontrer qu'une condition suffisante pour qu'il existe $M\in\mathcal O_n(\R)$ telle que (*) soit une égalité est que $n$ soit une puissance de $2$.
+		\item Démontrer qu'une condition nécessaire pour qu'il existe $M\in\mathcal O_n(\R)$ telle que (*) soit une égalité est que $n=2$ ou $4$ divise $n$.
+	\end{enumerate}
+\end{exo}
+
+\begin{sol}
+	[À rédiger]
 \end{sol}
