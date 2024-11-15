@@ -1,0 +1,2 @@
+# Compilation d'exercices de mathématiques
+Tout au long de mon année de mathématiques spéciales, j’ai mis à jour un document compilant les exercices de khôlle donnés à plusieurs élèves. Lorsque j’en trouvais le temps, je tapais également des propositions de solutions pour certains exercices. Noter que les solutions ne constituent que des propositions d’approche à adopter pour résoudre les exercices, et peuvent comporter des erreurs; si vous êtes amenés à en déceler, n’hesitez pas à m’en faire part en me contactant [par mail](mailto:amar.ahmane@ens-rennes.fr).
