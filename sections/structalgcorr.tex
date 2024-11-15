@@ -1,0 +1,16 @@
+\begin{proof}[Correction de l'exercice \ref{strictalg1}]
+    Soit $x\in E$. $E$ étant fini, on peut alors extraire de la suite $(x^n)_{n\in\N}$ une suite constante (c.f. preuve compacité d'une partie finie), 
+    et donc il existe $m,n \in\N$ tels que $m>2n$ et $x^m=x^n$. Il vient alors que $x^{m-n}$ est idempotent ; en effet \[(x^{m-n})^2=x^{2m-2n}=x^mx^{m-2n}=x^nx^{m-2n}=x^{m-n}\]
+    On pose $e=x^{n-m}$. On montre que pour tout $a\in E$, $ea=ae=a$. En effet, soit $a\in E$, on a \[(ae)(ea)=a(e^2)a=aea\]
+    Par régularité de $a$ à gauche, on obtient $e(ea)=ea$, puis, par régularité de $e$ à gauche, $ea=a$. 
+    On refait la même chose, par régularité de $a$ à droite, $aee=ae$ puis, par régularité de $e$ à droite, $ae=a$. $E$ muni de sa l.c.i est donc un monoïde.
+
+    Soit à présent $a\in E$. Montrons que $a$ est inversible. $E$ étant fini, l'application $n\mapsto a^n$ ne peut être injective et donc il existe $n\neq m$ tels que $a^n=a^m$. 
+    On suppose par exemple $n>m$ et on écrit \[a^{n-m}a^m=a^m=ea^m\]
+    et on utilise la régularité à droite de $a^m$ pour obtenir $a^{n-m}=e$. On écrit ensuite \[e=a^{n-m}=a(a^{n-m-1})\]
+    Comme $n-m-1\geq 0$, ce qu'on a écrit est licite, et $a$ admet bien un inverse.
+ 
+    Qu'en est-il si $E$ est infini ? Prenons l'exemple de $\Sigma^*$, le monoïde des mots sur un alphabet $\Sigma$ muni de la concaténation, 
+    avec bien sûr $\Sigma\neq\varnothing$. $\Sigma^*$ \nomenclature{$\Sigma^*$}{Monoïde des mots sur l'alphabet $\Sigma$ 
+    ($\Sigma^*=\bigcup_{n\in\N}\Sigma^n$)} est régulier par construction, mais n'est certainement pas un groupe.
+\end{proof}

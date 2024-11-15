@@ -1,0 +1,62 @@
+\begin{exo}[Matrices $M$ telles que $M+I_n$ est inversible]
+	\label{euclidiens1}
+	On pose $\mathcal E=\lbrace M\in\mathcal M_n(\R)\ |\ -1\notin \Sp(M)\rbrace$.
+	\begin{enumerate}
+		\item Montrer que $\mathcal O_n(\R)\cap \mathcal E=\mathcal{SO}_n(\R)\cap \mathcal E$ ;
+		\item Montrer que si $A\in\mathcal A_n(\R)$ (ensemble des matrices antisymétriques), alors $\Sp(A)\subset i\R$ ;
+		\item Montrer que $\theta : M \mapsto (I_n-M)(I_n+M)^{-1}$ définit une involution de $\mathcal E$ ;
+		\item Montrer que $\theta$ induit une bijection $\tilde\theta$ de $\mathcal A_n(\R)$ sur $\mathcal{SO}_n(\R)\cap \mathcal E$.
+	\end{enumerate}
+\end{exo}
+
+\begin{exo}[Inégaltités sur les matrices orthogonales]
+	\label{euclidiens2}
+	Soit $n\geq 2$.
+	\begin{enumerate}
+		\item Montrer que \[\forall M\in\mathcal O_n(\R),\quad \sum_{1\leq i,j\leq n}|m_{i,j}|\leq n^{\frac32}\tag{*}\]
+		\item On suppose que (*) est une égalité. Que peut-on dire sur les coefficients de $M$ ? Et de la parité de $n$ ?
+		\item Déterminer une matrice, notée dans la suite $M_2$, élément de $\mathcal O_2(\R)\cap\mathcal S_2(\R)$ satisfaisant le cas d'égalité de (*) pour $n = 2$.
+		\item Démontrer qu'une condition suffisante pour qu'il existe $M\in\mathcal O_n(\R)$ telle que (*) soit une égalité est que $n$ soit une puissance de $2$.
+		\item Démontrer qu'une condition nécessaire pour qu'il existe $M\in\mathcal O_n(\R)$ telle que (*) soit une égalité est que $n=2$ ou $4$ divise $n$.
+	\end{enumerate}
+\end{exo}
+
+\begin{exo}[Un TLM pour les matrices]
+	\label{euclidiens3}
+	Soit $n\geq 2$.
+	On définit une relation d'ordre sur $\mathcal M_n(\R)$ par 
+	\[
+		A\leq B\iff B-A\in\mathcal S_n^+(\R)	
+	\]
+	Vérifier qu'il s'agit bien d'une relation d'ordre, et montrer que toute suite de matrices $(A_p)$
+	croissante et majorée pour cet ordre converge.
+\end{exo}
+
+\begin{exo}[Convexité 1]
+	\label{euclidiens4}
+	Montrer que l'application $\varphi : S\in\mathcal S_n(\R)\mapsto \tr(\exp(S))\in\R$ est convexe.
+\end{exo}
+
+\begin{exo}[Convexité 2]
+	\label{euclidiens5}
+	Soit $A\in\mathcal S_n^{++}(\R)$, $b\in\R^n$.
+	Posons $J(x)=\frac12\langle Ax,x\rangle - \langle b,x\rangle$ pour tout $x\in\R^n$.
+	\begin{enumerate}
+		\item Montrer que $J$ est strictement convexe.
+		\item Montrer que $J(x)\xrightarrow[\norm{x}\to+\infty]{}+\infty$.
+		\item En déduire que $J$ admet un unique minimum sur $\R^n$.
+	\end{enumerate}
+\end{exo}
+
+\begin{exo}[Croissance de la trace de l'exponentielle]
+	\label{euclidiens6}
+	Soit $n\in\N^*$.
+	\begin{enumerate}
+		\item Soient $U,V\in\mathcal S_n^+(\R)$. Montrer qu'il existe $\R\in\mathcal S_n^+(\R)$ tel que $R^2 = U$ puis que $\tr(UV)\geq 0$.
+		\item Soient $P\in\R[X]$ et $f:\R\to\mathcal M_n(\R)$ dérivable. Montrer que $\varphi:t\in\R\mapsto\tr(P(f(t)))$ est dérivable et calculer $f'$.
+		\item Soient $A,B\in\mathcal S_n(\R)$ tels que $B-A\in\mathcal S_n^+(\R)$. Montrer 
+		\[
+			\tr(\exp(A))\leq\tr(\exp(B))
+		\]
+	\end{enumerate}
+\end{exo}

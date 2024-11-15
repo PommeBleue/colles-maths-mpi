@@ -1,0 +1,170 @@
+\begin{proof}[Correction de l'exercice \ref{evn1}]
+On procède par analyse synthèse.
+
+
+\textbf{Analyse :} Soit $z=a+ib\in\C$ tel que $G_z$ est un sous-groupe fermé de $\C$.
+Pour $t\in\Z$, on a $e^{tz}=e^{-bt}e^{ait}$. 
+Montrons par l'absurde que $b=0$.
+Supposons $b\neq 0$, traitons les deux cas possibles : 
+\begin{itemize}
+	\item Si $b > 0$, on prend $(t_n)\in\Z^{\N}$ telle que $t_n\longrightarrow +\infty$. 
+    Dans ce cas, $(e^{it_nz})$ est une suite d'éléments de $G_z$. 
+    Pour $n\in\N$, on a \[|e^{it_nz}|=|e^{-bt_n}e^{iat_n}|=e^{-bt_n}\longrightarrow 0\]
+	Donc $e^{it_nz}\longrightarrow 0$ et, $G_z$ étant fermé, $0\in G_z$, ce qui est exclu.
+	\item Si $b < 0$, on refait le même raisonnement en prenant $(t_n)\in\Z^{\N}$ tendant vers $-\infty$, et on a $0\in G_z$, ce qui est exclu.
+\end{itemize}
+Donc le seul cas possible est $b=0$.
+
+
+Ainsi, $z\in\R$. 
+Pour avoir plus d'intuition sur ce que peuvent être les solutions au problème, on peut regarder le cas où $G_z$ est fini.
+Si $G_z$ est fini (on écarte le cas $z=0$ qui est trivial), c'est un sous-groupe fini de $\C^*$, donc, si on note $n$ son cardinal, on a $G_z=\mathbb U_n$.
+
+Soit alors $x\in G_z$, il existe $t\in\Z^*$ et $k\in\Z$ tels que $x=e^{itz}=e^{\frac{2ik\pi}n}$. On a alors 
+\begin{align*}
+	e^{i\left(tz-\frac{2k\pi}n\right)} = 0 &\implies tz - \frac{2k\pi}n\equiv 0[2\pi]\\
+										   &\implies \exists l\in\Z,\ z=\frac2t\left(l+\frac{2k}n\right)\pi\\
+										   &\implies z\in\pi\Q
+\end{align*}
+On peut aussi remarquer que $z\in\pi\Q$ suffit pour que $G_z$ soit fini. 
+
+
+\textbf{Synthèse :} Soit $z\in\R$.
+Si $z\in\pi\Q$, $G_z$ est fini, donc c'est un compact de $\C$ comme partie finie de $\C$,
+donc est un fermé de $\C$. C'est aussi un sous-groupe de $\C^*$, donc $z$ convient.
+
+
+Sinon, $z\notin\pi\Q$. Montrons que dans ce cas $G_z$ n'est pas un fermé de $\C$.
+En effet, si $G_z$ est fermé, on peut montrer que $G_z=\mathbb U$. 
+D'abord, $z\Z+2\pi\Z$ est un sous-groupe dense de $\R$, puisque sinon, 
+on aurait, pour un $\alpha\in\R$, $z\Z+2\pi\Z=\alpha\Z$, donc $z\in z\Z+2\pi\Z=\alpha\Z$
+et $2\pi\in z\Z+2\pi\Z=\alpha\Z$ donc il existe $k,l\in\Z^*$ ($z$ et $2\pi$ sont non nuls) 
+tels que $z=k\alpha$ et $2\pi=l\alpha$, d'où $z=\frac{2k\pi}l\in\pi\Q$ ce qui est exclu. 
+La fonction $\phi:x\in\R\mapsto e^{ix}$ étant continue, on a que $\phi(z\Z+2\pi\Z)=G_z$ est dense dans $\phi(\R)=\mathbb U$. 
+En passant à l'adhérence, on a $G_z=\mathbb U$, ce qui est exclu, parce que, par exemple, $-1\notin G_z$.
+\end{proof}
+
+\begin{proof}[Correction de l'exercice \ref{evn2}]
+    Soit $A\in X$. On considère la suite d'éléments $(A^n)_{n\in\N}$.
+    Cette suite est une suite à éléments dans $X$, puisque $A\in X$ et $X$ est stable par produit. 
+    De plus, $X$ étant compacte, $(A^n)$ admet une suite extraite convergente ; 
+    il existe alors $\varphi : \N\to\N$ une application strictement croissante et $B\in X$ telles que \[A^{\varphi(n)}\longrightarrow B\]
+    Soit $p\in\N^*$. On a \[A^{-p}A^{\varphi(n)}\longrightarrow A^{-p}B\]
+    Or, à partir d'un certain rang, on a $A^{-p}A^{\varphi(n)}\in X$ (il suffit d'avoir $\varphi(n)>p$), 
+    on a donc une suite d'éléments de $X$ qui converge vers $A^{-p}B$, matrice qui est alors dans $X$ puisque $X$ est fermé. 
+    Ensuite, sachant l'expression suivante pour l'inverse d'une matrice : \[A^{-1}=\frac1{\text{det}A}{}^t\text{Com}(A)\]
+    on en déduit que le passage à l'inverse est continu, d'où que \[A^{-\varphi(n)}\longrightarrow B^{-1}\]
+    Donc $A^{-\varphi(n)}B\longrightarrow B^{-1}B=I_n$ puis $A^{-1}A^{-\varphi(n)}B\longrightarrow A^{-1}$. 
+    Or, pour tout $n\in\N$, $A^{-1}A^{-\varphi(n)}B=A^{-\varphi(n)-1}B\in X$, donc $A^{-1}\in X$ puisque $X$ est fermé. 
+    Ainsi $X$ est stable par produit et par passage à l'inverse, c'est un sous-groupe de $\gl_n(\R)$.
+\end{proof}
+    
+
+\begin{proof}[Correction de l'exercice \ref{evn3}]\hfill
+    \begin{enumerate}
+        \item Montrons que $\R[X]\backslash\mathcal U$ est un ouvert de $(\R[X],\norm\cdot_\infty)$. 
+        Soit pour cela un polynôme $P$ à coefficients réels non unitaire. 
+        Si $P$ est nul, la boule ouverte centrée en $P$ et de rayon $1$ ne contient 
+        que des polynômes dont tous les coefficients sont \textit{strictement} plus petits que $1$,
+        donc dont, en particulier, le coefficient dominant est \textit{strictement} plus petit que $1$.
+        Si $P$ est non nul, alors $\cd P\in \R\backslash\lbrace 0,1\rbrace$. 
+        Soit $\varepsilon > 0$ tel que $(\cd P-\varepsilon,\cd P+\varepsilon)\subset\R\backslash\lbrace0,1\rbrace$. 
+        On peut choisir $\varepsilon < \min(1,\cd P)$. 
+        Si $Q\in B(P,\varepsilon)$, deux cas se présentent 
+        \begin{itemize}
+            \item Soit $\deg P=\deg Q$, et alors $\norm{P-Q}_\infty<\varepsilon\implies|\cd P-\cd Q|<\varepsilon$. 
+            Ceci donne $\cd Q\in(\cd P-\varepsilon,\cd P+\varepsilon)\subset\R\backslash\lbrace0,1\rbrace$.
+            \item Soit $\deg P\neq\deg Q$, et alors on aurait $|\cd P|<\varepsilon$ ou $|\cd Q|<\varepsilon$ selon que $\deg P>\deg Q$ ou $\deg P<\deg Q$.
+            Or, ayant choisi $\varepsilon < \cd P$ en particulier, on ne peut avoir que $|\cd Q|<\varepsilon<1$.
+        \end{itemize}
+        \item Supposons $Q$ scindé sur $\R$. 
+        Notons 
+        \[
+            Q=\prod_{k=1}^p(X-\lambda_k),\ \lambda_k\in\R  
+        \]
+        Soit $z\in\C$. 
+        On a d'une part 
+        \[
+            |Q(z)|^2=Q(z)\overline{Q(z)}=Q(z)Q(\overline z)=\prod_{k=1}^n(\lambda_k^2-2\lambda_k\Re(z)+|z|^2)    
+        \]
+        On considère alors $y\in\R\mapsto y^2-2\Re(z)y+|z|^2$, une application polynomiale de degré $2$ atteignant son minimum 
+        en $-(-2\Re(z))/2=\Re(z)$, et ce minimum vaut $|\Im(z)|^2$.
+        D'où, pour $k=1,\dots,p$, $\lambda_k^2-2\lambda_k\Re(z)+|z|^2\geq |\Im(z)|^2$, et donc finalement 
+        \[
+            |Q(z)|^2\geq\prod_{k=1}^p|\Im(z)|^2\geq|\Im(z)|^{2p}
+        \]
+        Réciproquement, si pour tout $z\in \C$, $|Q(z)|\geq|\Im(z)|^p$, alors pour toute racine $\alpha\in\C$ de $Q$,
+        on a $0=|Q(\alpha)|\geq|\Im(\alpha)|^p$, soit $\Im(\alpha)=0$ et $\alpha\in\R$.
+
+        \item Soit $(Q_n)\in\mathcal S^{\N}$, et supposons que cette suite converge vers $P\in\R[X]$.
+        Soit $p=\deg P$. 
+        On montre que l'on peut extraire de $(Q_n)$ une suite dont tous les termes sont des polynômes de degré égal à $p$.
+        Pour cela, on montre 
+        \[
+            \forall q\in\N, \exists n\geq q,\ \deg Q_n=p    
+        \]
+        en procédant par l'absurde : on suppose alors 
+        \[
+            \exists q\in\N, \forall n\geq q,\ \deg Q_n\neq p
+        \]
+        On a soit une infinité de $n$ tels que $\deg Q_n > p$ ou une infinité de $n$ tels que $\deg Q_n < p$. 
+        Le deuxième cas n'est en fait pas possible (on laisse au lecteur les soins de justifier cela). 
+        Il existe alors $\varphi : \N\to\N$ une application strictement croissante telle que 
+        \[
+            \forall n\in\N,\ \deg Q_{\varphi(n)}\geq p + 1
+        \]
+        Mais on a encore $\norm{Q_n-P}_\infty\to 0$, ce qui donne 
+        \[
+            \forall n\in\N,\ 1=|\cd Q_{\varphi(n)}|=|\cd(Q_{\varphi(n)}-P)|\leq \norm{Q_{\varphi(n)}-P}_\infty
+        \]
+        En passant à la limite, on a $1\leq 0$, ce qui n'est pas. 
+
+        En conclusion, on dispose d'une extractrice $\varphi:\N\to\N$, telle que pour tout $n\in\N$, $\deg Q_{\varphi(n)}=p$.
+        On a alors 
+        \[
+            \forall n\in\N,\forall z\in\C,\ |Q_{\varphi(n)}(z)|\geq|\Im(z)|^p    \tag*{(*)}
+        \]
+        Or, en notant $Q_{\varphi(n)}=\sum_{k=0}^pa_k^{(n)}X^k$ et $P=\sum_{k=0}^pa_kX^k$, on a pour tout $k$, $a_k^{(n)}\to a_k$, donc pour tout $z\in\C$, $Q_n(z)\to P(z)$,
+        soit, en passant à la limite dans (*)
+        \[
+            \forall z\in\C,\ |P(z)|\geq|\Im(z)|^p
+        \]
+        et ceci assure que $P$ est scindé sur $\R$. 
+        De plus, la première question assure que $P$ est unitaire.
+        
+        Ceci achève de montrer que $\mathcal S$ est un fermé de $\R[X]$ muni de $\norm{\cdot}_\infty$.
+    \end{enumerate}
+\end{proof}
+
+\begin{proof}[Correction de l'exercice \ref{evn4}]
+	Il suffit de l'écrire. Soit $(x_n)$ une suite d'éléments de $F+K$ qui converge vers $x\in E$. 
+    On a \[\forall n\in\N,\quad x_n=y_n+z_n,\quad y_n\in F,z_n\in K\]
+	$(z_n)$ est une suite d'éléments de $K$ compact, donc il existe $\varphi :\N\to \N$ une application strictement croissante et $z\in K$ 
+    tels que $z_{\varphi(n)}\longrightarrow z$. Or, on a également \[x_{\varphi(n)}\longrightarrow x\]
+	Mais pour tout $n\in\N$, on a $y_{\varphi(n)}=x_{\varphi(n)}-z_{\varphi(n)}\longrightarrow x-z$. 
+    $F$ étant fermé, il vient que $x-z\in F$, d'où $x\in F+K$.
+\end{proof}
+
+\begin{proof}[Correction de l'exercice \ref{evn5}]
+	Il s'agit bien d'une partie fermée de $\mathcal M_n(\R)$. 
+    En effet, on considère l'application $\varphi : M\in\mathcal M_n(\R)\mapsto {}^tMM$. 
+    Cette application est continue, car la transposition est continue (linéaire et dimension de l'espace de départ est finie) 
+    et la multiplication également (peut être justifié de la même manière...), puis $O_n(\R)=\varphi^{-1}(\lbrace I_n\rbrace)$, 
+    et $\lbrace I_n\rbrace$ est un fermé, donc le groupe orthogonal est image réciproque d'un fermé par une fonction continue et est donc fermé.\\
+	Pour la connexité par arcs, se référer au cours sur les espaces euclidiens.
+\end{proof}
+
+\begin{proof}[Correction de l'exercice \ref{evn6}]
+    La réponse est non.
+    Si $c\in[0,1]^2$, alors $[0,1]^2\backslash\lbrace c\rbrace$ est encore un connexe,
+    son image par $f$ est alors un connexe de $\R$, donc un intervalle. 
+    Si $c$ est pris comme antécédent d'un élément dans un intervalle du type $(a,b)$ tel que $[a,b]\subseteq f([0,1]^2)$,
+    alors $f([0,1]^2\backslash\lbrace c\rbrace)$ contient toujours $a$ et $b$, donc tout l'intervalle $[a,b]$, et donc on trouve deux antécédents au même élément,
+    ce qui est exclu, car $f$ est injective.
+\end{proof}
+
+\begin{remarks}
+    Il est possible de construire une injection de $\R^2$ dans $\R$ (vous pouvez essayer de le faire, ce n'est pas très compliqué),
+    et même, plus intéressant, une surjection continue de $[0,1]$ dans $[0,1]^2$ (nettement plus difficile ; 
+    ces objets portent le doux nom de \textit{courbe remplissante} ou \textit{space-filling curves} en anglais).
+\end{remarks}

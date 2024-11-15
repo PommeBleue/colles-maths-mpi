@@ -1,0 +1,29 @@
+\begin{proof}[Correction de l'exercice \ref{cd1}]
+    Soit $y_0\in U$. 
+    Il existe $\varepsilon >0$ tel que $V=B(y_0,\varepsilon)\subseteq U$. 
+    On prend alors $x,y\in V$ et on pose $\varphi:t\in[0,1]\mapsto f(x+t(y-x)) \in \mathcal C^1$ par composition,
+    de dérivée $\varphi'(t)=\dd f_{\varphi(t)}(y-x)$. 
+    On a alors
+    \[
+        \forall t\in[0,1],\ \norm{\dd f_{\varphi(t)}(y-x)}\leq\norm{\dd f_{\varphi(t)}}_{\mathcal L(\R^n,\R^n)}\norm{y-x}
+    \]
+    et $\dd f$ étant continue, et $\varphi$ étant à valeurs dans un compact, $\norm{\dd f_{\varphi(t)}}_{\mathcal L(\R^n,\R^n)}$ 
+    est majorée par une constante $L_{y_0}$ sur $[0,1]$.
+    On a ensuite 
+    \begin{align*}
+        \norm{f(y)-f(x)}\leq\norm{\varphi(1)-\varphi(0)}&=\norm{\int_0^1\varphi'(t)\dd t}\\ &\leq\int_0^1\norm{\varphi'(t)}\dd t\leq L_{y_0}\norm{y-x}
+    \end{align*}
+    et ceci vaut pour tous $x,y\in V$. 
+    Cela achève de démontrer la thèse de l'énoncé.
+\end{proof}
+
+\begin{proof}[Correction de l'exercice \ref{cd2}]
+    En effet, $B_f$ étant compact ($\R^n$ est de dimension finie, pardi) et $f$ étant continue sur $B_f$ à valeurs réelles,
+    $f$ est bornée sur $B_f$ et on peut noter $f(x_0)=m=\min f$ et $f(x_1)=M=\max f$ (les min et max étant pris sur $B_f$).
+    Deux cas de figure se présentent :
+    \begin{itemize}
+        \item Soit $m = M$, alors $f$ est constante sur tout $B_f$ et le résultat est trivial ;
+        \item soit $m<M$, et nécessairement $x_1\notin \mathbf S^{n-1}$ ou $x_0\notin \mathbf S^{n-1}$, car $f$ y est constante. 
+        Si par exemple $x_0\notin\mathbf S^{n-1}$, alors $x_0\in B$, donc $f$ admet un extremum local en $x_0$ sur l'ouvert $B$, et alors $\dd f_{x_0}=0$.
+    \end{itemize}
+\end{proof}

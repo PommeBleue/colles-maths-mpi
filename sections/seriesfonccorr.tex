@@ -1,0 +1,37 @@
+\begin{proof}[Correction de l'exercice \ref{seriesfonc1}]
+	$f$ étant limite uniforme d'une suite de fonctions continues, elle est continue. 
+    Il vient alors que \[f(x_n)\xrightarrow[n\to+\infty]{} f(x)\tag{1}\]
+	Puis, pour $n\in\N$, on a 
+    \begin{align*}
+        |f_n(x_n)-f(x)|&=|f_n(x_n)-f(x_n)+f(x_n)-f(x)|\\ 
+                    &\leq|f_n(x_n)-f(x_n)|+|f(x_n)-f(x)|
+    \end{align*}
+	Or, puisqu'il y a convergence uniforme,
+    \[
+        |f_n(x_n)-f(x_n)|\leq \norm{f_n-f}_\infty^{\R}\xrightarrow[n\to+\infty]{} 0
+    \] 
+    Puis (1) donne que $|f(x_n)-f(x)|\xrightarrow[n\to+\infty]{}0$.
+    Par encadrement, on a $|f_n(x_n)-f(x)|\xrightarrow[n\to+\infty]{} 0$, soit \[\boxed{f_n(x_n)\xrightarrow[n\to+\infty]{}f(x)}\]
+\end{proof}
+
+\begin{proof}[Correction de l'exercice \ref{seriesfonc2}]
+	Soit $(p_n)_{n\in\N}$ une suite de polynômes convergeant uniformément vers $\exp$ sur $\R$, soit 
+    \[\forall \varepsilon > 0,\ \exists n_0\geq 0,\ \forall n\geq n_0,\ \forall x\in\R,\ |p_n(x)-\exp(x)|\leq \varepsilon\]
+	Ainsi, si on "applique" cette phrase pour $\varepsilon = 333$, on a l'existence de $n_0\geq 0$ tel que, pour $n\geq n_0$ et pour $x\in\R$, on ait $|p_n(x)-\exp(x)|\leq 333$. 
+    Mézalor \[|p_n(x)-p_{n_0}(x)|\leq |p_n(x)-\exp(x)|+|p_{n_0}(x)-\exp(x)|\leq 666\]
+	Ceci valant pour tout $n\geq n_0$ et pour tout $x\in\R$, on a que, pour tout $n\geq n_0$, le polynôme $p_n-p_{n_0}$ est borné sur $\R$, donc constant, 
+    d'où l'existence d'une suite de réels $(\alpha_n)$ telle que \[\forall n\geq n_0,\ \forall x\in\R,\ p_n(x)-p_{n_0}(x)=\alpha_n\]
+	La suite $(p_n(42))_{n\in\N}$ convergeant, puisque CU implique CS, on a que la suite $(\alpha_n)$ converge également, 
+    il suffit d'évaluer la précédente expression en $42$ ; on note $\alpha$ sa limite. Pour $x\in\R$, on a \[\forall n\geq n_0,\ p_n(x)-p_{n_0}(x)=\alpha_n\]
+	On passe à la limite quand $n$ tend vers $+\infty$ et on obtient \[\exp(x)=p_{n_0}(x)+\alpha\]
+	autrement dit, $\exp$ est un polynôme, ce qui est exclu.
+\end{proof}
+
+\begin{proof}[Correction de l'exercice \ref{seriesfonc3}]
+	Pour $|x|>1$, on voit facilement que $|n^x/x^n|=o(1/n^2)$, par comparaison de séries à termes positifs, $\sum\frac{n^x}{x^n}$ CA donc CV. 
+    Pour $x=-1$, la convergence découle du CSSA.
+    Pour $x\in(-1,1]$, la série diverge grossièrement. 
+    On a alors $D=(-\infty,-1]\cup(1,+\infty)$.
+    On vérifie aisément que la série de fonctions définissant $f$ converge uniformément sur tout compact de $D$, 
+    ainsi, sur tout compact de $D$, $f$ est limite uniforme de fonctions continues ; elle est alors continue sur $D$ tout entier.
+\end{proof}

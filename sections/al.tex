@@ -1,0 +1,36 @@
+\begin{exo}[Formes linéaires sur $\mathcal M_n(\R)$ annulées par des crochets de lie de matrices.]
+    \label{al1}
+    Soit $\varphi : \mathcal M_n(\R)\to \R$ une forme linéaire vérifiant
+    \[\forall M,M'\in \mathcal M_n(\R),\ \varphi(MM')=\varphi(M'M)\quad \text{ et }\quad \varphi(I_n)=n\]
+    On pose $A=\lbrace MM'-M'M,\ M,M'\in \mathcal M_n(\R)\rbrace$. 
+    \begin{enumerate}
+        \item Montrer que $\Vect(A)=\lbrace M\in \mathcal M_n(\R)\ |\ \tr(M)=0\rbrace$.
+        \item En déduire que $\varphi=\tr$.
+    \end{enumerate}
+\end{exo}
+
+\begin{exo}[Familles libres de matrices de rang $1$ de $\mathcal M_n(\R)$]
+    \label{al2}
+	Soit $(X_1,\dots,X_p)\in\R^n$ une famille libre de vecteurs de $\R^n$. Montrer que la famille $(X_1{}^tX_1,\dots,X_p{}^tX_p)$ est une famille libre de vecteurs de $\mathcal M_n(\R)$. Étudier la réciproque.
+\end{exo}
+
+\begin{exo}[Combinaison linéaire d'exponetielles]
+    Soient $n\geq 0$ et $x_0,\dots,x_n\in\R^*$ tels que 
+    \[
+        \forall i\neq j,\ (x_i-x_j)(x_i+x_j)\neq 0    
+    \]
+    On suppose qu'il existe des complexes $\lambda_0,\dots,\lambda_n$ et $\varepsilon > 0$ tels que 
+    \[
+        \forall t\in(-\varepsilon,\varepsilon),\ \sum_{k=0}^n\lambda_ke^{itx_k}\in\R    
+    \]
+    Montrer que pour tout $k=0,\dots,n$, on a $\lambda_k\in\R$.
+\end{exo}
+
+\begin{exo}[Fonctions multiplicatives de $\mathcal M_n(\K)$ dans $\K$]
+    Soit $f:\mathcal M_n(\K)\to \K$ telle que 
+    \[
+        \forall A,B\in\mathcal M_n(\K),\ f(AB)=f(A)f(B)    
+    \]
+    Montrer que $f(A)\neq 0\iff A\in\gl_n(\K)$.
+\end{exo}
+    

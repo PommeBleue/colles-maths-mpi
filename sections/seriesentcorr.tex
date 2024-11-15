@@ -1,0 +1,174 @@
+\begin{proof}[Correction de l'exercice \ref{seriesent1}]
+	\begin{enumerate}
+		\item Oui. Pour $x\in(-1,1)$ et $t\in\left[0,\frac\pi2\right]$, on a \[1-(x\sin t)^2\geq 1-x^2> 0\]
+		d'où que $t\mapsto \sqrt{1-(x\sin t)^2}$ est continue et non nulle sur $\left[0,\frac\pi2\right]$, puis $t\mapsto \frac1{\sqrt{1-(x\sin t)^2}}$ est bine définie et continue sur $\left[0,\frac\pi2\right]$ et l'intégrale est bien définie. Ceci valant pour tout $x\in(-1,1)$, $f$ est bien définie.
+		\item Soit $x\in(-1,1)$
+
+
+		Soit $t\in\left[0,\frac\pi2\right]$, on a $|x\sin t| < 1$, donc, dse${}_0$ usuel : 
+		\begin{align*}
+			\frac1{\sqrt{1-(x\sin t)^2}} &= \sum_{n=0}^{+\infty}\frac1{n!}\left(\prod_{i=0}^{n-1}\left(-\frac12-i\right)\right)(-1)^n(x\sin t)^{2n}\\
+										 &= \sum_{n=0}^{+\infty}\frac{(-1)^n}{2^nn!}\left(\prod_{i=0}^{n-1}(2i+1)\right)(-1)^n(x\sin t)^{2n}\\
+										 &= \sum_{n=0}^{+\infty}\frac{(2n)!}{2^{2n}(n!)^2}(x\sin t)^{2n}\\
+		\end{align*}
+		Posons alors, pour $n\in\N$, $f_n:t\in\left[0,\frac\pi2\right]\mapsto\frac{(2n)!}{2^{2n}(n!)^2}(x\sin t)^{2n}$.
+
+
+		La série de fonctions $\displaystyle\sum f_n$ converge uniformément sur $\left[0,\frac\pi2\right]$. En effet, si $n\in\N$ et $t\in\left[0,\frac\pi2\right]$, alors 
+		\begin{align*}
+			& \quad |f_n(t)|\leq \frac{(2n)!}{2^{2n}(n!)^2}|x|^{2n}\\
+			\implies & \quad  \norm{f_n}_\infty^{\left[0,\frac\pi2\right]} \leq \frac{(2n)!}{2^{2n}(n!)^2}|x|^{2n} \ \leftarrow \ \begin{smallmatrix}\text{terme général}\\ \text{d'une série CA}\end{smallmatrix}
+		\end{align*}
+
+		La série de fonctions $\displaystyle\sum f_n$ converge normalement, donc uniformément sur $\left[0,\frac\pi2\right]$. Il vient alors que 
+		\[f(x)=\int_0^\frac\pi2\sum_{n=0}^{+\infty}f_n(t)\dd t = \sum_{n=0}^{+\infty}\int_0^\frac\pi2 f_n(t)\dd t \]
+
+		Mézalor 
+		\begin{align*}
+			f(x) &= \sum_{n=0}^{+\infty}\int_0^\frac\pi2\frac{(2n)!}{2^{2n}(n!)^2}(x\sin t)^{2n}\dd t\\
+				 &= \sum_{n=0}^{+\infty}\frac{(2n)!}{2^{2n}(n!)^2}x^{2n}\int_0^\frac\pi2\sin^{2n} t\dd t\\
+				 &= \sum_{n=0}^{+\infty}\frac1{2^{2n}}W_{2n}\binom{2n}nx^{2n}
+		\end{align*}
+
+		Ceci valant pour tout $x\in(-1,1)$, on a que $f$ est égale à la somme d'une série entière sur un domaine non trivial, d'où que $f$ est dse${}_0$.
+
+		\item Pour $n\in\N$, on pose $a_n=\frac{W_{2n}}{2^{2n}}\binom{2n}n$.
+
+
+		Il vient alors que $a_n\sim \frac1{2n}$, et on pose $(b_n)_{n\geq 1}=\left(\frac1{2n}\right)_{n\geq 1}$.\\
+
+
+		\textbf{Lemme : } Soient $(a_n)$ et $(b_n)$ deux suites réelles telles que $a_n\sim b_n$ et que $b_n\in\R_+^*$ pour tout entier $n$. Les séries entières $\displaystyle\sum a_nx^n$ et $\displaystyle\sum b_nx^n$ ont alors même rayon de convergence que l'on note $R$. Supposons que $R = 1$ et que $\displaystyle\sum b_n$ diverge. On a alors \[\sum_{k=0}^{+\infty}a_kx^k\underset{1^{-}}{\sim}\sum_{k=0}^{+\infty}b_kx^k\]
+
+
+		\textit{Démonstration : } Soit $\varepsilon > 0$. Comme $a_n\sim b_n$, on sait l'existence de $n_0\in\N$ tel que \[\forall n\geq n_0,\ (1-\varepsilon)b_n\leq a_n\leq (1+\varepsilon)b_n\]
+
+		Soit $x\in(-1,1)$, on sait la convergence abosulue des séries entières sur $(-1,1)$, d'où, en sommant de $n_0$ jusqu'à $n$ pour un $n\geq n_0$ donné et en faisant tendre $n$ vers $+\infty$, on a 
+		\[-\varepsilon\sum_{k=n_0}^{+\infty}b_kx^k\leq \sum_{k=n_0}^{+\infty}a_kx^k-\sum_{k=n_0}^{+\infty}b_kx^k\leq\varepsilon\sum_{k=n_0}^{+\infty}b_kx^k\]
+		Il vient alors que \[\left |\sum_{k=n_0}^{+\infty}a_kx^k-\sum_{k=n_0}^{+\infty}b_kx^k \right|\leq \varepsilon\sum_{k=n_0}^{+\infty}b_kx^k\leq\varepsilon\sum_{k=0}^{+\infty}b_kx^k\]
+		Puis 
+		\begin{align*}
+			\left |\sum_{k=0}^{+\infty}a_kx^k-\sum_{k=0}^{+\infty}b_kx^k \right| & =  \left |\sum_{k=n_0}^{+\infty}a_kx^k-\sum_{k=n_0}^{+\infty}b_kx^k + \sum_{k=0}^{n_0-1}a_kx^k-\sum_{k=0}^{n_0-1}b_kx^k\right|\\
+																					 & \leq \left |\sum_{k=n_0}^{+\infty}a_kx^k-\sum_{k=n_0}^{+\infty}b_kx^k \right| + \underbrace{\left|\sum_{k=0}^{n_0-1}a_kx^k-\sum_{k=0}^{n_0-1}b_kx^k\right|}_{:=\alpha}\\
+																					 & \leq \varepsilon\sum_{k=0}^{+\infty}b_kx^k + \alpha
+		\end{align*}
+		On remarque ensuite que \[\lim_{x\to1^-}\sum_{k=0}^{+\infty}b_kx^k=+\infty\]
+		On laisse au lecteur les soins de justifier cela.
+
+
+		Ainsi, il existe $x_0\in(0, 1)$ tel que si $x\in[x_0,1)$, on ait $\alpha \leq \varepsilon\displaystyle\sum_{k=0}^{+\infty}b_kx^k$, puis \[\left |\frac{\displaystyle\sum_{k=0}^{+\infty}a_kx^k-\displaystyle\sum_{k=0}^{+\infty}b_kx^k}{\displaystyle\sum_{k=0}^{+\infty}b_kx^k}\right|\leq 2\varepsilon\]
+
+
+
+		D'où le résultat voulu. Ensuite, il est clair que, dans notre cas, $\displaystyle\sum b_n$ diverge, d'où que \[\boxed{f(x)=\sum_{n=0}^{+\infty}a_nx^n\underset{1^-}{\sim}\sum_{n=1}^{+\infty}\frac1{2n}x^n=\frac{-1}2\ln(1-x)}\]
+	\end{enumerate}
+\end{proof}
+
+\begin{proof}[Correction de l'exercice \ref{seriesent2}]
+Le rayon de convergence de la série dont la somme définit $f$ est de $1.$
+On considère la fonction 
+\[
+    g(x)=\displaystyle\sum_{n=1}^{+\infty}a_nx^n
+\] où $a_n=\ln(n+1)-\ln(n)-1/n$ pour $n\geq 1$.
+Le rayon de convergence de la série ainsi définie est de $1$, puisque l'on a \[a_n=\ln\left(1+\frac1n\right)-\frac1n=\frac1n-\frac1{2n^2}+o\left(\frac1{n^2}\right)-\frac1n=-\frac1{2n^2}+o\left(\frac1{n^2}\right)\] 
+Ainsi $a_n\sim\frac{-1}{2n^2}$, et on conclut avec le critère de D'Alambert.
+
+Soit alors $x\in\R$ tel que $|x|<1$. On a 
+\begin{align*}
+	xg(x)&=\displaystyle\sum_{n=1}^{+\infty}a_nx^{n+1}\\
+		&=\displaystyle\sum_{n=1}^{+\infty}\left(\ln(n+1)-\ln(n)-\frac1n\right)x^{n+1}\\
+		&=\displaystyle\sum_{n=1}^{+\infty}\ln(n+1)x^{n+1}-x\displaystyle\sum_{n=1}^{+\infty}\ln(n)x^n-x\displaystyle\sum_{n=1}^{+\infty}\frac1nx^n\\
+		&=f(x)-xf(x)+x\ln(1-x)
+\end{align*}
+Comme $a_n\sim\frac{-1}{2n^2}$, on en déduit que $g$ est définie en $1$ et y est donc continue. Il vient alors que \[xg(x)\underset{1^{-}}{=}o(\ln(1-x))\]
+\end{proof}
+
+\begin{proof}[Correction de l'exercice \ref{seriesent3}]
+On suppose que le rayon de convergence $R$ de la série entière $\sum u_nx^n$ est non nul.
+Et on pose pour $x\in(-R,R)$, $f(x)=\sum_{n=0}^{+\infty}u_nx^n$. 
+Soit alors $x\in\R$ tel que $|x|<R$, alors 
+
+\[f(x)-1=\sum_{n=1}^{+\infty}u_nx^n=x\sum_{n=0}^{+\infty}u_{n+1}x^n\]
+
+D'après le théorème de convergence pour les séries entières, la série $\sum u_nx^n$ converge abosulement et 
+
+\[\left(\sum_{n=0}^{+\infty}u_nx^n\right)^2=\sum_{n=0}^{+\infty}\left(\sum_{k=0}^nu_{n-k}u_k\right)x^n=\sum_{n=0}^{+\infty}u_{n+1}x^n\]
+
+Il s'agit du produit de Cauchy de deux séries AC.
+Il vient alors que
+
+\[\forall x\in(-R,R),\ f(x)-1=x(f(x))^2\]
+
+D'où, pour $|x|<1/4$ non nul, $f(x)\in\left\lbrace \frac{1-\sqrt{1-4x}}{2x},\frac{1+\sqrt{1-4x}}{2x}\right\rbrace$, soit 
+\[\exists s:\left(-\frac14,\frac14\right)\to\lbrace-1,1\rbrace,\ \forall x\in\R^*,\ |x|<\frac14\implies f(x)=\frac{1+s(x)\sqrt{1-4x}}{2x}\]
+Ainsi, pour $|x|<1/4$ non nul, \[s(x)=\frac{2xf(x)-1}{\sqrt{1-4x}}\]
+Il vient que $s$ est continue sur $\left(-1/4,1/4\right)$.
+Il existe alors $\varepsilon\in\lbrace -1,1\rbrace$ tel que pour tout $|x|<1/4$, $s(x)=\varepsilon$, soit 
+\[
+    \forall x\in\Rpe,\ |x|<\frac14\implies f(x)=\frac{1+\varepsilon\sqrt{1-4x}}{2x}=\frac2{1-\varepsilon\sqrt{1-4x}}  
+\]
+La continuité de $f$ en $0$, et l'égalité ci-dessus, montrent que $\varepsilon=-1$ nécessairement ($f(0)=1$). 
+Ainsi, pour tout $x$ non nul tel que $|x|<1/4$, on obtient $1-2xf(x)=\sqrt{1-4x}$. 
+Or
+\[
+\forall x\in(-1,1),\ \sqrt{1-4x}=\sum_{n=0}^{+\infty}\binom{1/2}n(-4x)^n
+\]
+
+En particulier,
+\[
+    \forall x\in(-1/4,1/4),\ 1-\sum_{n=1}^{+\infty}2u_{n-1}x^n=\sum_{n=0}^{+\infty}(-1)^n4^n\binom{1/2}nx^n
+\]
+D'où, pour tout $n\geq 1$, la relation 
+\[
+    -2u_{n-1}=\frac{(-1)^n4^n}{n!}\prod_{k=0}^{n-1}\left(\frac12-k\right)=\frac{(-1)^n4^n}{n!}\prod_{k=0}^{n-1}\frac{1-2k}2=\frac{2^n}{n!}\prod_{k=0}^{n-1}(2k-1)    
+\]
+ce qui donne finalement 
+\[
+    \forall n\in\N,\ u_n=\frac{(2n)!}{n!(n+1!)}
+\]
+\end{proof}
+
+\begin{proof}[Correction de l'exercice \ref{seriesent4}]\hfill
+	\begin{enumerate}
+        \item On rappelle l'expression de $R_n(x)$ pour $n\in\N^*$, $x\in[0,a)$ :
+        \[
+            R_n(x)=\int_0^x\frac{(x-t)^n}{n!}f^{(n+1)}(t)\dd t
+        \]
+        En effectuant le changement de variable $t=ux$, on obtient 
+        \[
+            R_n(x)=\frac{x^{n+1}}{n!}\int_0^1(1-u)^nf^{(n+1)}(ux)\dd u
+        \]
+        Lorsque $x,y\in[0,a)$ avec $x<y$, la positivité des dérivées successives de $f$ donne leur croissance,
+        d'où $f^{(n+1)}(ux)\leq f^{(n+1)}(uy)$ pour $u\in[0,1]$, puis
+        \begin{align*}
+            \frac{R_n(x)}{x^{n+1}}&=\frac1{n!}\int_0^1(1-u)^nf^{(n+1)}(ux)\dd u\\
+                                  &\leq \int_0^1(1-u)^nf^{(n+1)}(uy)\dd u=\frac{R_n(y)}{y^{n+1}}
+        \end{align*}
+        \item Soit $x\in[0,a)$. Pour $N\in\N$, on a 
+        \[
+            \left|f(x)-\sum_{n=0}^N\frac{f^{(n)}(0)}{n!}x^n\right|\leq R_N(x)
+        \]
+        Ceci vient de la formule de Taylor avec reste intégral, que l'on peut écrire, car $f$ est en particulier $\mathcal C^{N+1}$ sur $[0,x]$.
+        Si $y\in[0,a)$ avec $x<y$, on a $R_N(x)\leq R_N(y)(x/y)^{N+1}$.
+        Comme $x<y$, on a $(x/y)^{N+1}=o(1)$. Il suffit de montrer que $R_N(y)=\mathcal O(1)$ pour pouvoir conclure.
+        Une simple IPP montre que la suite $(R_n(y))_n$ est décroissante, donc, comme elle est également positive, elle converge.
+
+        \item $\tan$ est définie sur $[0,\pi/2)$, $\mathcal C^\infty$ sur cet intervalle. 
+        Pour $n\in\N$, la formule
+        \[
+            tan^{(n+1)}=(1+\tan^2)^{(n)}=\sum_{k=0}^n\binom nk\tan^{(k)}\tan^{(n-k)}    \tag*{(*)}
+        \]
+        montre que les dérivées successives de $\tan$ sont toutes positives sur $[0,\pi/2)$ puisque $\tan([0,\pi/2))\subset\R_+$.
+        D'après la question (ii), on a 
+        \[
+            \forall x\in\left[0,\frac\pi2\right),\ \tan(x)=\sum_{n=0}^{+\infty}\frac{\tan^{(n)}(0)}{n!}x^n
+        \]
+        Par imparité de $\tan$, si $x\in(-\pi/2,0]$, alors $-x\in[0,\pi/2)$ et 
+        \[
+            \tan(x)=-\tan(-x)=\sum_{n=0}^{+\infty}\frac{\tan^{(n)}(0)}{n!}(-1)^nx^n   
+        \]
+        La formule (*) permet de montrer par récurrence que les dérivées d'ordre impair de $\tan$ sont nulles en 0, 
+		et alors $\sum_{n=0}^{+\infty}\frac{\tan^{(n)}(0)}{n!}(-1)^nx^n=-\sum_{n=0}^{+\infty}\frac{\tan^{(n)}(0)}{n!}x^n$.
+        On trouve alors un développement en série entière de $\tan$ sur $(-\pi/2,\pi/2)$.
+    \end{enumerate}
+\end{proof}

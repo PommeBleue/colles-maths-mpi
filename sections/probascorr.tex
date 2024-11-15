@@ -1,0 +1,81 @@
+\begin{proof}[Correction de l'exercice \ref{probas1}]
+    On va noter, pour $k\in\inl1n$, $S_k=\sum\mathbf1_{X_i=k}$, et alors
+    \[
+        N_n=\sum_{k=1}^n\mathbf1_{S_k\geq 1}    
+    \]
+    D'où, par linéarité de l'espérance 
+    \[
+        \mathbb E(N_n)=\sum_{k=1}^n\mathbb E(\mathbf1_{S_k\geq 1})=\sum_{k=1}^n\mathbb P(S_k\geq 1)
+    \]
+    Or
+    \[
+        \mathbb P(S_k\geq 1)=\mathbb P\left(\bigcup_{i=1}^n(X_i=k)\right)=1-\prod_{i=1}^n\mathbb P(X_i\neq k)    
+    \]
+    D'où $\mathbb P(S_k)=1-\left(\frac{n-1}n\right)^n$ pour tout $k$, soit $\mathbb E(N_n)=n\left[1-\left(\frac{n-1}n\right)^n\right]$.
+
+    On exploite aussi la linéarité de l'espérance pour calculer la variance. 
+    On a 
+    \[
+        \mathbb V(N_n)=\mathbb E(N_n^2)-\mathbb E(N_n)^2    
+    \]
+    Mais 
+    \[
+        N_n^2=\sum_{k=1}^n\mathbf1_{S_k\geq 1}^2+2\sum_{k<l}\mathbf1_{S_k\geq 1}\mathbf1_{S_l\geq 1}
+    \]
+    Donc $N_n^2=N_n+2\sum_{k<l}\mathbf1_{S_k\geq 1}\mathbf1_{S_l\geq 1}$ et 
+    \[
+        \mathbb E(N_n^2)=\mathbb E(N_n)+2\sum_{k<l}\mathbb E(\mathbf1_{S_k\geq 1}\mathbf1_{S_l\geq 1})
+    \]
+    Puis $E(\mathbf1_{S_k\geq 1}\mathbf1_{S_l\geq 1})=\mathbb P([\mathbf1_{S_k\geq 1}=1]\cap [\mathbf1_{S_l\geq 1}=1])$. 
+    Or
+    \begin{align*}
+        [\mathbf1_{S_k\geq 1}=1]\cap [\mathbf1_{S_l\geq 1}=1]&=\left[\bigcup_{i=1}^n(X_i=k)\right]\cap\left[\bigcup_{i=1}^n(X_i=l)\right]\\
+                                                             &=\bigcup_{i\neq j}(X_i=k)\cap(X_j=l)
+    \end{align*}
+    D'où $\mathbb P([\mathbf1_{S_k\geq 1}=1]\cap [\mathbf1_{S_l\geq 1}=1])=(n^2-n)\frac1{n^2}$.
+    Finalement,
+    \[
+        \mathbb E(N_n^2)=\mathbb E(N_n)+(n-1)^2
+    \]
+    Soit $\mathbb V(N_n)=\mathbb E(N_n)(1-\mathbb E(N_n)) + (n-1)^2$.
+
+    Donnons à présent des équivalents à ces quantités. 
+    On a $\mathbb E(N_n)\sim n(1-e^{-1})$, et $\mathbb V(N_n)\sim n^2[1-(1-e^{-1})^2]$.
+\end{proof}
+
+\begin{proof}[Correction de l'exercice \ref{probas2}]
+    Comme dans l'exercice précédent, on va exploiter la linéarité de l'espérance. 
+    On prend $S$ une permutation aléatoire et on écrit 
+    \[
+        N_n=\sum_{k=1}^n\mathbf1_{S(k)=k}
+    \]
+    Ainsi, par linéarité de l'espérance
+    \[
+        \mathbb E(N_n)=\sum_{k=1}^n \mathbb P(S(k)=k)
+    \]
+    Maintenant, à $k$ fixé, que vaut $\mathbb P(S(k)=k)$ ?
+    Comme $S$ suit une loi uniforme, on cherche alors le nombre de permutations dans $\mathfrak S_n$ fixant $k$. 
+    On considère l'application $\theta i\in\inl1n\mapsto \mathbf1_{i<k}i+\mathbf1_{i > k}(i-1)$, et on pose 
+    $\Gamma : \sigma \in \mathfrak S_{n-1}\mapsto [l\in\inl1n\mapsto \mathbf1_{l\neq k}\sigma\circ\theta(l)+\mathbf1_{l=k}k]\in\mathfrak S_n$.
+    On vérifie facilement que cette application réalise une bijection entre l'ensemble des permutations de $\mathfrak S_n$ fixant et $k$ et les permutations de $\mathfrak S_{n-1}$
+    (pour $n\geq 2$) ; on en déduit $\mathbb P(S(k)=k)=1/n$, puis $\mathbb E(N_n)=1$.
+
+    Pour la variance, on a 
+    \[
+        \mathbb V(N_n)=\mathbb E(N_n^2)-\mathbb E(N_n)^2=\mathbb E(N_n^2)-1
+    \]
+    Mais 
+    \[
+        N_n^2=\sum_{k=1}^n\mathbf1_{S(k)=k}+2\sum_{k<l}\mathbf1_{S(k)=k}\mathbf1_{S(l)=l}
+    \]
+    Donc $\mathbb E(N_n^2)=\mathbb E(N_n)+2\sum_{k<l}\mathbb E(\mathbf1_{S(k)=k}\mathbf1_{S(l)=l})$.
+    Or pour $k<l$, $\mathbb E(\mathbf1_{S(k)=k}\mathbf1_{S(l)=l})=\mathbb P([S(k)=k]\cap[S(l)=l])$.
+    Comme plus haut, on cherche cette fois-ci à compter les permutations qui fixent deux points ; on laisse 
+    au lecteur les sois de vérifier qu'elles sont au nombre de $(n-2)!$, et alors 
+    \[
+        \mathbb E(\mathbf1_{S(k)=k}\mathbf1_{S(l)=l})=\frac1{n(n-1)}
+    \]
+    Soit $\mathbb E(N_n^2)=\mathbb E(N_n)+2\frac{n(n-1)}2\times\frac1{n(n-1)}=1+1=2$.
+    Finalement, $\mathbb V(N_n)=\mathbb E(N_n^2)-1=2-1=1$.
+
+\end{proof}

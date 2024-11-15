@@ -1,0 +1,229 @@
+\begin{proof}[Correction de l'exercice \ref{euclidiens1}]
+	\begin{enumerate}
+		\item Une matrice de $\mathcal O_n(\R)\cap \mathcal E$, par théorème de réduction des matrices orthogonales,
+		est semblable à une matrice diagonale par blocs, dont les blocs diagonaux sont de la forme $R_\theta$, $I_p$ et $-I_q$.
+		Comme $-1$ n'est pas dans son spectre, $q=0$ nécessairement, et alors cette matrice est de déterminent $1$ ($\det R_\theta = 1$).
+		La réciproque est claire, vu l'inclusion $\mathcal{SO}_n(\R)\subset \mathcal{O}_n(\R)$.
+
+		\item Posons $\varphi:(x,y)\in\C^n\mapsto x^T\overline y$, forme sesquilinéaire. 
+		Soit $\lambda$ valeur propre complexe de $A$. 
+		On a $Ax=\lambda x$ avec $x\in \C^n\backslash\lbrace 0\rbrace$. 
+		On a $\varphi(\lambda x,x)=\varphi(Ax,x)=-\varphi(x,Ax)=-\varphi(x,\lambda x)$.
+		Mais $\varphi(x,x)\neq 0$, car $x\neq 0$ et $\varphi(\lambda x,x)=\lambda\varphi(x,x)$ et $\varphi(x,\lambda x)=\overline\lambda\varphi(x,x)$,
+		donc $\lambda=-\overline\lambda$, soit $\lambda\in i\R$.
+
+		\item Pour $M\in\mathcal E$, on a d'abord $\theta(M)\in\mathcal E$. 
+		En effet, $\det(I_n+\theta(M))=\det(I_n+M)^{-1}\det(I_n+M+I_n-M)\neq 0$.
+		Puis
+		\begin{align*}
+			&	(I_n-[(I_n-M)(I_n+M)^{-1}])(I_n+[(I_n-M)(I_n+M)^{-1}])^{-1}\\
+			& = (I_n-[(I_n-M)(I_n+M)^{-1}])(I_n+M)(I_n+M+I_n-M)^{-1}\\
+			& = (I_n+M-(I_n-M))\frac12 I_n\\
+			& = M
+		\end{align*}
+
+		\item Considérons la restriction de $\theta$ à $\mathcal A_n$ (d'après la question (ii), on a bien $\mathcal A_n\subseteq \mathcal E$).
+		Pour $M\in\mathcal A_n$, la question précédente donne déjà $\theta(M)\in \mathcal E$, il ne reste plus qu'à montrer que $\theta(M)\in\mathcal SO_n(\R)$.
+		Il s'agit de calculer 
+		\[
+			[(I_n-M)(I_n+M)^{-1}]^T
+		\] 
+		Mais $[(I_n-M)(I_n+M)^{-1}]^T=[(I_n+M)^{-1}]^T(I_n-M)^T=(I_n-M)^{-1}(I_n+M)$ 
+		d'abord parce que l'on peut inverser inverse et transposée, ensuite parce que $M$ 
+		est antisymétrie. Puis $(I_n-M)$ et $(I_n+M)$ commutent comme des polynômes en $M$, le calcul devient 
+		\[
+			(I_n-M)^{-1}(I_n-M)(I_n+M)^{-1}(I_n+M)
+		\]
+		qui est bien sûr égal à $I_n$. 
+		À ce stade, on a $\theta(M)\in\mathcal O_n(\R)$, mais $\theta(M)\in\mathcal E$, donc $\theta(M)\in\mathcal O_n(\R)\cap\mathcal E=\mathcal SO_n(\R)\cap\mathcal E$.
+
+
+	\end{enumerate}
+\end{proof}
+
+\begin{proof}[Correction de l'exercice \ref{euclidiens2}]
+	\begin{enumerate}
+		\item Soit $M\in\mathcal O_n(\R)$. 
+		Notons $\norm{\cdot}_2$ la norme euclidienne usuelle sur les matrices et $b$ la forme polaire de la forme quadratique $\norm{\cdot}_2^2$. 
+		Comme $MM^T=I_n$, on obtient $\tr(MM^T)=n$ soit $\norm{M}_2=\sqrt n$. 
+		Puis, si on pose $A=(a_{i,j})$ avec $a_{i,j}=1$ si $m_{i,j}\geq 0$ et $a_{i,j}=-1$ sinon, l'inégalité de Schwarz nous donne
+		\[
+			|b(M,A)|\leq\norm{A}_2\norm{M}_2
+		\]
+		Or $b(M,A)=\sum|m_{i,j}|$ et $\norm{A}_2=\sqrt{n^2}=n$. 
+		On obtient le résultat voulu.
+
+		\item On est dans le cas d'égalité de l'inégalité de Schwarz, on a alors $M=\lambda A$.
+		L'égalité $(*)$ nous donne directement en fait $\lambda=\frac\varepsilon{\sqrt n}$, $\varepsilon\in\lbrace -1,1\rbrace$. 
+		On doit aussi avoir $MM^T=I_n$, soit, pour $i\neq j$
+		\[
+			0=\frac1n[AA^T]_{i,j}=\frac1n\sum_{k=1}^na_{i,k}a_{j,k}
+		\]
+		On a alors une somme nulle de réels égaux à $1$ ou $-1$, le nombre de termes de la somme est nécessairement pair, donc $n$ est pair.
+
+		\item Poser $M_2$ comme une matrice avec que des $-1$ ou $1$ en coefficients, divisée par $\sqrt2$, suffit pour avoir (*),
+		il ne reste qu'à bien placer les $1$ et $-1$ pour avoir $M_2M_2^T=I_2$. 
+		Donc on veut
+		\[
+			m_{1,1}m_{2,1}+m_{1,2}m_{2,2}=0
+		\]
+		La matrice suivante convient 
+		\[
+			M_2=\frac1{\sqrt2}\left(\begin{array}{c c} 1 & -1\\ 1 & 1\end{array}\right)
+		\]
+		
+		\item Il suffit de montrer que $n=2^k$, $k\geq 1$, permet de construire une matrice comme dans la question précédente.
+		On va construire nos matrices par récurrence sur $k$. 
+		$M_2$ a déjà été construite, et pour $k\geq 1$, 
+		\[
+			M_{2^{k+1}}=\frac1{\sqrt2}\left(\begin{array}{c c} M_{2^k} & -M_{2^k}\\ M_{2^k} & M_{2^k}\end{array}\right)
+		\]
+		
+		\item Soit $M\in\mathcal O_n(\R)$ vérifiant (*).
+		On suppose que $n$ est différent de $2$. Alors $n\geq 3$.
+		On peut donc considérer, pour $\lbrace i,j\rbrace\in\mathcal P_2(\lbrace1,2,3\rbrace)$, les ensembles
+		\[
+			K_{i,j}=\lbrace k \in\inl1n,\ a_{i,k}a_{j,k}=-1\rbrace	
+		\]
+		Comme $\sum_{k=1}^na_{i,k}a_{j,k}=0$ pour une certaine paire $\lbrace i,j\rbrace$, ces ensembles sont tous de cardinal $n/2$. 
+		On va montrer qu'ils sont de cardinal pair, ce qui achèvera de montrer que $n$ est divisible par $4$.
+		Montrons que 
+		\[
+			\forall \lbrace i,j\rbrace\neq\lbrace p,q\rbrace,\ K_{i,j}^c\cap K_{p,q}^c=\lbrace k\in\inl1n,\ a_{1,k}=a_{2,k}=a_{3,k}\rbrace\tag*{(**)}
+		\]
+		Soit $\lbrace i,j\rbrace\neq\lbrace p,q\rbrace$, on a d'abord nécessairement $\lbrace i,j\rbrace\cup\lbrace p,q\rbrace=\lbrace 1,2,3\rbrace$,
+		donc, par exemple, $p\in\lbrace i,j\rbrace$ mais $q\notin \lbrace i,j\rbrace$.
+		Soit $k\in K_{i,j}^c\cap K_{p,q}^c$, alors $a_{i,k}a_{j,k}=a_{p,k}a_{q,k}=1$
+		(les coefficients sont des produits de $1$ et $-1$, donc nécessairement égaux à $1$ ou $-1$...),
+		donc $a_{i,k}=a_{j,k}$ et $a_{p,k}=a_{q,k}$, et comme $p=i,j$, on a $a_{i,k}=a_{j,k}=a_{q,k}$ soit $a_{1,k}=a_{2,k}=a_{3,k}$.
+		En passant au complémentaire dans (**), on voit que les ensembles $K_{i,j}\cup K_{p,q}$, sont tous de même cardinal, mais 
+		\[
+			|K_{i,j}\cup K_{p,q}|=|K_{i,j}|+|K_{p,q}|-|K_{i,j}\cap K_{p,q}|=n-|K_{i,j}\cap K_{p,q}|
+		\]
+		et cette relation montre que les ensembles $K_{i,j}\cap K_{p,q}$ sont tous de même cardinal.
+		Or, si $\lbrace i,j\rbrace\neq\lbrace p,q\rbrace$, on a 
+		\[
+			k\in K_{i,j}\cap K_{p,q}\implies a_{i,k}a_{j,k}=a_{p,k}a_{q,k}=-1
+		\]
+		et sachant que parmi les deux paires choisies, il y a un indice commun $\sigma$, en simplifiant par $a_{\sigma,k}$,
+		on trouve $a_{s,k}=a_{t,k}$ (où $\lbrace s,t\rbrace$ est la dernière paire possible dans $\mathcal P_2(\lbrace 1,2,3\rbrace)$), soit 
+		$a_{s,k}a_{t,k}=1$ donc $k\in K_{s,t}^c$, mais on a toujours $k\in K_{i,j}$ par exemple, d'où $k\in K_{i,j}\cap K_{p,q}\implies k\in K_{s,t}^c\cap K_{i,j}$,
+		et la réciproque est en fait vraie (se vérifie facilement), d'où $K_{i,j}\cap K_{p,q}=K_{s,t}^c\cap K_{i,j}$, donc 
+		\[
+			|K_{i,j}|=|K_{s,t}^c\cap K_{i,j}|+|K_{s,t}\cap K_{i,j}|=\underbrace{|K_{p,q}\cap K_{i,j}|+|K_{s,t}\cap K_{i,j}|}_{=2|K_{s,t}\cap K_{i,j}|}
+		\]
+		Donc $n/2=K_{i,j}$ est pair soit $n$ est divisible par $4$.
+	\end{enumerate}
+\end{proof}
+
+\begin{proof}[Correction de l'exercice \ref{euclidiens3}]
+	La réflexivité est simple, l'antisymétrie demande d'appliquer
+	le théorème spectral pour se rendre compte que les valeurs propres de la différence sont toutes nuls,
+	et pour la transitivité, on remarque que $X^T(A-B)X\geq 0$ et $X^T(B-C)X\geq 0$ donnent $X^T(A-C)X\geq 0$ pour tout $X$.
+
+	Voyons le plus intéressant : pourquoi une suite telle que prise dans l'énoncé converge ? 
+	On est dans un espace de dimension finie, 
+	on choisit la norme qui nous plait, et celle qui nous arrange le plus ici est la norme infinie,
+	pour laquelle une suite de matrices converge si et seulement si les suites des coefficients convergent. 
+
+	On va poser $(B_p)=(M-A_p)$ pour se ramener à des matrices symétriques. 
+	Pour l'ordre que l'on a défini, la nouvelle suite est décroissante, et les 
+	hypothèses nous donnent pour tout $p\in\N$ et pour tout $X\in\mathcal \R^n$
+	\[
+		X^T(B_{p+1}-B_p)X=-X^T(A_{p+1}-A_p)X\leq 0\quad\text{et}\quad X^T(B_p)X\geq 0	
+	\]
+	Ainsi, pour tout $X\in\mathcal \R^n$, la suite (de réels) $(X^TB_pX)_p$ est décroissante et minorée,
+	elle converge. 
+	Pour $p\in\N$, on pose la forme quadratique $q_p:X\in\R^n\mapsto X^TB_pX$, de forme polaire $\varphi_p$. 
+	On sait 
+	\[
+		\forall X,Y\in\R^n,\ \frac14[q_p(X+Y)-q_p(X-Y)]=\varphi_p(X,Y)
+	\]
+	En prenant $(E_1,\dots,E_n)$ la base canonique de $\R^n$, on obtient 
+	\[
+		\forall i,j\in\inl1n,\ \frac14[q_p(E_i+E_j)-q_p(E_i-E_j)]=\varphi_p(E_i,E_j)=[B_p]_{i,j}
+	\]
+	Mais sachant que $q_p(E_i+E_j)$ et $q_p(E_i-E_j)$ ont une limite finie, on en déduit que $([B_p]_{i,j})$ converge pour tout $i,j$,
+	soit que $(B_p)$ converge, ou encore que $(A_p)$ converge.
+\end{proof}
+
+\begin{proof}[Correction de l'exercice \ref{euclidiens5}]
+	\begin{enumerate}
+		\item $J$ est différentiable et son gradient en $x$ est $\nabla J(x)=Ax-b$ pour $x\in \R^n$.
+		Cela donne $\langle \nabla J(y)-\nabla J(x),y-x\rangle=\langle A(y-x),y-x\rangle$, 
+		et on vérifie que $x\mapsto\sqrt{\langle Ax,x\rangle}$ est bien définie et définit une norme,
+		qui est alors équivalente à $\norm{\cdot}_2$, d'où l'existence de $\alpha >0$ tel que 
+		\[
+			\forall x,y\in\R^n,\ \langle \nabla J(y)-\nabla J(x),y-x\rangle\geq\alpha^2\norm{y-x}^2
+		\]
+		et on peut montrer que cela suffit pour que $J$ soit strictement convexe (voir par exemple l'épreuve de Mathématiques C, ENS 2019).
+		\item C'est une conséquence directe de la convexité.
+		\item Prendre $\alpha$ un élément de l'image de $J$, et prendre $B$ une boule fermée de rayon assez grand de sorte que $\alpha$ soit dans $J(B)$.
+		Comme on est en dimension finie, $B$ est compact, $J$ admet un minimum sur $B$.
+		Par coercivité de $J$, $B$ peut-être en plus choisi de sorte que si $x\notin B$, $\norm{J(x)}\geq\alpha+1$, ce qui montre que le minimum sur $B$ est un minimum global.
+		L'unicité est une conséquence directe de la stricte convexité.
+	\end{enumerate}
+\end{proof}
+
+\begin{proof}[Correction de l'exercice \ref{euclidiens6}]
+	\begin{enumerate}
+		\item L'existence d'une racine carrée de matrices symétriques positives est un classique certainement présent dans votre cours, que je ne vais pas refaire ici. 
+		Soient $R,S$ symétriques positives telles que $R^2=U$ et $S^2=V$.
+		On a alors 
+		\[
+			\tr(UV)=\tr(RRSS)=\tr(RSSR)=\tr(RS(RS)^T)\geq 0
+		\]
+		\item Comme $\tr$ est linéaire, il suffit de montrer que $t\mapsto P(f(t))$ est dérivable.
+		On va vérifier la dérivabilité de $t\mapsto f(t)^k$ pour tout $k\in\N$, 
+		et on déduira que ça vaut pour tout polynôme en faisant des combinaisons linéaires.
+		On pose alors $p_k:M\in\mathcal M_n(\R)\mapsto M^k$, on doit montrer que $\psi : p_k\circ f$ est dérivable. 
+		L'application $p_k$ est différentiable sur tout $\mathcal M_n(\R)$ et 
+		\[
+			\forall M,H\in\mathcal M_n(\R),\ \dd(p_k)_M(H)=\sum_{i=0}^{k-1}M^iHM^{k-1-i}
+		\]
+		De sorte que, d'après le théorème des fonctions composées, $\psi$ soit différentiable 
+		\[
+			\forall t\in\R,\ \psi'(t)=\dd(p_k\circ f)_t(1)=\dd(p_k)_{f(t)}(f'(t))
+		\]
+		et ainsi
+		\[
+			\forall t\in\R,\ \psi'(t)=\sum_{i=0}^{k-1}f(t)^if'(t)f(t)^{k-1-i}	
+		\]
+		Et finalement, la linéarité de $\tr$ donne la dérivabilité de $\varphi$ et 
+		\begin{align*}
+			\forall t\in\R,\ \varphi'(t)=\tr(\psi'(t))  &=\tr\left(\sum_{i=0}^{k-1}f(t)^if'(t)f(t)^{k-1-i}\right)\\
+														&=\sum_{i=0}^{k-1}\tr(f(t)^if'(t)f(t)^{k-1-i})\\
+														&=\sum_{i=0}^{k-1}\tr(f(t)^{k-1}f'(t))\\
+														&=k\tr(f(t)^{k-1}f'(t))
+		\end{align*}
+
+		Donc en fait, pour un $P$ quelconque, $\varphi$ est dérivable et $\varphi'(t)=\tr(P'(f(t))f'(t))$ pour tout $t$.
+
+		\item On pose pour tout $n\in\N$, $P_n=\frac{X^n}{n!}$.
+		Posons $f:t\in[0,1]\mapsto A + t(B-A)$ et $\varphi_n:t\in[0,1]\mapsto\tr(P_n(f(t)))$.
+		Pour tout $n\geq 1$, $\varphi_n$ est dérivable sur $[0,1]$ et $\varphi_n'(t)=\tr(P_{n-1}(f(t))(B-A))$.
+		Par continuité de $\tr$, la série $\sum\varphi_n$ converge simplement vers $t\in[0,1]\mapsto\tr(\exp(f(t)))$, et,
+		si on munit $\mathcal M_n(\R)$ d'une norme sous-multiplicative $\norm{\cdot}$, on a 
+		\begin{align*}
+			\forall n\in\N^*,\ \forall t\in[0,1],\ |\varphi_n'(t)| &\leq\norm{\tr}_{(\mathcal M_n(\R))'}	\norm{P_{n-1}(f(t)(B-A))}\\
+																		&\leq\norm{\tr}_{(\mathcal M_n(\R))'}\norm{B-A}P_{n-1}(\norm{f(t)}) 
+		\end{align*}
+
+		La croissance des fonctions polynomiales réelles associées aux $P_n$ montre $P_n({\norm{f(t)}})\leq P_n(\norm{f}_{L^{\infty}([0,1],\mathcal M_n(\R))}$).
+		D'où 
+		\[
+			\forall n\in\N^*,\ \norm{\varphi'_n}_{L^\infty([0,1],\R)}\leq \norm{\tr}_{(\mathcal M_n(\R))'}\norm{B-A}P_n(\norm{f}_{L^{\infty}([0,1],\mathcal M_n(\R))})
+		\]
+		Ceci montre que $\sum\varphi_n'$ converge uniformément sur $[0,1]$, et en prenant la limite point par point,
+		on voit que cette série converge uniformément vers $t\in[0,1]\mapsto\tr(\exp(f(t))(B-A))$.
+
+		D'après le théorème de dérivabilité des suites et séries de fonctions, on montre alors que $\sum\varphi_n$ converge uniformément vers une fonction dérivable 
+		et que $(\sum\varphi_n)'=\sum\varphi_n'$, soit que $t\in[0,1]\mapsto\tr(\exp(f(t)))$ est dérivable de dérivée $t\in[0,1]\mapsto \tr(\exp(f(t))(B-A))$.
+
+		Avec le théorème spectral, on montre que $\exp(\mathcal S_n(\R))\subseteq \mathcal S_n^{++}(\R)$, d'où $\exp(A+t(B-A))\in\mathcal S_n^{++}(\R)$ pour tout $t\in[0,1]$,
+		mais comme $B-A\in\mathcal S_n^+(\R)$, on a en fait $\varphi'(t)\geq 0$ pour tout $t\in[0,1]$ et ainsi $\varphi$ est croissante sur $[0,1]$, soit 
+		\[
+			\tr(\exp(A))=\varphi(0)\leq\varphi(1)=\tr(\exp(B))	
+		\]
+	\end{enumerate}
+\end{proof}

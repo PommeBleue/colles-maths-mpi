@@ -1,0 +1,145 @@
+\begin{proof}[Correction de l'exercice \ref{reduction1}]
+	On montre les équivalences en montrant une chaîne d'implications.
+	\begin{itemize}
+		\item[] \underline{1) $\implies$ 2)} Supposons que $A$ et $B$ possèdent une valeur commune. Notons $\lambda$ cette valeur propre. D'abrod, il existe $X\in\mathcal M_{n,1}(\C)$ une colonne non nulle telle que \[AX=\lambda X\]
+		Mais $\lambda$ étant valeur propre de $B$, elle est encore valeur propre de ${}^tB$, d'où l'existence de $Y\in\mathcal M_{n,1}(\C)$ une colonne non nulle telle que \[{}^tBY=\lambda Y\]
+		On pose $M=X{}^tY$. On vérifie facilement que $AM=MB$, puis $M$ est non nulle puisque de rang $1$.\\
+
+
+		\textit{Cette implication était la plus difficile à montrer, retenir l'idée.}
+		\item[]\underline{2) $\implies$ 3)} Déjà, on a \[A^2M=A(AM)=(AM)B=MB^2\]
+		puis, on vérifie facilement par récurrence que \[\forall k\in\N,\ A^kM=MB^k\]
+		D'où, pour tout polynôme $P\in\C[X]$, l'égalité \[P(A)M=MP(B)\]
+		En particulier, on a \[M\mu_A(B)=\mu_A(A)M=0\] \nomenclature{$\mu_A,\mu_f$}{Polynôme minimal de la matrice $A$ ou de l'endomorphisme $f$}
+		Ainsi, $M$ étant non nulle, $\mu_A(B)$ est soit nulle, soit un diviseur de $0$, donc est non inversible.
+		\item[]\underline{3) $\implies$ 1)} Par contraposée. Supposons que $A$ et $B$ n'ont pas de valeurs propres communes. Notons $\Sp(A)=\lbrace \lambda_1,\dots,\lambda_p\rbrace$ le spectre de $A$. On écrit \[\mu_A=(X-\lambda_1)^{\alpha_1}\dots(X-\lambda_p)^{\alpha_p}\]
+		Or, pour tout $i\in\inl1p$, $\lambda_i$ n'est pas valeur propre de $B$ et donc $B-\lambda_iI_n\in \gl_n(\C)$. Ainsi $\mu_A(B)$ est produit de matrices inversibles et est donc inversible.
+	\end{itemize}	
+\end{proof}
+
+\begin{proof}[Correction de l'exercice \ref{reduction2}]
+	On note $B=P(T)$ et $\mu_B$ le polynôme minimal de $B$. Il vient que $\mu_B\circ P$ annule $A$ et donc il existe $Q\in\C[X]$ tel que $\mu_B\circ P=Q\mu_A$. Dérivons cette égalité : \[(\mu_B'\circ P)P'=Q\mu_A'+Q'\mu_A\tag{*}\]
+	On note $\Sp(A)=\lbrace \lambda_1,\dots,\lambda_p\rbrace$ le spectre de $A$. 
+    Trigonalisons $A$ (on est dans $\mathcal M_n(\C)$, on peut le faire) : il existe $U\in \gl_n(\C)$ tel que $A=UTU^{-1}$ avec 
+	\[
+		T = \left( \begin{array}{c c c} \lambda_1 & \times & \times\\ & \ddots & \times \\ & & \lambda_p\end{array} \right)
+	\]
+	En remarquant que $P(T)$ et $P(A)$ ont même polynôme caractéristique (en effet, $P(A)=UP(T)U^{-1}$), on arrive à en conclure que les valeurs propres de $P(A)$ sont les $P(\lambda_i)$ avec $i\in\inl1p$. Soit $\lambda\in\text{Sp}(A)$. Ayant la relation (*) et le fait que $\lambda$ est racine de $\mu_A$, on en déduit \[\mu_B'(P(\lambda))P'(\lambda)=Q(\lambda)\mu_A'(\lambda)\]
+	Or $B$ est diagonalisable, donc $\mu_B'(P(\lambda))\neq 0$ ($\mu_B$ SRS), mais $P'(A)\in \gl_n(\C)$, donc $P'\wedge \mu_A=1$ et donc $P'(\lambda)\neq 0$, il vient alors que \[Q(\lambda)\mu_A'(\lambda)\neq 0 \implies \mu_A'(\lambda)\neq 0\]
+	Donc $\lambda$ est racine simple de $\mu_A$. Ceci valant pour toute valeur propre $\lambda$ de $A$, et donc en fait pour toute racine $\lambda$ de $\mu_A$, on en conclut que $\mu_A$ est SRS, et donc $A$ est diagonalisable.
+\end{proof}
+
+\begin{proof}[Correction de l'exercice \ref{reduction3}]
+	\begin{itemize}
+		\item[$\boxed{\Rightarrow}$] Supposons $A$ diagonalisable. Il vient alors l'existence de $P\in \gl_n(\mathbb F_p)$ et $D\in \mathcal D_n(\mathbb F_p)$ tels que \[A=PDP^{-1}\]
+		Mais alors $A^p-A=PD^pP^{-1}-PDP^{-1}$. Or, en notant 
+		\[
+		D = \left(\begin{array}{c c c}
+			\lambda_1 & \times &\times \\
+			& \ddots & \times\\
+			& & \lambda_q
+		\end{array}\right)
+		\]
+		On a \[
+		D^p=\left(\begin{array}{c c c}
+			\lambda_1^p & \times&\times\\
+			& \ddots & \times\\
+			& & \lambda_q^p
+		\end{array}\right)
+		\]
+		Mais si $\lambda\in\mathbb F_p$, $\lambda^p=\lambda$ (Lagrange dans un groupe quelconque ou Fermat) et donc $D^p=D$ d'où $A^p=A$.
+		\item[$\boxed{\Leftarrow}$] Supposons $A^p=A$. Il vient alors que $P=X^p-X\in\mathbb F_p[X]$ est un polynôme annulateur de $A$. 
+        Puis $P = X(X^{p-1}-1)$, et, en notant $Q=X^{p-1}-1$, on a \[\forall x\in\mathbb F_p^*,\quad Q(x)=0\]
+		On trouve $p-1$ racines à un polynôme de degré $p-1$, d'où, sachant que $\cd Q=1$, on a \[Q=\prod_{x\in\mathbb F_p^*}(X-x)\]
+		Finalement $P$ est SRS et $A$ est diagonalisable.
+
+	\end{itemize}
+\end{proof}
+
+\begin{proof}[Correction de l'exercice \ref{reduction4}]
+	On trigonalise $M$. Il existe $P\in \gl_n(\C)$ et $T\in \mathcal T_n(\C)$ tels que $M=PTP^{-1}$. 
+    Puis, comme $M$ est semblable à $2M$, elle-même semblable à $2T$ (il suffit de multiplier par $2$ plus haut), $T$ est semblable à $2T$. 
+    Donc $T$ et $2T$ ont même polynôme caractéristique. On note $\Sp(T)=\lbrace \lambda_1,\dots,\lambda_p\rbrace$ le spectre de $T$, $\chi_T$ 
+    le polynôme caractéristique de $T$. Soit $\lambda\in \text{Sp}(T)$, alors $\chi_T(2\lambda)=\chi_{2T}(2\lambda)=0$, donc $2\lambda \in \text{Sp}(T)$. 
+    Par récurrence sur $n\in\N$, on a \[\forall \lambda \in \text{Sp}(T),\ \forall n\in\N,\ 2^n\lambda\in\text{Sp}(T)\]
+	Ceci est exclu lorsqu'il existe une valeur propre non nulle de $T$. 
+    Ainsi, toutes les valeurs propres sont nulles, $T$ est de diagonale nulle (et triangulaire) et est donc nilpotente, puis $M$ lui étant semblable, 
+    elle est également nilpotente.
+\end{proof}
+
+\begin{proof}[Correction de l'exercice \ref{reduction5}]
+	On laisse au lecteur les soins de vérifier que $G$ est bien un endomorphisme. 
+    Supposons que $\mu_f$ existe. 
+    Soit $P\in K[X]$. 
+    Remarquons que pour tout $g\in L(E)$, $P(G)(g)=P(f)\circ g$ (on peut d'abord montrer cela pour $P=X^k$ pour tout $k$ entier naturel par récurrence, 
+    et on passe ensuite à tout polynôme par des combinaisons linéaires). Ainsi, $P(f)=0\implies P(G)=0$. 
+    Ceci montre deux choses : d'abord, $G$ admet un polynôme annulateur non nul, donc $\mu_G$ existe, et $(\mu_f)\subset (\mu_G)$, soit $\mu_G$ divise $\mu_f$. 
+\end{proof}
+
+\begin{proof}[Correction de l'exercice \ref{reduction6}]
+    Correction trouvable sur \href{https://perso.eleves.ens-rennes.fr/people/amar.ahmane}{ma page personnelle}.
+\end{proof}
+
+\begin{proof}[Correction de l'exercice \ref{reduction7}]
+    On procède par analyse synthèse :
+
+    \textbf{Analyse :} Supposons que la suite $(M^p)$ converge, notons $L$ sa limite.
+    Remarquons qu'en écrivant $(M^p)^2=M^{2p}$ pour tout $p$ et en passant à la limite, on obtient $L^2=L$,
+    $L$ est alors la matrice d'une projection. Remarquons de plus qu'en écrivant $MM^p=M^pM$ pour tout $p$ et en passant à la limite, on obtient $ML=LM$.
+    Ainsi, comme $M$ et $L$ commutent, il existe $P\in\gl_n(\C)$ et $T_L$ et $T_M$ des matrices trigonales supérieures de $\mathcal M_n(\C)$ telles que 
+    $M=PT_MP^{-1}$ et $L=PT_LP^{-1}$. 
+    Comme $M^p\to L$, on a en fait $T_M^p\to T_L$. 
+    Ainsi pour tout $i,j=1,\dots,n$, $[T_M^p]_{i,j}\to [T_L]_{i,j}$.
+    En regardant les coefficients sur la diagonale, on a pour tout $i=1,\dots,n$, $\lambda_i^p\to [T_L]_{i,i}$
+    où $\lambda_1,\dots,\lambda_n$ sont les valeurs propres complexes de $M$ dans l'ordre dans lequel elles apparaissent dans $T_M$.
+    $L$ étant une matrice de projection, ses valeurs propres sont soit $1$ soit $0$, donc pour tout $i=1,\dots,n$,
+    $\lambda_i^p\to 0$ ou $\lambda_i^p\to 1$.
+    Soit $i\in\lbrace1,\dots,n\rbrace$.
+    \begin{itemize}
+        \item Si $\lambda_i^p\to 0$, alors $|\lambda_i|<1$ trivialement ;
+        \item Si $\lambda_i^p\to 1$, alors $|\lambda_i|=1$. 
+        Montrons qu'en fait $\lambda_i=1$. 
+        Soit $\theta\in\R$ tel que $e^{i\theta}=\lambda_i$.
+        On a $|2\sin(p\theta/2)|=|e^{ip\theta}-1|\to 0$. 
+        On procède par l'absurde et on suppose que $\theta \notin 2\pi\Z$.
+        Deux cas de figure se présentent, soit $\theta$ est rationnel, 
+        alors le sous-groupe $(\theta/2)\Z+2\pi\Z$ de $(\R,+)$ est dense dans $\R$
+        (car sinon $(\theta/2)\Z+2\pi\Z=\alpha\Z$, avec $\alpha\in\R$, puis $\theta\in\alpha\Z$ et $\theta\neq0$ donne $\alpha$ rationnel, 
+        et $2\pi\in\alpha\Z$ et $2\pi\neq 0$ donne $\pi$ rationnel, ce qui n'est pas...).
+        Il vient alors, par continuité de $\sin$, que $\sin((\theta/2)\Z)=\sin((\theta/2)\Z+2\pi\Z)$ est dense dans $\sin(\R)=[-1,1]$, et on trouve alors 
+        que l'ensemble des termes de la suite $(|\sin(p\theta/2)|)_p$ est dense dans $[0,1]$, alors que cette suite converge... 
+        Soit $\theta$ est irrationnel, et dans ce cas soit $\theta$ est commensurable à $\pi$ (i.e on peut écrire $\theta=k\pi/q$ avec $k,q$ des entiers, $q>0$),
+        et alors, comme il faut $\theta\notin2\pi\Z$, on a $\theta/2\notin\pi\Z$, et alors pour tout $p$, $\sin((4q+1)\theta/2)=\sin(2k\pi+\theta/2)=\sin(\theta/2)\neq 0$,
+        et on exhibe ainsi une sous-suite de $(\sin(p\theta/2))$ qui ne tend pas vers $0$ ; finalement si $\theta$ n'est pas commensurable à $\pi$, 
+        alors on vérifie facilement que $(\theta/2)\Z+2\pi\Z$ est dense dans $\R$, et on se retrouve alors dans un cas que l'on sait traiter.
+
+        On obtient alors que $\theta\in 2\pi\Z$, soit que $\lambda_i=1$.
+    \end{itemize}
+
+    \textbf{Synthèse :} Soit à présent une matrice $M$ dont toutes les valeurs propres complexes sont soit égales à $1$,
+    soit de module strictement plus petit que $1$.
+
+    La décomposition de Dunford donne $D$ diagonalisable et $N$ nilpotente telles que $M=N+D$ et $ND=DN$.
+    Pour tout $p\geq n$, on a 
+    \[
+        M^p=(N+D)^p=\sum_{k=0}^p\binom pkD^{p-k}N^k=\sum_{k=0}^{n-1}\binom pk D^{p-k}N^k   \tag*{(*)} 
+    \]
+    Soit $P\in\gl_n(\C)$ telle que $\Delta=PDP^{-1}$ soit diagonale. 
+    Dans un premier temps, supposons que $1$ n'est pas valeur propre de $M$.
+    Dans ce cas, pour tout $k\in\lbrace0,\dots,n-1\rbrace$, $\binom pk\Delta^{p-k}\to 0$ : en effet,
+    ces matrices sont diagonales, donc pour $i=1,\dots,n$, $\left[\binom pk\Delta^{p-k}\right]_{i,i}=\binom pk\lambda_i^{p-k}$ avec 
+    $|\lambda_i|<1$, d'où $\left[\binom pk\Delta^{p-k}\right]_{i,i}\to 0$, car $\binom pk\sim p^k/k!$ et $p^k=o(1/\lambda_i^{p-k})$.
+    Par continuité de la multiplication par une matrice $\binom pk D^{p-k}=\binom pkP\Delta^{p-k}P^{-1}\to 0$ et alors $M^p\to 0$ comme somme finie de trucs qui tendent vers $0$.
+
+	\textit{Rédaction à compléter (il reste à traiter le cas où $1$ est valeur propre de $M$)}
+    
+    %Si $M$ a $1$ pour valeur propre, on montre qu'en fait si $(M^p)$ converge, alors $1$ est racine simple de $\mu_M$.
+    %Réciproquement, si $M$ a $1$ pour valeur propre et qu'elle racine simple de $\mu_M$, alors $(M^p)$ converge.
+	
+	%\textit{Je ne rédige pas cette partie, puisque ma solution utilise un résultat hors programme (Jordanisation des endomorphismes) en CPGE. 
+	%Si vous trouvez un moyen de montrer ça dans le cadre du programme, je suis preneur.}
+	
+    %En conclusion, $(M^p)$ converge si et seulement si $M$ ses valeurs propres complexes de module strictement plus petit que $1$,
+    %ou si $M$ est diagonalisable et toutes ses valeurs propres complexes sont soit égales à $1$ soit de module strictement plus petit que $1$.
+\end{proof}
+

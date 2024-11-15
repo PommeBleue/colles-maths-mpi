@@ -1,0 +1,140 @@
+\begin{proof}[Correction de l'exercice \ref{intgen1}]
+	\begin{enumerate}
+		\item D'abord, en $0$, pour tout $x\neq 0$, $\arctan(xt)/t\sim_{t\to 0} x$. 
+		Ainsi $\int_0^1\frac{\arctan(xt)}t\dd t$ converge pour tout $x\in\R$ (en $0$ ça fait juste $0$),
+		et il en est alors de même pour $\int_0^1\frac{\arctan(xt)-\arctan(t)}t\dd t$.
+		Ensuite, en $+\infty$, on montre que l'intégrale converge pour $x>0$. 
+		
+		En effet, soit $X\geq 1$, on écrit 
+		\[
+			\forall t\in[1,X],\ \arctan(xt)-\arctan(t)=\arctan(1/t)-\arctan(1/xt)	
+		\]
+		Soit 
+		\[
+			\int_1^X\frac{\arctan(xt)-\arctan(t)}t\dd t=\int_1^X\frac{\arctan(1/t)-\arctan(1/xt)}t \dd t
+		\]
+		Mais, dans ce cas, $\frac{\arctan(1/t)-\arctan(1/xt)}t\sim_{t\to +\infty}\frac1{t^2}\left(1-\frac1x\right)$ 
+		(sauf quand $x=1$, mais dans ce cas l'intégrale vaut $0$ trivialement).
+
+		On montre alors que $f$ est définie sur $\Rpe$. 
+		Elle est cependant pas définie sur $\R_-$.
+		En effet, montrons d'abord que $\int_1^+{\infty}\frac{\arctan t}t\dd t=+\infty$.
+		Soit $X\geq 1$. Une IPP donne 
+		\[
+			\int_1^X\frac{\arctan t}t\ dt =\ln X\arctan X-\int_1^X\frac{\ln t}{1+t^2}\dd t
+		\]
+		Mais $\frac{\ln t}{1+t^2}=o(1/t^{\frac32})$ en $+\infty$, donc l'intégrale $\int_1^{+\infty}\frac{\ln t}{1+t^2}\dd t$ converge, 
+		mais $\ln X\arctan X\xrightarrow[X\to+\infty]{}+\infty$, d'où $\int_1^{+\infty}\frac{\arctan t}t\ dt=+\infty$. 
+		Ainsi, $f(0)=-\infty$ et si $x<0$, alors $\alpha=-x>0$, et en faisant le changement de variable $u=\alpha t$, on obtient
+		\[
+			\int_1^{+\infty}\frac{\arctan(xt)}t\dd t=-\int_\alpha^{+\infty}\frac{\arctan(u)}u\dd u=-\infty
+		\]
+		d'où $f(x)=-\infty$.
+
+		\item On applique le théorème de dérivation sous le signe intégrale.
+		Montrons que $f$ est $\mathcal C^1$ sur $\Rpe$. Pour cela, montrons que $f$ est $\mathcal C^1$
+		sur $(a,+\infty)$ pour tout $a>0$.
+		Soit $a>0$. Pose $g(t,x)=[\arctan(xt)-\arctan(t)]/t$ pour $(t,x)\in\Rpe\times(a,+\infty)$. 
+		Pour tout $x$, $t\mapsto g(t,x)$ est intégrable (à $x$ fixé, $g(t,x)$ est de signe constant, positif si $x\geq 1$ et négatif sinon),
+		et pour tout $t$, $x\mapsto g(t,x)$ est dérivable sur $(a,+\infty)$ et 
+		\[
+			\forall (t,x)\in\Rpe\times(a,+\infty),\ \frac{\partial g}{\partial x}(x,t)=\frac1t\left(\frac{t}{1+(xt)^2}\right)=\frac1{1+t^2x^2}
+		\]
+		De plus, pour tout $t$, $x\mapsto \frac{\partial g}{\partial x}(x,t)$ est continue. On majore en valeur absolue cette dérivée partielle uniformément en $x$ par une fonction intégrable sur $\R_+$ :
+		\[
+			\forall (t,x)\in\Rpe\times(a,+\infty),\ \left|\frac{\partial g}{\partial x}(x,t)\right|\leq \frac1{1+a^2t^2}
+		\]
+		Il s'ensuit que $f$ est $\mathcal C^1$ sur $(a,+\infty)$, puis sur $\Rpe$ puisque ceci vaut pour tout $a>0$.
+		Et on a 
+		\[
+			\forall x\in\Rpe,\ f'(x)=\int_{\R_+}\frac{\partial g}{\partial x}(x,t)\dd t=\int_{\R_+}\frac1{1+x^2t^2}\dd t
+		\]
+
+		\item On donne une expression explicite de $f'$, et on en déduira $f$ en primitivant. Soit $x\in\Rpe$.
+		Pour $X\geq 0$
+		\[
+			\int_0^X\frac1{1+x^2t^2}\dd t=\frac1x\arctan(xX)\xrightarrow[X\to+\infty]{}\frac\pi{2x}
+		\]
+		D'où il vient que
+		\[
+			\forall x\in\Rpe,\ f(x)=\frac\pi2\ln(x)	
+		\]
+
+		\item La démonstration repose sur une formule de la moyenne pour les intégrales sur un segment.
+		La méthode est la même pour toute une classe de fonctions. La retenir. 
+
+		\textbf{Lemme :} Soit $g:[0,+\infty)\to \R$ une fonction continue telle que l'intégrale
+		\[
+			\int_1^{+\infty}\frac{g(t)}t\dd t	
+		\]
+		converge. 
+
+		Alors, pour tous réels $a,b>0$, l'intégrale 
+		\[
+			\int_0^{+\infty}\frac{g(at)-g(bt)}t\dd t	
+		\]
+		converge et vaut $g(0)\ln(b/a)$.
+
+		\textit{Démonstration du Lemme :} 
+		D'abord, le changement de variable $u=at$ montre que $\int_1^{+\infty}\frac{g(at)}t\dd t=\int_1^{+\infty}\frac{g(u)}u\dd u$,
+		et donc cette intégrale converge par hypothèse, et il en est de même pour $\int_1^{+\infty}\frac{g(bt)}t\dd t$, 
+		d'où la convergence de $\int_1^{+\infty}\frac{g(at)-g(bt)}t\dd t$.
+
+		Soit à présent $\varepsilon > 0$. 
+		Le même changement de variable montre 
+		\[
+			\int_\varepsilon^{+\infty} \frac{g(at)}t\dd t = \int_{a\varepsilon}^{+\infty}\frac{g(at)}t\dd t
+		\]
+		D'où il vient que 
+		\begin{align*}
+			\int_\varepsilon^{+\infty} \frac{g(at)-g(bt)}t\dd t &=\int_\varepsilon^{+\infty} \frac{g(at)}t\dd t-\int_\varepsilon^{+\infty} \frac{g(bt)}t\dd t\\
+															   &=\int_{a\varepsilon}^{b\varepsilon} \frac{g(u)}u\dd u
+		\end{align*}
+		Par continuité de $g$, il existe un réel $c_\varepsilon$ compris entre $a\varepsilon$ et $b\varepsilon$, tel que 
+		\[
+			\int_{a\varepsilon}^{b\varepsilon} \frac{g(u)}u\dd u=g(c_\varepsilon)\int_{\varepsilon a}^{\varepsilon b}\frac{\dd t}t=g(c_\varepsilon)\ln(b/a)
+		\]
+		Comme $c_\varepsilon \to 0$ en faisant $[\varepsilon\to 0]$ (gendarmes), l'intégrale étudiée converge et vaut $g(0)\ln(b/a)$.
+
+
+		Dans notre cas, posons $g:t\in[0,+\infty)\mapsto \delta_{0,t}\frac\pi2+\arctan(t)$.
+		$g$ est continue, et on vérifie grâce à un équivalent de $\arctan$ en $0$ que l'intégrale 
+		\[
+			\int_1^{+\infty}\frac{g(t)}t\dd t = \int_1^{+\infty}\frac{\arctan(1/t)}t\dd t 
+		\]
+		converge.
+		Il vient donc, d'après notre Lemme, que, en particulier, pour tout réel $x>0$
+		\[
+			\frac\pi2\ln x=\int_0^{+\infty}\frac{g(t)-g(xt)}t\dd t =\int_0^{+\infty}\frac{\arctan(xt)-\arctan t}t\dd t
+		\]
+	\end{enumerate}
+\end{proof}
+
+\begin{proof}[Correction de l'exercice \ref{intgen2}]
+	\begin{enumerate}
+		\item $I$ est clairement définie sur $\R_+$. 
+		Si $x<0$, au voisinage de $0$ on a $\frac{t^x}{1+t}\sim\frac1{t^{-x}}$, dont l'intégrale converge si et seulement si $-x\in(0,1)$, soit $x\in(-1,0)$.
+		On en déduit que $I$ est définie sur $(-1,+\infty)$.
+		
+		\item Soit $x\in(-1,+\infty)$.
+		On a 
+		\[
+			I(x+1)=\int_0^1\frac{t^{x+1}}{1+t}\dd t = \int_0^1\left[t^x-\frac{t^x}{1+t}\right]\dd t=\frac1{x+1}-I(x)
+		\]
+		\item On remarque que $I$ est décroissante, d'où $2I(x+1)\leq1/(x+1)\leq2 I(x)$, donc, en croisant les inégalités, on trouve $I(x)\sim 1/2x$ en $+\infty$.
+	\end{enumerate}
+\end{proof}
+
+\begin{proof}[Correction de l'exercice \ref{intgen3}]
+	La définition n'est pas un problème. La continuité non plus. 
+	Si on pose $f:(t,x)\in[0,1]\times\Rpe\mapsto \frac{\sin(tx)}{1+t}$, alors en tout $x$, $t\mapsto f(t,x)$ est intégrable, en tout $t$, $x\mapsto f(t,x)$ est continue et 
+	\[
+		\forall (t,x)\in[0,1]\times\Rpe,\ |f(t,x)|\leq\frac1{1+t}:=\varphi(t)
+	\]
+	et $\varphi$ est intégrable... et on applique le théorème de continuité d'intégrale à paramètre.
+
+	Pour trouver l'équivalent, on effectue le changement de variable $u=xt$, on trouve alors que $F(x)=J(x)/x$ 
+	où $J(x)=\int_{0}^1\frac{\sin(t)}{1+t/x}\dd t$ qui tend vers $\pi/2$ en $+\infty$.
+\end{proof}
+
+

@@ -1,0 +1,31 @@
+\begin{exo}[Calcul d'équivalent 1]
+	\label{seriesent1}
+	On considère la fonction $f:x\in(-1,1)\mapsto \int_0^{\frac\pi2}\frac{\dd t}{\sqrt{1-(x\sin t)^2}}$.
+	\begin{enumerate}
+		\item $f$ est-elle bien définie ?
+		\item $f$ est-elle dse${}_0$ ?
+		\item Donner un équivalent de $f$ en $1$.
+	\end{enumerate}
+\end{exo}
+
+\begin{exo}[Calcul d'équivalent 2]
+	\label{seriesent2}
+	Trouver un équivalent lorsque $x$ tend vers $1$ de $f(x)=\sum_{n=1}^{+\infty}\ln(n)x^n$.
+\end{exo}
+
+\begin{exo}[Produit de Cauchy]
+	\label{seriesent3}
+	On définit la suite de réels $(u_n)_n$ par $u_0=1$ et \[\forall n\in\N,\ u_{n+1}=\sum_{k=0}^nu_{n-k}u_k\]
+	Déterminer $u_n$ pour tout $n\in\N$.
+\end{exo}
+
+\begin{exo}[Développement en série entière de la fonction tangente]
+	\label{seriesent4}
+	Soient $a\in\Rpe$ et $f\in\mathcal C^\infty([0, a),\R)$ telle que $f^{(n)}\geq 0$ pour tout entier naturel $n$.
+	\begin{enumerate}
+		\item Soit $n\in\N$ et $(x,y)\in{\Rpe}^2$ tel que $x < y < a$. Montrer que \[0\leq \frac{R_n(x)}{x^{n+1}}\leq \frac{R_n(y)}{y^{n+1}}\]
+		où $R_n(z)$ est le reste intégral de la formule de Taylor en $0$ à l'ordre $n$ appliquée en $z$.
+		\item En déduire que pour tout $x\in[0,a)$, $f(x)=\sum_{n=0}^{+\infty}\frac{f^{(n)}(0)}{n!}x^n$
+		\item En utilisation la question (ii), démontrer que la fonction tangente est développable en série entière à l'origine et préciser l'intervalle de validité de ce développement.
+	\end{enumerate}
+\end{exo}

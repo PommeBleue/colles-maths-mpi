@@ -1,0 +1,37 @@
+\begin{proof}[Correction de l'exercice \ref{al1}]\hfill
+    \begin{enumerate}
+        \item $A\subset \Vect(A)$, donc par définition, 
+        $\forall i,j,k,l\in\inl{1}{n},\ E_{ij}E_{kl}-E_{kl}E_{ij}=\delta_{jk}E_{il}-\delta_{li}E_{kj}\in A$. 
+    
+        Il s'ensuit que
+        \[
+            \forall i,l\in\inl1n,\ 
+            \left\lbrace\begin{array}c i\neq l\implies E_{il}\in \Vect(A)\\
+                 \forall i\in\inl{2}{n},\ E_{ii}-E_{11}\in \Vect(A)\end{array}\right. 
+        \]
+        On pose $\mathcal F=(E_{ij})_{i\neq j}\cup(E_{ii}-E_{11})_{i\in\inl2n}$.
+        Cette famille est clairement libre et contient $n^2-1$ vecteurs de $\Vect(A)$,
+        d'où $\dim\Vect(A)\geq n^2-1$. 
+        Or $\Vect(A)\subset \ker\tr$, et $\tr$ étant une forme linéaire non nulle,
+        on a $\dim\ker\tr=n^2-1$, donc $\dim\Vect(A)\leq n^2-1$ 
+        donc $\dim\Vect(A)=n^2-1=\dim\ker\tr$ puis $\Vect(A)=\ker\tr$.
+        \item De même que pour $\tr$, on a $\Vect(A)\subset \ker\varphi$
+        donc $\ker\tr\subset \text{Ker}\varphi$, donc il existe $\lambda\in\R$
+        tel que $\varphi=\lambda\text{tr}$. Mais $\varphi(I_n)=n=\text{tr}(I_n)$
+        donc $n=\lambda n$ puis $\lambda = 1$ (sauf si $n=0$, mais ce cas est trivial).
+    \end{enumerate}
+\end{proof}
+
+\begin{proof}[Correction de l'exercice \ref{al2}]
+    Pour $i\in\inl1p$, on note $X_i=(x_i^{(1)},\dots,x_i^{(n)})$. On a alors, \[\forall i\in\inl1p,\ X_i{}^tX_i=(x_i^{(1)}X_i|\dots|x_i^{(n)}X_i)\]
+    Soit $(\lambda_1,\dots,\lambda_p)\in\R^p$ telle que $\sum_{i=1}^p\lambda_iX_i{}^tX_i=0$.
+    Or, $(X_1,\dots,X_p)$ formant une famille libre, aucun des vecteurs la constituant n'est nul d'où
+    \[\forall i\in\inl1p,\ \exists l_i\in\inl1p,\ x_i^{(l_i)}\neq 0\]
+    Ainsi, pour $i\in\inl1p$, en regardant que la $l_i$ème colonne dans la somme nulle écrite plus haut, 
+    on a \[\sum_{j=1}^p\lambda_jx_j^{(l_i)}X_j=0\]
+    $(X_1,\dots,X_p)$ étant libre, on a $\forall j\in\inl1p,\ \lambda_jx_j^{(l_i)}=0$, en particulier $\lambda_ix_i^{(l_i)}=0$
+    donc $\lambda_i=0$ ($x_i^{l_i}\neq 0$). 
+    Finalement, ceci étant vrai pour tout $i\in\inl1p$, on a 
+    \[\forall i\in\inl1p,\ \lambda_i=0\] et $(X_1{}^tX_1,\dots,X_p{}^tX_p)$ est libre dans $\mathcal M_n(\R)$
+    (il faut bien sûr préciser que la taille des matrices $X_i{}^tX_i$ est de $n\times n$, mais cela est bien clair).
+\end{proof}

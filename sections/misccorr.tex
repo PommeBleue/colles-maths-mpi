@@ -1,0 +1,72 @@
+\begin{proof}[Correction de l'exercice \ref{misc1}]
+    % L'ensemble des entiers impairs de $\inl1n$ est tout le temps fade : une somme de deux entiers impairs est pair, pardi !
+    % En essayant de faire soi-même des parties fades, on voit qu'essentiellement, on peut pas faire mieux que prendre tous les impairs.
+    % On va montrer qu'en fait, si on prend plus d'entiers qu'il n'y a d'impairs, on viol le caractère fade.
+
+    % Supposons dans un premier temps que $n=2p$ avec $p\geq 2$. 
+    % On va montrer que toute partie de $\inl1n$ de cardinal plus grand que $p+1$ n'est pas fade. 
+    % Il suffit pour cela de montrer que toute partie de cardinal $p+1$ n'est pas fade.
+    % Soit $A$ une partie de cardinal $p+1$. On procède par l'absurde et on suppose $A$ fade.
+    % Pour $a\in A$, posons $K_a=\lbrace (x,y)\in\inl1n^2,\ x+y=a\rbrace$.
+    % On voit que pour $x,y\in\inl1n$ et $a\in A$, si $x+y=a$, alors $x\notin A$ ou $y\notin A$.
+    % Pour $a\in A$, en faisant une disjonction de cas sur la première coordonnée, on trouve 
+    % \[
+    %     K_a=\lbrace (x,y)\in A^c\times\inl1n,\ x+y=a\rbrace \cup \lbrace (x,y)\in A\times A^c,\ x+y=a\rbrace    
+    % \]
+    % On note l'ensemble de gauche $K_a^{(1)}$ et celui de droite $K_a^{(2)}$, et ces deux ensembles sont disjoints. 
+    % On considère à présent $K=\lbrace (x,y)\in\inl1n^2,\ x+y\in A\rbrace$. 
+    % On a 
+    % \[
+    %     \Card K=\sum_{a\in A}\Card K_a
+    % \]
+    % les $K_a$ étant trivialement deux à deux disjoints. Donc 
+    % \[
+    %     \Card K=\sum_{a\in A}(\Card K_a^{(1)}+\Card K_a^{(2)})    
+    % \]
+    % Or, pour $a\in A$, on a $\Card K_a^{(1)}=\Card A^c\cap \inl1{a-1}$, donc 
+    % \[
+    %     \Card K=\sum_{a\in A}\Card(A^c\cap \inl1{a-1})+\underbrace{\sum_{a\in A}\Card K_a^{(2)}}_{=\alpha}
+    % \]
+    % En écrivant, pour $a\in A$, $\Card(A^c\cap \inl1{a-1})=\Card A^c+\Card\inl1{a-1}-\Card(A^c\cup\inl1{a-1})$, on trouve 
+    % \[
+    %     \Card K=p^2-1+\sum_{a\in A}(a-1)+\sum_{a\in A}\Card(A^c\cap\inl1{a-1})+\alpha
+    % \]
+    % Dans la dernière somme implicant $A^c$, on voit que le cardinal de $A^c\cap\inl1{a-1}$ s'incrémente de $1$ en $1$,
+    % jusqu'à ce que l'on ait recontré tous les éléments de $A$ sauf $1$, soit $\sum_{a\in A}\Card(A^c\cap\inl1{a-1})=\sum_{k=0}^p(p-1+k)$, donc
+    % \[
+    %     \Card K=p^2-1+\sum_{a\in A}(a-1)-\left(p^2-1+\frac{p(p+1)}2\right)+\alpha \tag*{(*)}
+    % \]
+    % On calcule à présent le cardinal de $K$ d'une autre manière.
+    % On voit que $x+y=a$ si et seulement si $x\in\inl1{a-1}$ et $y=a-x$, ce qui donne $\Card K_a=a-1$,
+    % et en sommant, on trouve 
+    % \[
+    %     \Card K = \sum_{a\in A}(a-1) \tag*{(*)}
+    % \]
+    % De (*) et (**) on tire
+    % \[
+    %     \alpha=\frac{p(p+1)}2    
+    % \]
+    % Revenons maintenant à la définition de $\alpha$. 
+    % Les $K_a^{(2)}$ étant deux à deux disjoints, en notant $K^{(2)}$ leur réunion, on a en fait $\alpha = \Card\lbrace (x,y)\in A^c\times A,\ x+y\in A\rbrace=\Card K^{(2)}$. 
+    % On écrit 
+    % \[
+    %     K^{(2)}=\coprod_{x\in A^c}\lbrace (x,y),\ y\in A,\ x+y\in A\rbrace=\coprod_{x\in A^c}\lbrace x\rbrace\times (A\cap (A-x))\tag*{(***)}
+    % \]
+    % On écrit $A^c=\lbrace x_1<\dots<x_{p-1}\rbrace$, et on passe au cardinal dans (***) pour obtenir 
+    % \[
+    %     \alpha = \sum_{k=1}^{p-1}\Card(A\cap (A-x_k))
+    % \]
+    % Mais pour $k=1,\dots,p-1$, on $x_k\geq k$, donc si on note $A\cap(A-x_k)=\lbrace y_1<\dots<y_m\rbrace$, on
+
+    Soit $A$ une partie fade de $\inl1n$. 
+    Notons $a$ le minimum de $A$, et notons $D=\lbrace x-a,\ x\in A,\ x>a\rbrace$. 
+    $A$ étant fade, on a $A\cap D=\varnothing$, d'où $\Card D\cup A=\Card D+\Card A=2\Card A-1$.
+    Mais aussi $D\cup A\subseteq \inl1n$, donc $n\geq 2\Card A-1$, d'où $\frac{n+1}2\geq \Card A$. 
+
+    On voit alors que toute partie fade de $\inl1n$ est de cardinal plus petit que $\frac{n+1}2$, mais on peut exhiber 
+    une partie de $\inl1n$ de cardinal $\left\lfloor\frac{n+1}2\right\rfloor$ : c'est le nombre d'entiers impairs dans $\inl1n$,
+    et des nombres impairs forment toujours une partie fade (une somme de deux impairs est paire, pardi !).
+
+    Finalement, on en conclut que le cardinal maximal d'une partie fade est $\left\lfloor\frac{n+1}2\right\rfloor$.
+
+\end{proof}
