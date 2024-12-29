@@ -102,16 +102,15 @@
         Soit $\theta\in\R$ tel que $e^{i\theta}=\lambda_i$.
         On a $|2\sin(p\theta/2)|=|e^{ip\theta}-1|\to 0$. 
         On procède par l'absurde et on suppose que $\theta \notin 2\pi\Z$.
-        Deux cas de figure se présentent, soit $\theta$ est rationnel, 
-        alors le sous-groupe $(\theta/2)\Z+2\pi\Z$ de $(\R,+)$ est dense dans $\R$
-        (car sinon $(\theta/2)\Z+2\pi\Z=\alpha\Z$, avec $\alpha\in\R$, puis $\theta\in\alpha\Z$ et $\theta\neq0$ donne $\alpha$ rationnel, 
-        et $2\pi\in\alpha\Z$ et $2\pi\neq 0$ donne $\pi$ rationnel, ce qui n'est pas...).
+        Deux cas de figure se présentent, soit $\theta$ est commensurable à $\pi$ 
+        (i.e on peut écrire $\theta=k\pi/q$ avec $k,q$ des entiers, $q>0$),
+        et alors, comme il faut $\theta\notin2\pi\Z$, on a $\theta/2\notin\pi\Z$, 
+        et alors pour tout $p$, 
+        $\sin((4qp+1)\theta/2)=\sin(2kp\pi+\theta/2)=\sin(\theta/2)\neq 0$,
+        et on exhibe ainsi une sous-suite de $(\sin(p\theta/2))$ qui ne tend pas vers $0$ ;
+        soit $\theta$ n'est pas commensurable à $\pi$, et alors le sous-groupe $(\theta/2)\Z+2\pi\Z$ de $(\R,+)$ est dense dans $\R$.
         Il vient alors, par continuité de $\sin$, que $\sin((\theta/2)\Z)=\sin((\theta/2)\Z+2\pi\Z)$ est dense dans $\sin(\R)=[-1,1]$, et on trouve alors 
         que l'ensemble des termes de la suite $(|\sin(p\theta/2)|)_p$ est dense dans $[0,1]$, alors que cette suite converge... 
-        Soit $\theta$ est irrationnel, et dans ce cas soit $\theta$ est commensurable à $\pi$ (i.e on peut écrire $\theta=k\pi/q$ avec $k,q$ des entiers, $q>0$),
-        et alors, comme il faut $\theta\notin2\pi\Z$, on a $\theta/2\notin\pi\Z$, et alors pour tout $p$, $\sin((4q+1)\theta/2)=\sin(2k\pi+\theta/2)=\sin(\theta/2)\neq 0$,
-        et on exhibe ainsi une sous-suite de $(\sin(p\theta/2))$ qui ne tend pas vers $0$ ; finalement si $\theta$ n'est pas commensurable à $\pi$, 
-        alors on vérifie facilement que $(\theta/2)\Z+2\pi\Z$ est dense dans $\R$, et on se retrouve alors dans un cas que l'on sait traiter.
 
         On obtient alors que $\theta\in 2\pi\Z$, soit que $\lambda_i=1$.
     \end{itemize}
@@ -131,7 +130,17 @@
     $|\lambda_i|<1$, d'où $\left[\binom pk\Delta^{p-k}\right]_{i,i}\to 0$, car $\binom pk\sim p^k/k!$ et $p^k=o(1/\lambda_i^{p-k})$.
     Par continuité de la multiplication par une matrice $\binom pk D^{p-k}=\binom pkP\Delta^{p-k}P^{-1}\to 0$ et alors $M^p\to 0$ comme somme finie de trucs qui tendent vers $0$.
 
-	\textit{Rédaction à compléter (il reste à traiter le cas où $1$ est valeur propre de $M$)}
+
+    \textit{À ce stade, tout peut plus ou moins être fait dans le cadre du programme (ou en débordant un tout petit peu, l'existence de la 
+    décomposition de Dunford n'est pas difficile à établir). Il reste à traiter le cas où $1$ est valeur propre, et ce cas est plus difficile 
+    et demandera d'utiliser un résultat de réduction qui est hors programme, celui de la réduction de Jordan.}
+
+    Lorsque $1$ est valeur propre de $M$, on voit que dès que la multiplicité
+    de $1$ dans le polynôme minimal est plus grande que $2$, alors 
+    il existe un bloc de Jordan lié à $1$ de taille au moins $2$.
+    On en déduit que la suite des puissances de $M$ ne converge pas. 
+    On peut également montrer que $(M^p)$ converge lorsque $1$ est racine simple du 
+    polynôme minimal de $M$.
     
     %Si $M$ a $1$ pour valeur propre, on montre qu'en fait si $(M^p)$ converge, alors $1$ est racine simple de $\mu_M$.
     %Réciproquement, si $M$ a $1$ pour valeur propre et qu'elle racine simple de $\mu_M$, alors $(M^p)$ converge.
