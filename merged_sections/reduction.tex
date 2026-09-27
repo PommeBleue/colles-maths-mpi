@@ -1,29 +1,46 @@
+\begin{exo}[CNS valeur propre commune]
+	\label{reduction1}
+	Soient $A,B\in\mathcal M_n(\C)$. Montrer que les propositions suivantes sont équivalentes :
+	\begin{enumerate}
+		\item $A$ et $B$ possèdent une valeur propre commune.
+		\item Il existe $M\in\mathcal M_n(\C)$ non nulle telle que $AM=MB$
+		\item $\mu_A(B)\notin \gl_n(\C)$
+	\end{enumerate}
+\end{exo}
+
 \begin{solution}
-\begin{itemize}
-\item[] \underline{1) $\implies$ 2)}
-Supposons que $A$ et $B$ possèdent une valeur propre commune. Notons $\lambda$ cette valeur propre.
-D'abord, il existe $X\in\mathcal M_{n,1}(\C)$ une colonne non nulle telle que
-\[AX=\lambda X\]
-Mais $\lambda$ étant valeur propre de $B$, elle est encore valeur propre de ${}^tB$, d'où l'existence de $Y\in\mathcal M_{n,1}(\C)$ une colonne non nulle telle que
-\[{}^tBY=\lambda Y\]
-On pose $M=X{}^tY$. On vérifie facilement que $AM=MB$, puis $M$ est non nulle puisque de rang $1$.
-\item[]\underline{2) $\implies$ 3)}
-Déjà, on a 
-\[A^2M=A(AM)=(AM)B=MB^2\]
-puis, on vérifie facilement par récurrence que 
-\[\forall k\in\N,\ A^kM=MB^k\]
-D'où, pour tout polynôme $P\in\C[X]$, l'égalité
-\[P(A)M=MP(B)\]
-En particulier, on a 
-\[M\mu_A(B)=\mu_A(A)M=0\]
-Ainsi, $M$ étant non nulle, $\mu_A(B)$ est soit nulle, soit un diviseur de $0$, donc est non inversible.
-\item[]\underline{3) $\implies$ 1)}
-Par contraposée. Supposons que $A$ et $B$ n'ont pas de valeurs propres communes.
-Notons $\Sp(A)=\lbrace \lambda_1,\dots,\lambda_p\rbrace$ le spectre de $A$. On écrit
-\[\mu_A=(X-\lambda_1)^{\alpha_1}\dots(X-\lambda_p)^{\alpha_p}\]
-Or, pour tout $i\in\inl1p$, $\lambda_i$ n'est pas valeur propre de $B$ et donc $B-\lambda_iI_n\in \gl_n(\C)$. Ainsi $\mu_A(B)$ est un produit de matrices inversibles et est donc inversible.
-\end{itemize}
+    \begin{itemize}
+        \item[]$\boxed{\text{1.} \Rightarrow \text{2.}}$\quad
+        Supposons que $A$ et $B$ possèdent une valeur propre commune. Notons $\lambda$ cette valeur propre.
+        D'abord, il existe $X\in\mathcal M_{n,1}(\C)$ une colonne non nulle telle que
+        \[AX=\lambda X\]
+        Mais $\lambda$ étant valeur propre de $B$, elle est encore valeur propre de ${}^tB$, d'où l'existence de $Y\in\mathcal M_{n,1}(\C)$ une colonne non nulle telle que
+        \[{}^tBY=\lambda Y\]
+        On pose $M=X{}^tY$. On vérifie facilement que $AM=MB$, puis $M$ est non nulle puisque de rang $1$.
+        
+        \item[]$\boxed{\text{2.} \Rightarrow \text{3.}}$\quad
+        Déjà, on a 
+        \[A^2M=A(AM)=(AM)B=MB^2\]
+        puis, on vérifie facilement par récurrence que 
+        \[\forall k\in\N,\ A^kM=MB^k\]
+        D'où, pour tout polynôme $P\in\C[X]$, l'égalité
+        \[P(A)M=MP(B)\]
+        En particulier, on a 
+        \[M\mu_A(B)=\mu_A(A)M=0\]
+        Ainsi, $M$ étant non nulle, $\mu_A(B)$ est soit nulle, soit un diviseur de $0$, donc est non inversible.
+        
+        \item[]$\boxed{\text{3.} \Rightarrow \text{1.}}$\quad
+        Par contraposée. Supposons que $A$ et $B$ n'ont pas de valeurs propres communes.
+        Notons $\Sp(A)=\lbrace \lambda_1,\dots,\lambda_p\rbrace$ le spectre de $A$. On écrit
+        \[\mu_A=(X-\lambda_1)^{\alpha_1}\dots(X-\lambda_p)^{\alpha_p}\]
+        Or, pour tout $i\in\inl1p$, $\lambda_i$ n'est pas valeur propre de $B$ et donc $B-\lambda_iI_n\in \gl_n(\C)$. Ainsi $\mu_A(B)$ est un produit de matrices inversibles et est donc inversible.
+    \end{itemize}
 \end{solution}
+
+\begin{exo}[$P(A)$ diagonalisable et $P'(A)$ inversible $\implies$ $A$ diagonalisable]
+	\label{reduction2}
+    Soit $A\in\mathcal M_n(\C)$ et $P\in\C[X]$ tel que $P(A)$ est diagonalisable et $P'(A)$ est inversible. Montrer que $A$ est diagonisable.
+\end{exo}
 
 \begin{solution}
     On note $B=P(A)$ et $\mu_B$ le polynôme minimal de $B$. 
@@ -38,6 +55,11 @@ Or, pour tout $i\in\inl1p$, $\lambda_i$ n'est pas valeur propre de $B$ et donc $
     \[Q(\lambda)\mu_A'(\lambda) \neq 0 \implies \mu_A'(\lambda) \neq 0\]
     Cette conclusion étant valide pour toute racine $\lambda$ de $\mu_A$, le polynôme $\mu_A$ est à racines simples. $A$ est donc diagonalisable.
 \end{solution}
+
+\begin{exo}[Diagonalisation dans $\mathcal M_n(\mathbb F_p)$]
+	\label{reduction3}
+    Soit $p$ un nombre premier, $n\in\N^*$ et $A\in\mathcal M_n(\mathbb F_p)$. Montrer que \[A\quad \text{diagonalisable}\quad \iff\quad A^p=A\]
+\end{exo}
 
 \begin{solution}
 \begin{itemize}
@@ -58,6 +80,11 @@ Le polynôme annulateur $P$ est scindé et à racines simples sur $\mathbb F_p$.
 \end{itemize}
 \end{solution}
 
+\begin{exo}[Matrice semblable à son double]
+	\label{reduction4}
+	Soit $M\in\mathcal M_n(\C)$ telle que $M\underset{\text{sb}}{\sim}2M$. Montrer que $M$ est nilpotente.
+\end{exo}
+
 \begin{solution}
 	On trigonalise $M$. Il existe $P\in \gl_n(\C)$ et $T\in \mathcal T_n(\C)$ tels que $M=PTP^{-1}$. 
     Puis, comme $M$ est semblable à $2M$, elle-même semblable à $2T$ (il suffit de multiplier par $2$ plus haut), $T$ est semblable à $2T$. 
@@ -69,6 +96,11 @@ Le polynôme annulateur $P$ est scindé et à racines simples sur $\mathbb F_p$.
     elle est également nilpotente.
 \end{solution}
 
+\begin{exo}[Comparaison de polynômes minimaux]
+	\label{reduction5}
+    Soit $E$ un $K$ espace vectoriel, $f\in L(E)$ et $G:g\in L(E)\mapsto f\circ g$. Vérifier que $G\in L(L(E))$ et comparer (sous réserve d'existence) les polynômes minimaux de $f$ et $G$.
+\end{exo}
+
 \begin{solution}
 	On laisse au lecteur les soins de vérifier que $G$ est bien un endomorphisme. 
     Supposons que $\mu_f$ existe. 
@@ -78,9 +110,21 @@ Le polynôme annulateur $P$ est scindé et à racines simples sur $\mathbb F_p$.
     Ceci montre deux choses : d'abord, $G$ admet un polynôme annulateur non nul, donc $\mu_G$ existe, et $(\mu_f)\subset (\mu_G)$, soit $\mu_G$ divise $\mu_f$. 
 \end{solution}
 
+\textit{Les deux exercices qui vont suivre n'ont jamais été posés lors de mon année scolaire, mais ont fait partie de mes réflexions lors de mon année de MPI*, j'ai alors tenu à les inclure lors de la première rédaction de ce document.}
+
+\begin{exo}[Coefficients du polynôme caractéristique]
+	\label{reduction6}
+	Soit $M\in\mathcal M_n(\K)$. On appelle mineur principal d'ordre $k\in\lbrace1,\dots,n\rbrace$ le déterminant d'un $M_I=(m_{i,j})_{(i,j)\in I^2}$ avec $I\subset\lbrace 1,\dots,n\rbrace$ tel que $\Card(I)=k$. Donner une expression des coefficients de $\chi_M$ en fonction des mineurs principaux.
+\end{exo}
+
 \begin{solution}
     Correction trouvable sur \href{https://perso.eleves.ens-rennes.fr/people/amar.ahmane}{ma page personnelle}.
 \end{solution}
+
+\begin{exo}[Limite d'une suite de matrices]
+	\label{reduction7}
+	Soit $M\in\mathcal M_n(\K)$, $\K = \R$ ou $\C$. Donner une condition nécessaire et suffisante pour que la suite $(M^p)_{p\in\N}$ converge. Que dire sur la valeur de la limite en cas de convergence ?
+\end{exo}
 
 \begin{solution}
     On procède par analyse synthèse :
@@ -134,4 +178,3 @@ Le polynôme annulateur $P$ est scindé et à racines simples sur $\mathbb F_p$.
    
     Lorsque $1$ est valeur propre de $M$, on voit que dès que la multiplicité de $1$ dans le polynôme minimal est plus grande que $2$, alors il existe un bloc de Jordan lié à $1$ de taille au moins $2$. On en déduit que la suite des puissances de $M$ ne converge pas. On peut également montrer que $(M^p)$ converge lorsque $1$ est racine simple du polynôme minimal de $M$.
 \end{solution}
-

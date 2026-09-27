@@ -1,3 +1,11 @@
+\begin{exo}[Un exercice classique]
+	\label{seriesfonc1}
+	Soit $(f_n)_n$ une suite de fonctions continues convergeant uniformément 
+	sur $\R$ vers $f$. 
+	Soit $(x_n)_{n\in\N}$ une suite de réels convergeant vers $x$.\\
+	Montrer que la suite $(f_n(x_n))_{n\in\N}$ converge et calculer sa limite.
+\end{exo}
+
 \begin{solution}
 	$f$ étant limite uniforme d'une suite de fonctions continues, elle est continue. 
     Il vient alors que \[f(x_n)\xrightarrow[n\to+\infty]{} f(x)\tag{1}\]
@@ -14,6 +22,11 @@
     Par encadrement, on a $|f_n(x_n)-f(x)|\xrightarrow[n\to+\infty]{} 0$, soit \[\boxed{f_n(x_n)\xrightarrow[n\to+\infty]{}f(x)}\]
 \end{solution}
 
+\begin{exo}[L'exponentielle comme limite uniforme de polynômes ?]
+	\label{seriesfonc2}
+	Existe-t-il une suite de polynômes convergeant uniformément sur $\R$ vers $\exp$ ?
+\end{exo}
+
 \begin{solution}
 	Soit $(p_n)_{n\in\N}$ une suite de polynômes convergeant uniformément vers $\exp$ sur $\R$, soit 
     \[\forall \varepsilon > 0,\ \exists n_0\geq 0,\ \forall n\geq n_0,\ \forall x\in\R,\ |p_n(x)-\exp(x)|\leq \varepsilon\]
@@ -26,6 +39,13 @@
 	On passe à la limite quand $n$ tend vers $+\infty$ et on obtient \[\exp(x)=p_{n_0}(x)+\alpha\]
 	autrement dit, $\exp$ est un polynôme, ce qui est exclu.
 \end{solution}
+
+\begin{exo}[Étude de continuité]
+    \label{seriesfonc3}
+    On considère la fonction définie par 
+    \[f(x):=\sum_{n=1}^{+\infty}\frac{n^x}{x^n}\]
+    Déterminer le domaine $D$ de définition de $f$ et étudier la continuité de $f$ sur $D$.
+\end{exo}
 
 \begin{solution}
     Pour $|x|>1$, on voit facilement que $|n^x/x^n|=o(1/n^2)$, donc par comparaison de séries à termes positifs, la série converge absolument.

@@ -1,4 +1,4 @@
-\begin{proof}[Correction de l'exercice \ref{al1}]\hfill
+\begin{solution}
     \begin{enumerate}
         \item $A\subset \Vect(A)$, donc par définition, 
         $\forall i,j,k,l\in\inl{1}{n},\ E_{ij}E_{kl}-E_{kl}E_{ij}=\delta_{jk}E_{il}-\delta_{li}E_{kj}\in A$. 
@@ -20,9 +20,9 @@
         tel que $\varphi=\lambda\text{tr}$. Mais $\varphi(I_n)=n=\text{tr}(I_n)$
         donc $n=\lambda n$ puis $\lambda = 1$ (sauf si $n=0$, mais ce cas est trivial).
     \end{enumerate}
-\end{proof}
+\end{solution}
 
-\begin{proof}[Correction de l'exercice \ref{al2}]
+\begin{solution}
     Pour $i\in\inl1p$, on note $X_i=(x_i^{(1)},\dots,x_i^{(n)})$. On a alors, \[\forall i\in\inl1p,\ X_i{}^tX_i=(x_i^{(1)}X_i|\dots|x_i^{(n)}X_i)\]
     Soit $(\lambda_1,\dots,\lambda_p)\in\R^p$ telle que $\sum_{i=1}^p\lambda_iX_i{}^tX_i=0$.
     Or, $(X_1,\dots,X_p)$ formant une famille libre, aucun des vecteurs la constituant n'est nul d'où
@@ -34,4 +34,56 @@
     Finalement, ceci étant vrai pour tout $i\in\inl1p$, on a 
     \[\forall i\in\inl1p,\ \lambda_i=0\] et $(X_1{}^tX_1,\dots,X_p{}^tX_p)$ est libre dans $\mathcal M_n(\R)$
     (il faut bien sûr préciser que la taille des matrices $X_i{}^tX_i$ est de $n\times n$, mais cela est bien clair).
-\end{proof}
+\end{solution}
+
+\begin{solution}
+    Soit $f:\R\to\C$ la fonction définie par $f(t)=\sum_{k=0}^n\lambda_ke^{itx_k}$. 
+    Par hypothèse, $f(t)\in\R$ pour tout $t\in(-\varepsilon,\varepsilon)$, ce qui implique que $f(t) = \overline{f(t)}$ sur cet intervalle, soit :
+    \[
+        \forall t\in(-\varepsilon,\varepsilon),\ \sum_{k=0}^n\lambda_ke^{itx_k} - \sum_{k=0}^n\overline{\lambda_k}e^{-itx_k} = 0
+    \]
+    Les deux membres de cette équation sont des fonctions analytiques sur $\R$. Coïncidant sur un voisinage de $0$, elles sont égales sur $\R$ tout entier par prolongement analytique.
+    
+    Notons $S = \{x_0,\dots,x_n\} \cup \{-x_0,\dots,-x_n\}$. L'énoncé précise que les $x_i$ sont non nuls ($x_i \in \R^*$) et la condition $(x_i-x_j)(x_i+x_j)\neq 0$ assure que $|x_i| \neq |x_j|$ pour $i \neq j$. 
+    L'ensemble $S$ est donc constitué de $2n+2$ réels distincts.
+    
+    L'équation se réécrit comme une combinaison linéaire nulle de la famille de fonctions $(t\mapsto e^{i\omega t})_{\omega\in S}$. 
+    Pour des fréquences réelles distinctes, il est bien connu que cette famille est libre sur $\C$. 
+    Par conséquent, tous les coefficients de cette combinaison linéaire sont nuls. En particulier, pour tout $k\in\inl{0}{n}$, le coefficient devant $e^{itx_k}$ (qui ne peut pas s'annuler avec un terme en $-x_j$) vaut $0$.
+    On en déduit que $\lambda_k = 0$, et par inclusion triviale, $\lambda_k \in \R$.
+    
+    \textit{Remarque :} La formulation de la question est volontairement faible ; les hypothèses imposent non seulement la réalité des coefficients, mais leur nullité.
+\end{solution}
+
+\begin{solution}
+    L'énoncé sous-entend que $f$ n'est pas la fonction identiquement nulle, ni la fonction constante égale à $1$ (sans quoi l'équivalence serait fausse puisque $0 \notin \gl_n(\K)$). 
+    Évaluons $f$ sur $0$ et $I_n$.
+    On a $f(0) = f(0^2) = f(0)^2$, d'où $f(0) \in \{0,1\}$. 
+    Si $f(0)=1$, alors pour toute matrice $A$, $f(0) = f(0 \times A) = f(0)f(A) \implies f(A)=1$, ce qui est exclu par l'équivalence cherchée. Donc $f(0) = 0$.
+    De même, $f(I_n) = f(I_n^2) = f(I_n)^2 \implies f(I_n) \in \{0,1\}$. Si $f(I_n)=0$, alors $f(A) = f(A I_n) = f(A)f(I_n) = 0$, ce qui est également exclu. Donc $f(I_n) = 1$.
+    
+    $\boxed{\Leftarrow}$ Supposons $A \in \gl_n(\K)$. 
+    On a $A A^{-1} = I_n$, donc $f(A)f(A^{-1}) = f(I_n) = 1$. Il s'ensuit immédiatement que $f(A) \neq 0$.
+    
+    $\boxed{\Rightarrow}$ Par contraposée, supposons $A \notin \gl_n(\K)$. 
+    Notons $r = \rg(A) \le n-1$. 
+    La matrice $A$ est équivalente à la matrice $J_r$ (diagonale avec $r$ fois $1$, puis des $0$). 
+    Il existe donc $P,Q \in \gl_n(\K)$ telles que $A = P J_r Q$, d'où $f(A) = f(P)f(J_r)f(Q)$. 
+    Puisque $r \le n-1$, on remarque que $J_{n-1} J_r = J_r$. 
+    Ainsi, $f(J_r) = f(J_{n-1})f(J_r)$. S'il est établi que $f(J_{n-1}) = 0$, alors $f(A) = 0$, ce qui conclura la preuve.
+    
+    Démontrons que $f(J_{n-1}) = 0$. 
+    Pour $i \in \inl{1}{n}$, soit $D_i$ la matrice diagonale dont tous les coefficients valent $1$, sauf le $i$-ème qui vaut $0$ (on remarque que $D_n = J_{n-1}$). 
+    Toutes les matrices $D_i$ ayant même rang et même trace, elles sont semblables à $J_{n-1}$.
+    Pour tout $i$, il existe un inversible $P_i \in \gl_n(\K)$ tel que $D_i = P_i J_{n-1} P_i^{-1}$.
+    L'espace d'arrivée $\K$ étant un corps (donc commutatif), on obtient :
+    \[
+        f(D_i) = f(P_i)f(J_{n-1})f(P_i^{-1}) = f(P_i)f(P_i)^{-1}f(J_{n-1}) = f(J_{n-1})
+    \]
+    Or, le produit matriciel $D_1 D_2 \dots D_n$ est égal à la matrice nulle. 
+    L'application $f$ étant multiplicative :
+    \[
+        0 = f(0) = f(D_1 D_2 \dots D_n) = \prod_{i=1}^n f(D_i) = f(J_{n-1})^n
+    \]
+    Le corps $\K$ étant intègre, on en déduit que $f(J_{n-1}) = 0$, ce qui achève la démonstration.
+\end{solution}

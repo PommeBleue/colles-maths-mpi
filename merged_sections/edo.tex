@@ -1,0 +1,25 @@
+\begin{exo}[Une équation différentielle]
+    \label{edo1}
+    Soit $S\in\mathcal S_n(\R)$.
+    Soit $M:\R\to\mathcal M_n(\R)$ dérivable et telle que 
+    \[
+        \left\lbrace \begin{array}{c} M'(t)=SM(t)S\\ M(0) = I_n\end{array}\right.    
+    \]
+    Déterminer $M(t)$ pour tout $t\in\R$.
+\end{exo}
+
+\begin{solution}
+    L'application $\Phi : M \mapsto SMS$ est un endomorphisme de l'espace vectoriel de dimension finie $\mathcal M_n(\R)$. L'équation différentielle $M' = \Phi(M)$ est donc une équation différentielle linéaire homogène à coefficients constants. D'après le théorème de Cauchy-Lipschitz linéaire, il existe une unique solution définie sur $\R$ vérifiant la condition initiale $M(0) = I_n$.
+
+    Puisque $S \in \mathcal S_n(\R)$, le théorème spectral assure qu'il existe une matrice orthogonale $P$ et une matrice diagonale $D = \mathrm{Diag}(\lambda_1, \dots, \lambda_n)$ telles que $S = P D P^T$.
+    En posant $N(t) = P^T M(t) P$, l'équation devient :
+    \[ P N'(t) P^T = P D P^T (P N(t) P^T) P D P^T = P D N(t) D P^T \]
+    En multipliant à gauche par $P^T$ et à droite par $P$, on obtient un système totalement découplé :
+    \[ N'(t) = D N(t) D \]
+    Pour chaque coefficient d'indices $(i,j)$, l'équation scalaire est $n_{i,j}'(t) = \lambda_i \lambda_j n_{i,j}(t)$, dont la solution est $n_{i,j}(t) = n_{i,j}(0) e^{t \lambda_i \lambda_j}$.
+    Or, la condition initiale donne $N(0) = P^T I_n P = I_n$, donc $n_{i,j}(0) = \delta_{i,j}$ (symbole de Kronecker).
+    Ainsi, $n_{i,j}(t) = 0$ si $i \neq j$, et $n_{i,i}(t) = e^{t \lambda_i^2}$.
+    On reconnaît formellement la matrice $N(t) = \exp(t D^2)$.
+    En revenant à la matrice $M$, on trouve finalement : 
+    \[M(t) = P \exp(t D^2) P^T = \exp(t P D^2 P^T) = \exp(t S^2)\]
+\end{solution}

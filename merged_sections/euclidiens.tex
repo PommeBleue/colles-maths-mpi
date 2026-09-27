@@ -1,3 +1,14 @@
+\begin{exo}[Matrices $M$ telles que $M+I_n$ est inversible]
+	\label{euclidiens1}
+	On pose $\mathcal E=\lbrace M\in\mathcal M_n(\R)\ |\ -1\notin \Sp(M)\rbrace$.
+	\begin{enumerate}
+		\item Montrer que $\mathcal O_n(\R)\cap \mathcal E=\mathcal{SO}_n(\R)\cap \mathcal E$ ;
+		\item Montrer que si $A\in\mathcal A_n(\R)$ (ensemble des matrices antisymétriques), alors $\Sp(A)\subset i\R$ ;
+		\item Montrer que $\theta : M \mapsto (I_n-M)(I_n+M)^{-1}$ définit une involution de $\mathcal E$ ;
+		\item Montrer que $\theta$ induit une bijection $\tilde\theta$ de $\mathcal A_n(\R)$ sur $\mathcal{SO}_n(\R)\cap \mathcal E$.
+	\end{enumerate}
+\end{exo}
+
 \begin{solution}
 	\begin{enumerate}
 		\item Une matrice de $\mathcal O_n(\R)\cap \mathcal E$, par théorème de réduction des matrices orthogonales,
@@ -30,7 +41,7 @@
 		qui est bien sûr égal à $I_n$. 
 		À ce stade, on a $\theta(M)^T \theta(M) = I_n$ donc $\theta(M)\in\mathcal O_n(\R)$. De plus $\theta(M)\in\mathcal E$, donc $\theta(M)\in\mathcal O_n(\R)\cap\mathcal E=\mathcal{SO}_n(\R)\cap\mathcal E$.
 
-		\textbf{Pour prouver la bijection}, il reste à vérifier la surjectivité (l'injectivité découlant de l'involution). Puisque $\theta \circ \theta = \mathrm{id}_{\mathcal E}$, il suffit de montrer que si $N \in \mathcal{SO}_n(\R) \cap \mathcal E$, alors l'unique antécédent $M = \theta(N)$ appartient bien à $\mathcal A_n(\R)$. 
+		Il reste à vérifier la surjectivité (l'injectivité découlant de l'involution). Puisque $\theta \circ \theta = \mathrm{id}_{\mathcal E}$, il suffit de montrer que si $N \in \mathcal{SO}_n(\R) \cap \mathcal E$, alors l'unique antécédent $M = \theta(N)$ appartient bien à $\mathcal A_n(\R)$. 
 		Calculons la transposée de $\theta(N)$ :
 		\begin{align*}
 			\theta(N)^T &= \left((I_n-N)(I_n+N)^{-1}\right)^T = (I_n+N^T)^{-1}(I_n-N^T) \\
@@ -41,6 +52,18 @@
 		Ainsi, $M = \theta(N)$ est bien antisymétrique. $\theta$ induit donc une bijection de $\mathcal A_n(\R)$ sur $\mathcal{SO}_n(\R)\cap \mathcal E$.
 	\end{enumerate}
 \end{solution}
+
+\begin{exo}[Inégaltités sur les matrices orthogonales]
+	\label{euclidiens2}
+	Soit $n\geq 2$.
+	\begin{enumerate}
+		\item Montrer que \[\forall M\in\mathcal O_n(\R),\quad \sum_{1\leq i,j\leq n}|m_{i,j}|\leq n^{\frac32}\tag{*}\]
+		\item On suppose que (*) est une égalité. Que peut-on dire sur les coefficients de $M$ ? Et de la parité de $n$ ?
+		\item Déterminer une matrice, notée dans la suite $M_2$, élément de $\mathcal O_2(\R)\cap\mathcal S_2(\R)$ satisfaisant le cas d'égalité de (*) pour $n = 2$.
+		\item Démontrer qu'une condition suffisante pour qu'il existe $M\in\mathcal O_n(\R)$ telle que (*) soit une égalité est que $n$ soit une puissance de $2$.
+		\item Démontrer qu'une condition nécessaire pour qu'il existe $M\in\mathcal O_n(\R)$ telle que (*) soit une égalité est que $n=2$ ou $4$ divise $n$.
+	\end{enumerate}
+\end{exo}
 
 \begin{solution}
 	\begin{enumerate}
@@ -117,6 +140,17 @@
 	\end{enumerate}
 \end{solution}
 
+\begin{exo}[Un TLM pour les matrices]
+	\label{euclidiens3}
+	Soit $n\geq 2$.
+	On définit une relation d'ordre sur $\mathcal M_n(\R)$ par 
+	\[
+		A\leq B\iff B-A\in\mathcal S_n^+(\R)	
+	\]
+	Vérifier qu'il s'agit bien d'une relation d'ordre, et montrer que toute suite de matrices $(A_p)$
+	croissante et majorée pour cet ordre converge.
+\end{exo}
+
 \begin{solution}
 	La réflexivité est simple, l'antisymétrie demande d'appliquer
 	le théorème spectral pour se rendre compte que les valeurs propres de la différence sont toutes nuls,
@@ -148,6 +182,58 @@
 	soit que $(B_p)$ converge, ou encore que $(A_p)$ converge.
 \end{solution}
 
+\begin{exo}[Convexité 1]
+	\label{euclidiens4}
+	Montrer que l'application $\varphi : S\in\mathcal S_n(\R)\mapsto \tr(\exp(S))\in\R$ est convexe.
+\end{exo}
+
+\begin{solution}
+	Il suffit de montrer que pour toutes matrices symétriques $S,T$, on a 
+	\[
+		\varphi\left(\frac{S+T}2\right)\leq \frac{\varphi(S) + \varphi(T)}2
+	\]
+	Soient $S,T\in \mathcal S_n(\R)$. 
+	Par le théorème spectral, il existe une base orthonormée $(e_i)$ qui diagonalise 
+	$M=(S+T)/2$. Pose $\lambda_i = \langle M e_i, e_i\rangle$. 
+	Les $\lambda_i$ sont les valeurs propres de $M$. 
+	Comme $\exp(M)$ est semblable à l'exponentielle de la matrice diagonale contenant les valeurs propres de $M$, on a 
+	\[
+		\varphi(M) = \sum_{i=1}^n e^\lambda_i \leq \frac12\left[\sum_{i=1}^n e^{\langle Se_i,e_i\rangle} + \sum_{i=1}^n e^{\langle Te_i,e_i\rangle} \right]
+	\]
+	par convexité de $\exp\colon\R\to\R$.
+
+	Notons $(f_i)$ une base orthonormée diagonalisant $S$, qui existe par le théorème spectral. 
+	De la même manière, pose $\mu_i = \langle Sf_i,f_i\rangle$. 
+	Alors, pour tout $i$ 
+	\[
+		\langle Se_i,e_i\rangle = \sum_{j=1}^n \langle Se_i,f_j\rangle\langle e_i,f_j\rangle = \sum_{j=1}^n \mu_j\langle e_i,f_j\rangle^2 
+	\]
+	Or, on peut voir que 
+	\[
+		\sum_{j=1}^n \langle e_i,f_j\rangle^2 = \langle e_i,e_i\rangle = 1 
+	\]
+	donc $\langle Se_i,e_i\rangle$ est une combinaison linéaire convexe des valeurs propres de $S$. 
+	D'après l'inégalité de Jensen, on a 
+	\[
+		\sum_{i=1}^n e^{\langle Se_i,e_i\rangle}\leq\sum_{i=1}^n \sum_{j=1}^n \langle e_i,f_j\rangle^2e^{\mu_j} = \sum_{j=1}^ne^{\mu_j} \sum_{i=1}^n \langle e_i,f_j\rangle^2 = \sum_{j=1}^ne^{\mu_j} = \varphi(S)
+	\]
+	Finalement, ce raisonnement valant également pour $T$, on a 
+	\[
+		\varphi\left(\frac{S+T}2\right) = \varphi(M) \leq \frac12\left[\sum_{i=1}^n e^{\langle Se_i,e_i\rangle} + \sum_{i=1}^n e^{\langle Te_i,e_i\rangle}\right]x\leq \frac{\varphi(S) + \varphi(T)}2 
+	\]
+\end{solution}
+
+\begin{exo}[Convexité 2]
+	\label{euclidiens5}
+	Soit $A\in\mathcal S_n^{++}(\R)$, $b\in\R^n$.
+	Posons $J(x)=\frac12\langle Ax,x\rangle - \langle b,x\rangle$ pour tout $x\in\R^n$.
+	\begin{enumerate}
+		\item Montrer que $J$ est strictement convexe.
+		\item Montrer que $J(x)\xrightarrow[\norm{x}\to+\infty]{}+\infty$.
+		\item En déduire que $J$ admet un unique minimum sur $\R^n$.
+	\end{enumerate}
+\end{exo}
+
 \begin{solution}
 	\begin{enumerate}
 		\item $J$ est différentiable et son gradient en $x$ est $\nabla J(x)=Ax-b$ pour $x\in \R^n$.
@@ -158,13 +244,26 @@
 			\forall x,y\in\R^n,\ \langle \nabla J(y)-\nabla J(x),y-x\rangle\geq\alpha^2\norm{y-x}^2
 		\]
 		et on peut montrer que cela suffit pour que $J$ soit strictement convexe (voir par exemple l'épreuve de Mathématiques C, ENS 2019).
-		\item C'est une conséquence directe de la convexité.
+		\item conséquence directe de l'inégalité montrée en qustion 1.
 		\item Prendre $\alpha$ un élément de l'image de $J$, et prendre $B$ une boule fermée de rayon assez grand de sorte que $\alpha$ soit dans $J(B)$.
 		Comme on est en dimension finie, $B$ est compact, $J$ admet un minimum sur $B$.
 		Par coercivité de $J$, $B$ peut-être en plus choisi de sorte que si $x\notin B$, $\norm{J(x)}\geq\alpha+1$, ce qui montre que le minimum sur $B$ est un minimum global.
 		L'unicité est une conséquence directe de la stricte convexité.
 	\end{enumerate}
 \end{solution}
+
+\begin{exo}[Croissance de la trace de l'exponentielle]
+	\label{euclidiens6}
+	Soit $n\in\N^*$.
+	\begin{enumerate}
+		\item Soient $U,V\in\mathcal S_n^+(\R)$. Montrer qu'il existe $\R\in\mathcal S_n^+(\R)$ tel que $R^2 = U$ puis que $\tr(UV)\geq 0$.
+		\item Soient $P\in\R[X]$ et $f:\R\to\mathcal M_n(\R)$ dérivable. Montrer que $\varphi:t\in\R\mapsto\tr(P(f(t)))$ est dérivable et calculer $f'$.
+		\item Soient $A,B\in\mathcal S_n(\R)$ tels que $B-A\in\mathcal S_n^+(\R)$. Montrer 
+		\[
+			\tr(\exp(A))\leq\tr(\exp(B))
+		\]
+	\end{enumerate}
+\end{exo}
 
 \begin{solution}
 	\begin{enumerate}

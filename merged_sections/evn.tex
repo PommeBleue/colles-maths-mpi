@@ -1,0 +1,166 @@
+\begin{exo}[CNS pour qu'un sous-groupe de $\C^*$ soit fermé]
+    \label{evn1}
+    Donner des conditions nécessaires et suffisantes 
+    sur $z\in\C$ pour que $G_z=\lbrace e^{itz},\ t\in\Z\rbrace$
+    soit un sous-groupe fermé de $\C^*$.
+\end{exo}
+
+\begin{solution}
+    On procède par analyse synthèse.
+
+
+    \textbf{Analyse :} Soit $z=a+ib\in\C$ tel que $G_z$ est un sous-groupe fermé de $\C^*$.
+    Pour $t\in\Z$, on a $e^{tz}=e^{-bt}e^{ait}$. 
+    Montrons par l'absurde que $b=0$.
+    Supposons $b\neq 0$, traitons les deux cas possibles : 
+    \begin{itemize}
+        \item Si $b > 0$, on prend $(t_n)\in\Z^{\N}$ telle que $t_n\longrightarrow +\infty$. 
+        Dans ce cas, $(e^{it_nz})$ est une suite d'éléments de $G_z$. 
+        Pour $n\in\N$, on a \[|e^{it_nz}|=|e^{-bt_n}e^{iat_n}|=e^{-bt_n}\longrightarrow 0\]
+        Donc $e^{it_nz}\longrightarrow 0$ et, $G_z$ étant fermé, $0\in G_z$, ce qui est exclu.
+        \item Si $b < 0$, on refait le même raisonnement en prenant $(t_n)\in\Z^{\N}$ tendant vers $-\infty$, et on a $0\in G_z$, ce qui est exclu.
+    \end{itemize}
+    Donc le seul cas possible est $b=0$.
+
+
+    Ainsi, $z\in\R$. 
+    Pour avoir plus d'intuition sur ce que peuvent être les solutions au problème, on peut regarder le cas où $G_z$ est fini.
+    Si $G_z$ est fini (on écarte le cas $z=0$ qui est trivial), c'est un sous-groupe fini de $\C^*$, donc, si on note $n$ son cardinal, on a $G_z=\mathbb U_n$.
+
+    Soit alors $x\in G_z$, il existe $t\in\Z^*$ et $k\in\Z$ tels que $x=e^{itz}=e^{\frac{2ik\pi}n}$. On a alors 
+    \begin{align*}
+        e^{i\left(tz-\frac{2k\pi}n\right)} = 0 &\implies tz - \frac{2k\pi}n\equiv 0[2\pi]\\
+                                            &\implies \exists l\in\Z,\ z=\frac2t\left(l+\frac{2k}n\right)\pi\\
+                                            &\implies z\in\pi\Q
+    \end{align*}
+    On peut aussi remarquer que $z\in\pi\Q$ suffit pour que $G_z$ soit fini. 
+
+
+    \textbf{Synthèse :} Soit $z\in\R$.
+    Si $z\in\pi\Q$, $G_z$ est fini, donc c'est un compact de $\C$ comme partie finie de $\C$,
+    donc est un fermé de $\C$. C'est aussi un sous-groupe de $\C^*$, donc $z$ convient.
+
+
+    Sinon, $z\notin\pi\Q$. Montrons que dans ce cas $G_z$ n'est pas un fermé de $\C$.
+    En effet, si $G_z$ est fermé, on peut montrer que $G_z=\mathbb U$. 
+    D'abord, $z\Z+2\pi\Z$ est un sous-groupe dense de $\R$, puisque sinon, 
+    on aurait, pour un $\alpha\in\R$, $z\Z+2\pi\Z=\alpha\Z$, donc $z\in z\Z+2\pi\Z=\alpha\Z$
+    et $2\pi\in z\Z+2\pi\Z=\alpha\Z$ donc il existe $k,l\in\Z^*$ ($z$ et $2\pi$ sont non nuls) 
+    tels que $z=k\alpha$ et $2\pi=l\alpha$, d'où $z=\frac{2k\pi}l\in\pi\Q$ ce qui est exclu. 
+    La fonction $\phi:x\in\R\mapsto e^{ix}$ étant continue, on a que $\phi(z\Z+2\pi\Z)=G_z$ est dense dans $\phi(\R)=\mathbb U$. 
+    En passant à l'adhérence, on a $G_z=\mathbb U$, ce qui est exclu, parce que, par exemple, $-1\notin G_z$.
+\end{solution}
+
+\begin{exo}[Parties de $\gl_n(\R)$ compactes, non vides et stables par produit]
+    \label{evn2}
+    Soit $X$ une partie de $\gl_n(\R)$ non vide, compacte et stable par produit. Montrer que $X$ est un sous-groupe de $\gl_n(\R)$.
+\end{exo}
+
+\begin{solution}
+    Soit $A\in X$. On considère la suite d'éléments $(A^n)_{n\in\N}$.
+    Cette suite est une suite à éléments dans $X$, puisque $A\in X$ et $X$ est stable par produit. 
+    De plus, $X$ étant compacte, $(A^n)$ admet une suite extraite convergente ; 
+    il existe alors $\varphi : \N\to\N$ une application strictement croissante et $B\in X$ telles que \[A^{\varphi(n)}\longrightarrow B\]
+    Soit $p\in\N^*$. On a \[A^{-p}A^{\varphi(n)}\longrightarrow A^{-p}B\]
+    Or, à partir d'un certain rang, on a $A^{-p}A^{\varphi(n)}\in X$ (il suffit d'avoir $\varphi(n)>p$), 
+    on a donc une suite d'éléments de $X$ qui converge vers $A^{-p}B$, matrice qui est alors dans $X$ puisque $X$ est fermé. 
+    Ensuite, sachant l'expression suivante pour l'inverse d'une matrice : \[A^{-1}=\frac1{\text{det}A}{}^t\text{Com}(A)\]
+    on en déduit que le passage à l'inverse est continu, d'où que \[A^{-\varphi(n)}\longrightarrow B^{-1}\]
+    Donc $A^{-\varphi(n)}B\longrightarrow B^{-1}B=I_n$ puis $A^{-1}A^{-\varphi(n)}B\longrightarrow A^{-1}$. 
+    Or, pour tout $n\in\N$, $A^{-1}A^{-\varphi(n)}B=A^{-\varphi(n)-1}B \in X$, donc $A^{-1}\in X$ puisque $X$ est fermé. 
+    Ainsi $X$ est stable par produit et par passage à l'inverse, c'est un sous-groupe de $\gl_n(\R)$.
+\end{solution}
+    
+\begin{exo}[L'ensemble des polynômes unitaires scindés est un fermé]
+    \label{evn3}
+    On munit $\R[X]$ de la norme $\norm{\cdot}_{\infty}$ définie par $\norm{\sum_{k=0}^{+\infty}a_kX^k}=\text{max}\lbrace |a_k|,\ k\in\N\rbrace$.
+    \begin{enumerate}
+        \item Montrer que $\mathcal U$ l'ensemble des polynômes unitaires de $\R[X]$ est fermé.
+        \item Soit $Q\in\mathcal U$ non constant, on note $p=\deg Q$. Montrer que 
+        \[Q\text{ est scindé sur }\R\iff \forall z\in\C,\ |Q(z)|\geq |\Im(z)|^p\]
+        \item Montrer que $\mathcal S$, l'ensemble des polynômes unitaires et scindés de $\R[X]$ est un fermé.
+    \end{enumerate}
+\end{exo}
+
+\begin{solution}
+    \begin{enumerate}
+        \item Montrons que $\R[X]\backslash\mathcal U$ est un ouvert de $(\R[X],\norm\cdot_\infty)$.
+        Soit un polynôme $P \notin \mathcal U$. 
+        Si $P = 0$, posons $\varepsilon = 1/2$. Tout polynôme $Q \in B(0, \varepsilon)$ a des coefficients strictement inférieurs à $1/2$, son coefficient dominant ne peut donc pas valoir $1$, d'où $Q \notin \mathcal U$.
+        
+        Si $P \neq 0$, notons $d = \deg P$ et $c = \cd P$. Comme $P \notin \mathcal U$, on a $c \neq 1$.
+        Posons $\varepsilon = \frac{1}{2}\min(1, |c - 1|, |c|) > 0$.
+        Soit $Q \in \mathcal U$. $Q$ possède un coefficient dominant égal à $1$ pour un certain degré $m$.
+        \begin{itemize}
+            \item Si $m > d$, le $m$-ème coefficient de $P$ est nul, donc $\norm{Q-P}_\infty \geq |1 - 0| = 1 > \varepsilon$.
+            \item Si $m = d$, $\norm{Q-P}_\infty \geq |1 - c| > \varepsilon$.
+            \item Si $m < d$, le $d$-ème coefficient de $Q$ est nul, donc $\norm{Q-P}_\infty \geq |0 - c| = |c| > \varepsilon$.
+        \end{itemize}
+        Dans tous les cas, la distance entre $P$ et n'importe quel polynôme de $\mathcal U$ est strictement supérieure à $\varepsilon$. Donc $B(P,\varepsilon) \subset \R[X]\backslash\mathcal U$, ce qui prouve que $\mathcal U$ est fermé.
+        \item Supposons $Q$ scindé sur $\R$.
+        Notons
+        \[
+            Q=\prod_{k=1}^p(X-\lambda_k),\ \lambda_k\in\R  
+        \]
+        Soit $z\in\C$. On a
+        \[
+            |Q(z)|^2=Q(z)\overline{Q(z)}=Q(z)Q(\overline z)=\prod_{k=1}^p(\lambda_k^2-2\lambda_k\Re(z)+|z|^2)
+        \]
+        On considère alors $y\in\R\mapsto y^2-2\Re(z)y+|z|^2$, une application polynomiale de degré $2$ atteignant son minimum en $\Re(z)$, et ce minimum vaut $|z|^2 - \Re(z)^2 = |\Im(z)|^2$.
+        D'où, pour $k=1,\dots,p$, $\lambda_k^2-2\lambda_k\Re(z)+|z|^2\geq |\Im(z)|^2$, et donc finalement 
+        \[
+            |Q(z)|^2\geq\prod_{k=1}^p|\Im(z)|^2=|\Im(z)|^{2p} \implies |Q(z)|\geq|\Im(z)|^p
+        \]
+        Réciproquement, si pour tout $z\in \C$, $|Q(z)|\geq|\Im(z)|^p$, alors pour toute racine $\alpha\in\C$ de $Q$, on a $0=|Q(\alpha)|\geq|\Im(\alpha)|^p$, soit $\Im(\alpha)=0$ et $\alpha\in\R$.
+        \item Soit $(Q_n)\in\mathcal S^{\N}$, et supposons que cette suite converge vers $P\in\R[X]$.
+        Soit $p=\deg P$. On montre que l'on peut extraire de $(Q_n)$ une suite dont tous les termes sont des polynômes de degré égal à $p$.
+        
+        Pour cela, on procède par l'absurde en supposant qu'à partir d'un certain rang, tous les $Q_n$ sont de degré $\neq p$.
+        Si une infinité de $Q_n$ ont un degré $> p$, il existe une extractrice $\varphi$ telle que $\deg Q_{\varphi(n)} \ge p+1$. 
+        Puisque $Q_{\varphi(n)}$ est unitaire, son coefficient de degré $\deg Q_{\varphi(n)}$ vaut $1$. Or, ce coefficient pour $P$ vaut $0$.
+        Donc $\norm{Q_{\varphi(n)} - P}_\infty \ge 1$, ce qui contredit la convergence vers $P$ (une contradiction similaire apparaît sur le coefficient de degré $p$ si une infinité de termes ont un degré $< p$).
+        
+        On dispose donc d'une extractrice $\varphi:\N\to\N$ telle que pour tout $n\in\N$, $\deg Q_{\varphi(n)}=p$.
+        On a alors 
+        \[
+            \forall n\in\N,\forall z\in\C,\ |Q_{\varphi(n)}(z)|\geq|\Im(z)|^p    \tag*{(*)}
+        \]
+        Comme $Q_{\varphi(n)} \to P$ au sens de la norme $\norm{\cdot}_\infty$, on a $Q_{\varphi(n)}(z) \to P(z)$ pour tout $z \in \C$. 
+        En passant à la limite dans (*), on obtient
+        \[
+            \forall z\in\C,\ |P(z)|\geq|\Im(z)|^p
+        \]
+        ce qui assure que $P$ est scindé sur $\R$. La première question assure de plus que $P$ est unitaire. $\mathcal S$ est donc bien un fermé de $\R[X]$.
+    \end{enumerate}
+\end{solution}
+
+\begin{exo}[Somme d'une partie fermée et d'une partie compacte]
+    \label{evn4}
+	Soient $E$ un espace vectoriel normé, $F$ une partie fermée de $E$ et $K$ une partie compacte de $E$. Montrer que $F+K$ est une partie fermée de $E$.
+\end{exo}
+
+\begin{solution}
+    Assez direct. Prendre une suite de $F+K$ qui converge, c'est une somme d'une suite de $F$ et une suite de $K$. 
+    Extraire de la suite de $K$ une suite qui converge et appliquer l'extractrice à la suite de départ de $F+K$, conclure.
+\end{solution}
+
+\begin{exo}[Topologie du groupe orthogonal]
+    \label{evn5}
+	Soit $n\in\N^*$. On rappelle que le groupe orthogonal est défini par \[O_n(\R):=\lbrace M\in\mathcal M_n(\R)\ |\ {}^tMM=I_n\rbrace\]
+	Cet ensemble est-il fermé dans $\mathcal M_n(\R)$ ? Est-il connexe par arcs ?
+\end{exo}
+
+\begin{solution}
+    Pour la connexité par arcs, appliquer le résultat de réduction des matrices orthogonales.
+\end{solution}
+
+\begin{exo}[Fonctions injectives de ${[0,1]}^2$ dans $\R$]
+    \label{evn6}
+    Existe-t-il des fonctions continues injectives de $[0,1]^2$ dans $\R$ ?
+\end{exo}
+
+\begin{solution}
+    Non. Sinon, comme $[0,1]^2$ est compact, $m = \min f$ et $M = \max f$ existent et
+    on peut choisir $c\in[0,1]^2$ tel que $f(c)\notin\lbrace m,M\rbrace$ ($f$ injective impose $m<M$). 
+    Alors $\tilde f\colon x\in[0,1]^2\backslash\lbrace c\rbrace\mapsto f(x)\in\R$ est encore continue, et par le TVI $\tilde f$ passe par $f(c)$.
+\end{solution}

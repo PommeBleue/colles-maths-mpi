@@ -1,3 +1,9 @@
+\begin{exo}[Cardinal maximal d'une partie fade]
+    \label{misc1}
+    Une partie $A$ de $\N$ est dite fade si pour tous $x,y\in A$, $x+y\notin A$.
+    Calculer le cardinal maximal d'une partie fade incluse dans $\inl1n$ pour $n\in\N^*$.
+\end{exo}
+
 \begin{solution}
     % L'ensemble des entiers impairs de $\inl1n$ est tout le temps fade : une somme de deux entiers impairs est pair, pardi !
     % En essayant de faire soi-même des parties fades, on voit qu'essentiellement, on peut pas faire mieux que prendre tous les impairs.
@@ -71,6 +77,20 @@
 
 \end{solution}
 
+\begin{exo}[Dérivée seconde]
+    \label{misc2}
+    Soit $f:[a,b]\to\R$ une fonction continue avec $a<b$. 
+    Lorsque la limite existe, on note $\Delta f(x)$ la quantité 
+    \[
+        \lim_{h\to 0}\frac{f(x+h)+f(x-h)-2f(x)}{h^2}
+    \]
+    \begin{enumerate}
+        \item Si $f$ est de classe $\mathcal C^2$, montrer que $\Delta f$ est bien définie sur $(a,b)$ et est continue.
+        \item Si $\Delta f$ est bien définie et nulle sur $(a,b)$, montrer que $f$ est affine.
+        \item Si $\Delta f$ est bien définie et continue sur $(a,b)$, montrer que $f$ y est $\mathcal C^2$. 
+    \end{enumerate}
+\end{exo}
+
 \begin{solution}
     \begin{enumerate}
         \item Supposons $f$ de classe $\mathcal C^2$ sur $(a,b)$. Soit $x \in (a,b)$. La formule de Taylor-Young à l'ordre 2 en $x$ donne, pour $h$ au voisinage de $0$ :
@@ -91,7 +111,7 @@
         En passant à la limite quand $h \to 0$, la limite existe bien et $\Delta f(x) = f''(x)$. Comme $f$ est $\mathcal C^2$, $f''$ est continue, donc $\Delta f$ est bien définie et continue sur $(a,b)$.
 
         \item Supposons que $\Delta f = 0$ sur $(a,b)$. 
-        Soit $\varphi(x) = f(a) + \frac{f(b)-f(a)}{b-a}(x-a)$ la fonction affine interpolant $f$ aux bornes $a$ et $b$. Posons $g = f - \varphi$.
+        Soit $\varphi(x) = f(a) + \frac{f(b)-f(a)}{b-a}(x-a)$. Posons $g = f - \varphi$.
         La fonction $g$ est continue sur $[a,b]$, et $g(a) = g(b) = 0$. Comme $\varphi$ est affine, on a facilement $\Delta \varphi = 0$, et par linéarité, $\Delta g = \Delta f - \Delta \varphi = 0$.
         Montrons par l'absurde que $g \leq 0$. Supposons qu'il existe $x_0 \in (a,b)$ tel que $g(x_0) > 0$.
         Soit $\varepsilon > 0$. Considérons la fonction $g_\varepsilon : x \mapsto g(x) + \varepsilon(x-a)(x-b)$. 
