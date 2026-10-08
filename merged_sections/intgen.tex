@@ -148,19 +148,25 @@
 
 \begin{exo}[Calcul d'équivalent 2]
 	\label{intgen3}
-	$F(x) = \int_0^1\frac{\sin(tx)}{1+t}\dd t$. Montrer que $F$ est définie et continue sur $\Rpe$. Montrer que $F(x)\sim_0\frac\pi{2x}$.
+	$F(x) = \int_0^1\frac{\sin(tx)}{1+t}\dd t$. Montrer que $F$ est définie et continue sur $\Rpe$. Donner un équivalent de $F$ en $0$.
 \end{exo}
 
 \begin{solution}
-	La définition n'est pas un problème. La continuité non plus. 
-	Si on pose $f:(t,x)\in[0,1]\times\Rpe\mapsto \frac{\sin(tx)}{1+t}$, alors en tout $x$, $t\mapsto f(t,x)$ est intégrable, en tout $t$, $x\mapsto f(t,x)$ est continue et 
+	On écrit simplement que 
 	\[
-		\forall (t,x)\in[0,1]\times\Rpe,\ |f(t,x)|\leq\frac1{1+t}:=\varphi(t)
+		\forall (x,t)\in\Rpe\times[0,1],\quad \left|\frac{\sin(xt)}{1+t}\right|\leq1
 	\]
-	et $\varphi$ est intégrable... et on applique le théorème de continuité d'intégrale à paramètre.
+	pour en déduire que $F$ est bien définie et continue sur $\Rpe$.
 
-	Pour trouver l'équivalent, on effectue le changement de variable $u=xt$, on trouve alors que $F(x)=J(x)/x$ 
-	où $J(x)=\int_{0}^1\frac{\sin(t)}{1+t/x}\dd t$ qui tend vers $\pi/2$ en $+\infty$.
+	Ensuite, on a 
+	\[
+		\forall (x,t)\in\Rpe\times[0,1],\quad |\sin(xt) - xt|\leq Cx^3
+	\]
+	avec $C > 0$ et alors 
+	\[
+		\left|\frac1x\int_0^1\frac{\sin(xt)}{1+t}\dd t - \int_0^1\frac t{1+t}\dd t\right| = \frac1x\left|\int_0^1\frac{\sin(xt) - xt}{1 + t}\dd t\right|\leq Cx^2
+	\]
+	On en déduit $x^{-1}F(x) = (1-\ln2) + o(1)$ donc $F(x)\sim_0 (1 - \ln2)x$.
 \end{solution}
 
 
